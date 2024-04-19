@@ -1,27 +1,27 @@
-[submodule "ExternalAddons/ofxRemoteUI"]
-	path = ExternalAddons/ofxRemoteUI
+[submodule "openFrameworks/addons/ofxRemoteUI"]
+	path = openFrameworks/addons/ofxRemoteUI
 	url = https://github.com/local-projects/ofxRemoteUI.git
-[submodule "ExternalAddons/ofxScreenSetup"]
-	path = ExternalAddons/ofxScreenSetup
+[submodule "openFrameworks/addons/ofxScreenSetup"]
+	path = openFrameworks/addons/ofxScreenSetup
 	url = https://github.com/local-projects/ofxScreenSetup.git
-[submodule "ExternalAddons/ofxSuperLog"]
-	path = ExternalAddons/ofxSuperLog
+[submodule "openFrameworks/addons/ofxSuperLog"]
+	path = openFrameworks/addons/ofxSuperLog
 	url = https://github.com/local-projects/ofxSuperLog.git
-[submodule "ExternalAddons/ofxTimeMeasurements"]
-	path = ExternalAddons/ofxTimeMeasurements
+[submodule "openFrameworks/addons/ofxTimeMeasurements"]
+	path = openFrameworks/addons/ofxTimeMeasurements
 	url = https://github.com/local-projects/ofxTimeMeasurements.git
-[submodule "ExternalAddons/ofxAnimatable"]
-	path = ExternalAddons/ofxAnimatable
+[submodule "openFrameworks/addons/ofxAnimatable"]
+	path = openFrameworks/addons/ofxAnimatable
 	url = https://github.com/armadillu/ofxAnimatable.git
-[submodule "ExternalAddons/ofxTextureAtlas"]
-	path = ExternalAddons/ofxTextureAtlas
+[submodule "openFrameworks/addons/ofxTextureAtlas"]
+	path = openFrameworks/addons/ofxTextureAtlas
 	url = https://github.com/armadillu/ofxTextureAtlas
-[submodule "ExternalAddons/ofxTuio"]
-	path = ExternalAddons/ofxTuio
-	url = https://github.com/patriciogonzalezvivo/ofxTuio.git
-[submodule "ExternalAddons/ofxFontStash"]
-	path = ExternalAddons/ofxFontStash
+[submodule "openFrameworks/addons/ofxTuio"]
+	path = openFrameworks/addons/ofxTuio
+	url = https://github.com/armadillu/ofxTuio.git
+[submodule "openFrameworks/addons/ofxFontStash"]
+	path = openFrameworks/addons/ofxFontStash
 	url = https://github.com/armadillu/ofxFontStash.git
-[submodule "ExternalAddons/ofxHistoryPlot"]
-	path = ExternalAddons/ofxHistoryPlot
+[submodule "openFrameworks/addons/ofxHistoryPlot"]
+	path = openFrameworks/addons/ofxHistoryPlot
 	url = https://github.com/armadillu/ofxHistoryPlot.git

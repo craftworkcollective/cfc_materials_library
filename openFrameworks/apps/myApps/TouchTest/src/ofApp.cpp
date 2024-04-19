@@ -22,12 +22,47 @@ void ofApp::setup()
         linePoses.push_back( ofGetWidth() / numLines * ( i ) );
     }
 
+    // setup a listener for changed window modes
+    ofAddListener( ss.setupChanged, this, &ofApp::setupChanged );
+    ss.setup( ofGetWidth(), ofGetHeight(), ofxScreenSetup::WINDOWED );
+
     // set up touch
     tuioClient.start( 3333 );
-
     ofAddListener( tuioClient.cursorAdded, this, &ofApp::tuioAdded );
     ofAddListener( tuioClient.cursorRemoved, this, &ofApp::tuioRemoved );
     ofAddListener( tuioClient.cursorUpdated, this, &ofApp::tuioUpdated );
+
+    // setup font
+    font.setup( "p22.ttf", 1.0, 1024, false, 8, 1.5 );
+
+    // images
+    string      path = "images";
+    ofDirectory dir( path );
+    dir.allowExt( "jpg" );
+    dir.listDir();
+
+    // go through and print out all the paths
+    float total_width = 0.0f;
+    for( int i = 0; i < dir.size(); i++ ) {
+        ofImage img;
+        img.load( dir.getPath( i ) );
+        images.push_back( img );
+        ofLogNotice( dir.getPath( i ) );
+
+        float width = img.getWidth() / img.getHeight() * maxHeight;
+        total_width += width;
+
+        imgPoses.push_back( 0.0f );
+    }
+
+    float spacing = ( ofGetWidth() - total_width ) / ( images.size() + 2 );
+    float newWidth = 0.0f;
+    for( int i = 0; i < imgPoses.size(); i++ ) {
+        imgPoses[i] = spacing * ( i + 1 ) + newWidth;
+
+        float width = images[i].getWidth() / images[i].getHeight() * maxHeight;
+        newWidth += width;
+    }
 }
 
 //--------------------------------------------------------------
@@ -37,13 +72,24 @@ void ofApp::update()
 
     switch( mState ) {
     case AnimationStates::LINES_VERTICAL:
+    case AnimationStates::LINES_HORIZONTAL: {
+        for( int i = 0; i < linePoses.size(); i++ ) {
+            linePoses[i] += mLineSpeed;
+        }
+
         break;
-    case AnimationStates::LINES_HORIZONTAL:
-        break;
+    }
     case AnimationStates::IMAGE_PARTICLES:
         break;
     default:
         break;
+    }
+
+    for( int i = 0; i < imgPoses.size(); i++ ) {
+        imgPoses[i] += mImgSpeed;
+
+        if( imgPoses[i] > ofGetWidth() )
+            imgPoses[i] = 0.0f;
     }
 }
 
@@ -57,7 +103,6 @@ void ofApp::draw()
 
         for( int i = 0; i < linePoses.size() - 1; i++ ) {
             ofSetColor( lineColor );
-            linePoses[i] += mLineSpeed;
             ofDrawLine( linePoses[i], 0, linePoses[i], ofGetHeight() );
 
             if( linePoses[i] > ofGetWidth() )
@@ -70,7 +115,6 @@ void ofApp::draw()
 
         for( int i = 0; i < linePoses.size() - 1; i++ ) {
             ofSetColor( lineColor );
-            linePoses[i] += mLineSpeed;
             ofDrawLine( 0, linePoses[i], ofGetWidth(), linePoses[i] );
 
             if( linePoses[i] > ofGetHeight() )
@@ -83,6 +127,32 @@ void ofApp::draw()
         break;
     default:
         break;
+    }
+
+
+    ofDrawBitmapString( "Press 'w' to cycle through window modes", 20, 20 );
+
+
+    font.draw( "Center for Craft", 100, 100.0f, 100.0f );
+    ofRectangle column;
+    int         numLines = 0;
+    bool        wordsWereCropped;
+    column = font.drawMultiLineColumn( paragraph, /*string*/
+        36,                                       /*size*/
+        100.0f, 200.0f,                           /*where*/
+        1500.0f,                                  /*column width*/
+        numLines,                                 /*get back the number of lines*/
+        false,                                    /* if true, we wont draw (just get bbox back) */
+        9,                                        /* max number of lines to draw, crop after that */
+        true,                                     /*get the final text formatting (by adding \n's) in the supplied string;
+                                                   BE ARWARE that using TRUE in here will modify your supplied string! */
+        &wordsWereCropped,                        /* this bool will b set to true if the box was to small to fit all text*/
+        false                                     /*centered*/
+    );
+
+    for( int i = 0; i < imgPoses.size(); i++ ) {
+        ofSetColor( 255 );
+        images[i].draw( imgPoses[i], 500.0f, images[i].getWidth() / images[i].getHeight() * maxHeight, maxHeight );
     }
 }
 
@@ -161,10 +231,24 @@ void ofApp::keyReleased( int key )
         setAppState( static_cast<AnimationStates>( count ) );
         break;
     }
+    case 'w': {
+        ss.cycleToNextScreenMode();
+        break;
+    }
     default:
         break;
     }
 }
+
+void ofApp::setupChanged( ofxScreenSetup::ScreenSetupArg &arg )
+{
+
+    setAppState( mState );
+    ofLogNotice() << "ofxScreenSetup setup changed from " << ss.stringForMode( arg.oldMode ) << " (" << arg.oldWidth << "x" << arg.oldHeight
+                  << ") "
+                  << " to " << ss.stringForMode( arg.newMode ) << " (" << arg.newWidth << "x" << arg.newHeight << ")";
+}
+
 
 //--------------------------------------------------------------
 void ofApp::mouseMoved( int x, int y )

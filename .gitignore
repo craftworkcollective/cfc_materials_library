@@ -12,12 +12,26 @@ AddonsExamples/ofxAppExample/bin/data/ofxApp.pid
 AddonsExamples/ofxAppExample_noContent/bin/data/ofxApp.pid
 textureCache
 
-#oriol's addons settings local 
 ofxRemoteUISettings Backups
 ofxTimeMeasurements.settings
 
 # OF-specific ignore patterns
-openFrameworks
+#openFrameworks
+openFrameworks/addons
+openFrameworks/docs
+openFrameworks/examples
+openFrameworks/libs
+openFrameworks/projectGenerator
+openFrameworks/scripts
+openFrameworks/CHANGELOG.md
+openFrameworks/CODE_OF_CONDUCT.md
+openFrameworks/INSTALL.md
+openFrameworks/INSTALL_FROM_GITHUB.md
+openFrameworks/LICENSE.md
+openFrameworks/README.md
+openFrameworks/SECURITY.md
+openFrameworks/THANKS.md
+
 openFrameworks.a
 openFrameworksDebug.a
 openFrameworksUniversal.a

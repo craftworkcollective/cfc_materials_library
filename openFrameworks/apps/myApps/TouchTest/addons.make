@@ -1,0 +1,6 @@
+ofxAnimatable
+ofxFontStash
+ofxOsc
+ofxScreenSetup
+ofxTimeMeasurements
+ofxTuio

@@ -44,6 +44,16 @@ class ofApp : public ofBaseApp {
     ofxTuioClient tuioClient;
     float mImgSpeed = 1.0f;
 
+    //qr code
+    string cfc = "Center for Craft"; 
+    string qr_scan = "QR Code Scanned"; 
+    string title = cfc; 
+    float scanTime = 0.0f; 
+
+    // mouse 
+    int mX =0.0f; 
+    int mY = 0.0f;
+
     //images
     vector<ofImage> images; 
     vector<float>   imgPoses;

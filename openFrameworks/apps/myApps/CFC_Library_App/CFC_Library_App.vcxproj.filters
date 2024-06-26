@@ -1,0 +1,297 @@
+<?xml version="1.0"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<ItemGroup>
+		<ClCompile Include="src\ofApp.cpp">
+			<Filter>src</Filter>
+		</ClCompile>
+		<ClCompile Include="src\main.cpp">
+			<Filter>src</Filter>
+		</ClCompile>
+		<ClCompile Include="src\main.cpp">
+			<Filter>src</Filter>
+		</ClCompile>
+		<ClCompile Include="src\ofApp.cpp">
+			<Filter>src</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\..\addons\ofxAnimatable\src\ofxAnimatable.cpp">
+			<Filter>addons\ofxAnimatable\src</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\..\addons\ofxAnimatable\src\ofxAnimatableFloat.cpp">
+			<Filter>addons\ofxAnimatable\src</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\..\addons\ofxAnimatable\src\ofxAnimatableOfColor.cpp">
+			<Filter>addons\ofxAnimatable\src</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\..\addons\ofxAnimatable\src\ofxAnimatableOfPoint.cpp">
+			<Filter>addons\ofxAnimatable\src</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\..\addons\ofxAnimatable\src\ofxAnimatableQueue.cpp">
+			<Filter>addons\ofxAnimatable\src</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\..\addons\ofxFontStash\src\ofxFontStash.cpp">
+			<Filter>addons\ofxFontStash\src</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\..\addons\ofxFontStash\libs\fontstash\src\fontstash.c">
+			<Filter>addons\ofxFontStash\libs\fontstash\src</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\..\addons\ofxFontStash\libs\fontstash\src\stb_truetype.c">
+			<Filter>addons\ofxFontStash\libs\fontstash\src</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\..\addons\ofxOsc\src\ofxOscBundle.cpp">
+			<Filter>addons\ofxOsc\src</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\..\addons\ofxOsc\src\ofxOscMessage.cpp">
+			<Filter>addons\ofxOsc\src</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\..\addons\ofxOsc\src\ofxOscParameterSync.cpp">
+			<Filter>addons\ofxOsc\src</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\..\addons\ofxOsc\src\ofxOscReceiver.cpp">
+			<Filter>addons\ofxOsc\src</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\..\addons\ofxOsc\src\ofxOscSender.cpp">
+			<Filter>addons\ofxOsc\src</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\..\addons\ofxOsc\libs\oscpack\src\ip\IpEndpointName.cpp">
+			<Filter>addons\ofxOsc\libs\oscpack\src\ip</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\..\addons\ofxOsc\libs\oscpack\src\ip\win32\NetworkingUtils.cpp">
+			<Filter>addons\ofxOsc\libs\oscpack\src\ip\win32</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\..\addons\ofxOsc\libs\oscpack\src\ip\win32\UdpSocket.cpp">
+			<Filter>addons\ofxOsc\libs\oscpack\src\ip\win32</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\..\addons\ofxOsc\libs\oscpack\src\osc\OscOutboundPacketStream.cpp">
+			<Filter>addons\ofxOsc\libs\oscpack\src\osc</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\..\addons\ofxOsc\libs\oscpack\src\osc\OscPrintReceivedElements.cpp">
+			<Filter>addons\ofxOsc\libs\oscpack\src\osc</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\..\addons\ofxOsc\libs\oscpack\src\osc\OscReceivedElements.cpp">
+			<Filter>addons\ofxOsc\libs\oscpack\src\osc</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\..\addons\ofxOsc\libs\oscpack\src\osc\OscTypes.cpp">
+			<Filter>addons\ofxOsc\libs\oscpack\src\osc</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\..\addons\ofxScreenSetup\src\ofxScreenSetup.cpp">
+			<Filter>addons\ofxScreenSetup\src</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\..\addons\ofxTimeMeasurements\src\ofxTimeMeasurements.cpp">
+			<Filter>addons\ofxTimeMeasurements\src</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\..\addons\ofxTuio\src\ofxTuioClient.cpp">
+			<Filter>addons\ofxTuio\src</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\..\addons\ofxTuio\src\ofxTuioContainer.cpp">
+			<Filter>addons\ofxTuio\src</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\..\addons\ofxTuio\src\ofxTuioCursor.cpp">
+			<Filter>addons\ofxTuio\src</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\..\addons\ofxTuio\src\ofxTuioObject.cpp">
+			<Filter>addons\ofxTuio\src</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\..\addons\ofxTuio\src\ofxTuioPoint.cpp">
+			<Filter>addons\ofxTuio\src</Filter>
+		</ClCompile>
+	</ItemGroup>
+	<ItemGroup>
+		<Filter Include="src">
+			<UniqueIdentifier>{d8376475-7454-4a24-b08a-aac121d3ad6f}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="addons">
+			<UniqueIdentifier>{71834F65-F3A9-211E-73B8-DC85}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="addons\ofxAnimatable">
+			<UniqueIdentifier>{76597DE6-6EC6-9B33-AE16-324A}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="addons\ofxAnimatable\src">
+			<UniqueIdentifier>{9A0AF1AC-D8D7-DC08-0B38-3CC3}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="addons\ofxFontStash">
+			<UniqueIdentifier>{52833EC4-B632-6FCA-91CC-4AE6}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="addons\ofxFontStash\src">
+			<UniqueIdentifier>{49A40DDC-6572-4E0A-048E-2D04}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="addons\ofxFontStash\libs">
+			<UniqueIdentifier>{A8F1AC44-FC7C-BBBD-E0C9-B6EE}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="addons\ofxFontStash\libs\fontstash">
+			<UniqueIdentifier>{FE13F720-8FE1-4B82-AE17-C9C7}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="addons\ofxFontStash\libs\fontstash\src">
+			<UniqueIdentifier>{74A9B8C3-6ADF-F872-4DE5-3A6C}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="addons\ofxOsc">
+			<UniqueIdentifier>{D91DCA33-6E5D-4481-2AEC-9FBB}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="addons\ofxOsc\src">
+			<UniqueIdentifier>{B9DD339A-D93D-92A1-0A2F-4B41}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="addons\ofxOsc\libs">
+			<UniqueIdentifier>{99ECA1D9-873F-4622-8FC0-FC7B}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="addons\ofxOsc\libs\oscpack">
+			<UniqueIdentifier>{D3A98534-1602-4FEF-57A6-6593}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="addons\ofxOsc\libs\oscpack\src">
+			<UniqueIdentifier>{BFB5BB47-98C8-BBCB-3066-1046}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="addons\ofxOsc\libs\oscpack\src\ip">
+			<UniqueIdentifier>{5A029128-EB41-95C5-CBC0-CDED}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="addons\ofxOsc\libs\oscpack\src\ip\win32">
+			<UniqueIdentifier>{79DFDFE2-400B-8654-3675-01A3}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="addons\ofxOsc\libs\oscpack\src\osc">
+			<UniqueIdentifier>{EDACB89C-9768-9551-4D41-B590}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="addons\ofxScreenSetup">
+			<UniqueIdentifier>{A2434A35-570A-D232-6BF6-2C59}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="addons\ofxScreenSetup\src">
+			<UniqueIdentifier>{EE36A93D-0341-1378-4867-B9C8}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="addons\ofxTimeMeasurements">
+			<UniqueIdentifier>{CF1EEB82-D770-7413-2823-EF8F}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="addons\ofxTimeMeasurements\src">
+			<UniqueIdentifier>{AA632006-007F-2FFE-AC48-2BC8}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="addons\ofxTuio">
+			<UniqueIdentifier>{AC7E6102-1DD1-BB27-C8EC-8F23}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="addons\ofxTuio\src">
+			<UniqueIdentifier>{287B52FF-73ED-7764-F103-1853}</UniqueIdentifier>
+		</Filter>
+	</ItemGroup>
+	<ItemGroup>
+		<ClInclude Include="src\ofApp.h">
+			<Filter>src</Filter>
+		</ClInclude>
+		<ClInclude Include="src\ofApp.h">
+			<Filter>src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxAnimatable\src\ofxAnimatable.h">
+			<Filter>addons\ofxAnimatable\src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxAnimatable\src\ofxAnimatableFloat.h">
+			<Filter>addons\ofxAnimatable\src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxAnimatable\src\ofxAnimatableOfColor.h">
+			<Filter>addons\ofxAnimatable\src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxAnimatable\src\ofxAnimatableOfPoint.h">
+			<Filter>addons\ofxAnimatable\src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxAnimatable\src\ofxAnimatableQueue.h">
+			<Filter>addons\ofxAnimatable\src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxFontStash\src\ofxFontStash.h">
+			<Filter>addons\ofxFontStash\src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxFontStash\libs\fontstash\src\fontstash.h">
+			<Filter>addons\ofxFontStash\libs\fontstash\src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxFontStash\libs\fontstash\src\stb_truetype.h">
+			<Filter>addons\ofxFontStash\libs\fontstash\src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxOsc\src\ofxOsc.h">
+			<Filter>addons\ofxOsc\src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxOsc\src\ofxOscArg.h">
+			<Filter>addons\ofxOsc\src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxOsc\src\ofxOscBundle.h">
+			<Filter>addons\ofxOsc\src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxOsc\src\ofxOscMessage.h">
+			<Filter>addons\ofxOsc\src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxOsc\src\ofxOscParameterSync.h">
+			<Filter>addons\ofxOsc\src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxOsc\src\ofxOscReceiver.h">
+			<Filter>addons\ofxOsc\src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxOsc\src\ofxOscSender.h">
+			<Filter>addons\ofxOsc\src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxOsc\libs\oscpack\src\ip\IpEndpointName.h">
+			<Filter>addons\ofxOsc\libs\oscpack\src\ip</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxOsc\libs\oscpack\src\ip\NetworkingUtils.h">
+			<Filter>addons\ofxOsc\libs\oscpack\src\ip</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxOsc\libs\oscpack\src\ip\PacketListener.h">
+			<Filter>addons\ofxOsc\libs\oscpack\src\ip</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxOsc\libs\oscpack\src\ip\TimerListener.h">
+			<Filter>addons\ofxOsc\libs\oscpack\src\ip</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxOsc\libs\oscpack\src\ip\UdpSocket.h">
+			<Filter>addons\ofxOsc\libs\oscpack\src\ip</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxOsc\libs\oscpack\src\osc\MessageMappingOscPacketListener.h">
+			<Filter>addons\ofxOsc\libs\oscpack\src\osc</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxOsc\libs\oscpack\src\osc\OscException.h">
+			<Filter>addons\ofxOsc\libs\oscpack\src\osc</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxOsc\libs\oscpack\src\osc\OscHostEndianness.h">
+			<Filter>addons\ofxOsc\libs\oscpack\src\osc</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxOsc\libs\oscpack\src\osc\OscOutboundPacketStream.h">
+			<Filter>addons\ofxOsc\libs\oscpack\src\osc</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxOsc\libs\oscpack\src\osc\OscPacketListener.h">
+			<Filter>addons\ofxOsc\libs\oscpack\src\osc</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxOsc\libs\oscpack\src\osc\OscPrintReceivedElements.h">
+			<Filter>addons\ofxOsc\libs\oscpack\src\osc</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxOsc\libs\oscpack\src\osc\OscReceivedElements.h">
+			<Filter>addons\ofxOsc\libs\oscpack\src\osc</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxOsc\libs\oscpack\src\osc\OscTypes.h">
+			<Filter>addons\ofxOsc\libs\oscpack\src\osc</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxScreenSetup\src\ofxScreenSetup.h">
+			<Filter>addons\ofxScreenSetup\src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxTimeMeasurements\src\GL_Measurement.h">
+			<Filter>addons\ofxTimeMeasurements\src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxTimeMeasurements\src\ofxTimeMeasurements.h">
+			<Filter>addons\ofxTimeMeasurements\src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxTimeMeasurements\src\ofxTimeMeasurementsMacros.h">
+			<Filter>addons\ofxTimeMeasurements\src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxTimeMeasurements\src\ofxTimeMeasurementsScoped.h">
+			<Filter>addons\ofxTimeMeasurements\src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxTuio\src\ofxTuio.h">
+			<Filter>addons\ofxTuio\src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxTuio\src\ofxTuioClient.h">
+			<Filter>addons\ofxTuio\src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxTuio\src\ofxTuioContainer.h">
+			<Filter>addons\ofxTuio\src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxTuio\src\ofxTuioCursor.h">
+			<Filter>addons\ofxTuio\src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxTuio\src\ofxTuioObject.h">
+			<Filter>addons\ofxTuio\src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxTuio\src\ofxTuioPoint.h">
+			<Filter>addons\ofxTuio\src</Filter>
+		</ClInclude>
+	</ItemGroup>
+	<ItemGroup>
+		<ResourceCompile Include="icon.rc" />
+	</ItemGroup>
+</Project>

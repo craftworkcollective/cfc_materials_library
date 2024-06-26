@@ -91,6 +91,9 @@ void ofApp::update()
         if( imgPoses[i] > ofGetWidth() )
             imgPoses[i] = 0.0f;
     }
+
+     if( ofGetElapsedTimef() - scanTime > 2.0f )
+        title = cfc;
 }
 
 //--------------------------------------------------------------
@@ -129,11 +132,11 @@ void ofApp::draw()
         break;
     }
 
-
+  
     ofDrawBitmapString( "Press 'w' to cycle through window modes", 20, 20 );
 
 
-    font.draw( "Center for Craft", 100, 100.0f, 100.0f );
+    font.draw( title, 100, 100.0f, 100.0f );
     ofRectangle column;
     int         numLines = 0;
     bool        wordsWereCropped;
@@ -154,6 +157,8 @@ void ofApp::draw()
         ofSetColor( 255 );
         images[i].draw( imgPoses[i], 500.0f, images[i].getWidth() / images[i].getHeight() * maxHeight, maxHeight );
     }
+
+    ofDrawCircle(mX, mY, 50.0f); 
 }
 
 void ofApp::setAppState( AnimationStates state )
@@ -223,6 +228,10 @@ void ofApp::keyReleased( int key )
         ofBackground( 253, 234, 227 );
         lineColor = ofColor( 0 );
         break;
+    case '9':
+        scanTime = ofGetElapsedTimef(); 
+        title = qr_scan; 
+        break;
     case 'n': {
         // next state
         int count = static_cast<int>( mState );
@@ -258,16 +267,22 @@ void ofApp::mouseMoved( int x, int y )
 //--------------------------------------------------------------
 void ofApp::mouseDragged( int x, int y, int button )
 {
+    mX = x;
+    mY = y;
 }
 
 //--------------------------------------------------------------
 void ofApp::mousePressed( int x, int y, int button )
 {
+    mX = x; 
+    mY = y; 
 }
 
 //--------------------------------------------------------------
 void ofApp::mouseReleased( int x, int y, int button )
 {
+    mX = x;
+    mY = y;
 }
 
 //--------------------------------------------------------------

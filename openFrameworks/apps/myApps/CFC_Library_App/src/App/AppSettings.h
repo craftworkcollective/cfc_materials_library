@@ -1,5 +1,5 @@
 #pragma once
-#include "InsightStructs.h"
+
 #include "ofMain.h"
 
 struct Settings {
@@ -22,14 +22,10 @@ public:
 	// --- APP SETTINGS --- //
 	bool getLogToFile() const { return mLogToFile; }
 	bool getTesting() const { return mTesting; }
-	int  getRemoteUiPort() const { return remoteiu_port; }
 	bool getMouseOn() const { return mMouseOn; }
 	void setMouseOn(bool mouse_on) { mMouseOn = mouse_on; }
     int  getWindowMode(){ return window_mode; }
 
-	// --- CONTENT --- // 
-	string getIdleVideo() const { return mIdleVideo; }
-	string getTransitionWipe() const { return mTransitionWipe; }
 
 	// --- WINDOW SETTINGS --- //
 	glm::vec2 getAppSize() { return mAppSize; }
@@ -48,7 +44,6 @@ private:
 	// --- APP SETTINGS --- //
 	bool mLogToFile{ false };
 	bool mTesting{ false };
-	int  remoteiu_port{};
     int  window_mode {0}; 
 
 	// --- WINDOW SETTINGS --- //
@@ -56,7 +51,6 @@ private:
 
 	// --- CONTENT --- //
 	string ImagePath;
-	string mIdleVideo;
 	string mTransitionWipe; 
 
 	// --- FLAGS --- //

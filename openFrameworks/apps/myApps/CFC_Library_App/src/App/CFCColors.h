@@ -9,10 +9,10 @@
 
 namespace CFCColors {
 
-static ofColor lightBlue( 136, 180, 254 );
-static ofColor linkedinBlue( 47, 102, 188 );
-static ofColor darkPurple( 48, 16, 75 );
-static ofColor offWhite( 253, 250, 245 );
-static ofColor lightGreen( 202, 212, 138 );
-static ofColor darkGreen( 49, 51, 28 );
-} // namespace Insights
+static ofColor cfcBlack( 0, 0, 0 );
+static ofColor cfcYellow( 255, 236, 1 );
+static ofColor cfcOrange( 255, 132, 38 );
+static ofColor cfcRed( 255, 236, 1 );
+static ofColor cfcMaroon( 155, 21, 46 );
+static ofColor cfcPink( 255, 236, 229 );
+} 

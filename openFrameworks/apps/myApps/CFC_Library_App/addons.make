@@ -4,3 +4,4 @@ ofxOsc
 ofxScreenSetup
 ofxTimeMeasurements
 ofxTuio
+ofxNotificationCenter

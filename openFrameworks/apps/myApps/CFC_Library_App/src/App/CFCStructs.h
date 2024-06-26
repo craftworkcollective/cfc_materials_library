@@ -8,7 +8,7 @@
 #include "ofMain.h"
 #include "ofxAnimatableFloat.h"
 
-namespace CFCStructs {
+namespace CFC {
 
 enum class AppState { LOADING, ATTRACT, DRAWER, MATERIAL, NUM_STATES };
 

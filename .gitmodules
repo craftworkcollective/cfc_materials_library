@@ -25,3 +25,6 @@
 [submodule "openFrameworks/addons/ofxHistoryPlot"]
 	path = openFrameworks/addons/ofxHistoryPlot
 	url = https://github.com/armadillu/ofxHistoryPlot.git
+[submodule "openFrameworks/addons/ofxNotificationCenter"]
+	path = openFrameworks/addons/ofxNotificationCenter
+	url = https://github.com/nicoleyimessier/ofxNotificationCenter.git

@@ -17,11 +17,10 @@ void AppSettings::setup()
 
 				if (configurable.contains("app")) {
 					const auto& app = configurable.value("app", ofJson{});
-                    window_mode = app["window_mode"];
+                    window_mode = app.value( "window_mode", 0 );
 					mLogToFile = app.value("log_to_file", true);
 					mTesting = app.value("testing", false);
 					debug_json = app.value("debug_json", false);
-					remoteiu_port = app.value("remote_ui", 8888);
 					mMouseOn = app.value("mouse_on", true);
 					appDebug = app.value("app_debug", false);
 					mAppSize.x = app.value("app_width", 1920);
@@ -33,7 +32,6 @@ void AppSettings::setup()
 
 				if (configurable.contains("content")) {
 					const auto& app = configurable.value("content", ofJson{});
-					mIdleVideo = app.value("idle_video", "content/idle.mp4");
 					mTransitionWipe = app.value("transition_wipe", "content/Transition-Wipe");
 				}
 				else

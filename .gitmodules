@@ -15,7 +15,7 @@
 	url = https://github.com/armadillu/ofxAnimatable.git
 [submodule "openFrameworks/addons/ofxTextureAtlas"]
 	path = openFrameworks/addons/ofxTextureAtlas
-	url = https://github.com/armadillu/ofxTextureAtlas
+	url = https://github.com/armadillu/ofxTextureAtlas.git
 [submodule "openFrameworks/addons/ofxTuio"]
 	path = openFrameworks/addons/ofxTuio
 	url = https://github.com/armadillu/ofxTuio.git

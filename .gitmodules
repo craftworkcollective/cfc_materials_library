@@ -28,3 +28,6 @@
 [submodule "openFrameworks/addons/ofxNotificationCenter"]
 	path = openFrameworks/addons/ofxNotificationCenter
 	url = https://github.com/nicoleyimessier/ofxNotificationCenter.git
+[submodule "openFrameworks/addons/ofxRectangleUtils"]
+	path = openFrameworks/addons/ofxRectangleUtils
+	url = https://github.com/armadillu/ofxRectangleUtils.git

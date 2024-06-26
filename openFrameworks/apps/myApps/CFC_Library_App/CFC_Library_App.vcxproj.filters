@@ -100,6 +100,24 @@
     <ClCompile Include="src\App\AppManager.cpp">
       <Filter>src\App</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxTextureAtlas\src\TextureAtlas.cpp">
+      <Filter>addons\ofxTextureAtlas\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxTextureAtlas\src\TextureAtlasCreator.cpp">
+      <Filter>addons\ofxTextureAtlas\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxTextureAtlas\src\TextureAtlasDrawer.cpp">
+      <Filter>addons\ofxTextureAtlas\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxRectangleUtils\src\ofxRectangleUtils.cpp">
+      <Filter>addons\ofxRectangleUtils\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Materials\ScreenObject.cpp">
+      <Filter>src\Materials</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Texture\AtlasManager.cpp">
+      <Filter>src\Texture</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="src">
@@ -179,6 +197,24 @@
     </Filter>
     <Filter Include="addons\ofxNotificationCenter\src">
       <UniqueIdentifier>{21151252-b9e4-4303-a3f3-0e9f3ea82e85}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Texture">
+      <UniqueIdentifier>{367cde0f-81a4-439f-8bc2-512768c54bb1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxTextureAtlas">
+      <UniqueIdentifier>{941b9e5d-c0af-4992-90a9-52091fe73f9d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxTextureAtlas\src">
+      <UniqueIdentifier>{559314a8-9bf2-4b49-9637-d7df82e37892}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxRectangleUtils">
+      <UniqueIdentifier>{d184a938-c3db-4763-8280-ebd8a21e3c85}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxRectangleUtils\src">
+      <UniqueIdentifier>{5bcbb2e9-9350-42d4-a86a-c55f3407c25f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Materials">
+      <UniqueIdentifier>{969a91a4-5fec-4116-8689-ea673e03ad18}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -319,6 +355,33 @@
     </ClInclude>
     <ClInclude Include="..\..\..\addons\ofxNotificationCenter\src\ofxNotificationCenter.h">
       <Filter>addons\ofxNotificationCenter\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxTextureAtlas\src\TextureAtlas.h">
+      <Filter>addons\ofxTextureAtlas\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxTextureAtlas\src\TextureAtlasCreator.h">
+      <Filter>addons\ofxTextureAtlas\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxTextureAtlas\src\TextureAtlasDrawer.h">
+      <Filter>addons\ofxTextureAtlas\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxRectangleUtils\src\ofAbstractRectanglePacker.h">
+      <Filter>addons\ofxRectangleUtils\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxRectangleUtils\src\ofBaseOnlineRectanglePacker.h">
+      <Filter>addons\ofxRectangleUtils\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxRectangleUtils\src\ofRectanglePacker.h">
+      <Filter>addons\ofxRectangleUtils\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxRectangleUtils\src\ofxRectangleUtils.h">
+      <Filter>addons\ofxRectangleUtils\src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Materials\ScreenObject.h">
+      <Filter>src\Materials</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Texture\AtlasManager.h">
+      <Filter>src\Texture</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

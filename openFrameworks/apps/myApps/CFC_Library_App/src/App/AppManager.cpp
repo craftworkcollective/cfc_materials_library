@@ -59,8 +59,7 @@ void AppManager::setup()
     // Reset window size
     ofSetWindowShape( configs().getAppSize().x, configs().getAppSize().y );
 
-    // Setup Managers
-    setupManagers();
+    setAppState( AppState::LOADING );
 }
 
 
@@ -74,7 +73,7 @@ void AppManager::setupChanged( ofxScreenSetup::ScreenSetupArg &arg )
 
 void AppManager::setupManagers()
 {
-    setAppState( AppState::LOADING );
+    AtlasManager::get().setup(); 
 }
 
 
@@ -101,6 +100,7 @@ void AppManager::draw()
 {
     switch( mAppState ) {
     case AppState::LOADING:
+        AtlasManager::get().drawDebug(); 
         break;
     case AppState::ATTRACT:
         break;
@@ -120,8 +120,10 @@ void AppManager::setAppState( AppState appState )
     mAppState = appState;
 
      switch( mAppState ) {
-    case AppState::LOADING:
-        break;
+    case AppState::LOADING: {
+        setupManagers(); 
+        break; 
+    }
     case AppState::ATTRACT:
         break;
     case AppState::DRAWER:

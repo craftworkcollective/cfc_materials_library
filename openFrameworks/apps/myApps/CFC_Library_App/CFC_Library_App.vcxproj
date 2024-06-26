@@ -61,7 +61,7 @@
       <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <WarningLevel>Level3</WarningLevel>
-      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);src;..\..\..\addons\ofxAnimatable\src;..\..\..\addons\ofxFontStash\libs;..\..\..\addons\ofxFontStash\libs\fontstash;..\..\..\addons\ofxFontStash\libs\fontstash\src;..\..\..\addons\ofxFontStash\src;..\..\..\addons\ofxOsc\libs;..\..\..\addons\ofxOsc\libs\oscpack;..\..\..\addons\ofxOsc\libs\oscpack\src;..\..\..\addons\ofxOsc\libs\oscpack\src\ip;..\..\..\addons\ofxOsc\libs\oscpack\src\ip\posix;..\..\..\addons\ofxOsc\libs\oscpack\src\osc;..\..\..\addons\ofxOsc\src;..\..\..\addons\ofxScreenSetup\src;..\..\..\addons\ofxTimeMeasurements\src;..\..\..\addons\ofxTuio\src;src\App;..\..\..\addons\ofxNotificationCenter\src</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);src;..\..\..\addons\ofxAnimatable\src;..\..\..\addons\ofxFontStash\libs;..\..\..\addons\ofxFontStash\libs\fontstash;..\..\..\addons\ofxFontStash\libs\fontstash\src;..\..\..\addons\ofxFontStash\src;..\..\..\addons\ofxOsc\libs;..\..\..\addons\ofxOsc\libs\oscpack;..\..\..\addons\ofxOsc\libs\oscpack\src;..\..\..\addons\ofxOsc\libs\oscpack\src\ip;..\..\..\addons\ofxOsc\libs\oscpack\src\ip\posix;..\..\..\addons\ofxOsc\libs\oscpack\src\osc;..\..\..\addons\ofxOsc\src;..\..\..\addons\ofxScreenSetup\src;..\..\..\addons\ofxTimeMeasurements\src;..\..\..\addons\ofxTuio\src;src\App;..\..\..\addons\ofxNotificationCenter\src;..\..\..\addons\ofxTextureAtlas\src;..\..\..\addons\ofxRectangleUtils\src;src\Materials;src\Texture</AdditionalIncludeDirectories>
       <CompileAs>CompileAsCpp</CompileAs>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <ObjectFileName>$(IntDir)\Build\%(RelativeDir)\$(Configuration)\</ObjectFileName>
@@ -84,7 +84,7 @@
       <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <WarningLevel>Level3</WarningLevel>
-      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);src;..\..\..\addons\ofxAnimatable\src;..\..\..\addons\ofxFontStash\libs;..\..\..\addons\ofxFontStash\libs\fontstash;..\..\..\addons\ofxFontStash\libs\fontstash\src;..\..\..\addons\ofxFontStash\src;..\..\..\addons\ofxOsc\libs;..\..\..\addons\ofxOsc\libs\oscpack;..\..\..\addons\ofxOsc\libs\oscpack\src;..\..\..\addons\ofxOsc\libs\oscpack\src\ip;..\..\..\addons\ofxOsc\libs\oscpack\src\ip\posix;..\..\..\addons\ofxOsc\libs\oscpack\src\osc;..\..\..\addons\ofxOsc\src;..\..\..\addons\ofxScreenSetup\src;..\..\..\addons\ofxTimeMeasurements\src;..\..\..\addons\ofxTuio\src;src\App;..\..\..\addons\ofxNotificationCenter\src</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);src;..\..\..\addons\ofxAnimatable\src;..\..\..\addons\ofxFontStash\libs;..\..\..\addons\ofxFontStash\libs\fontstash;..\..\..\addons\ofxFontStash\libs\fontstash\src;..\..\..\addons\ofxFontStash\src;..\..\..\addons\ofxOsc\libs;..\..\..\addons\ofxOsc\libs\oscpack;..\..\..\addons\ofxOsc\libs\oscpack\src;..\..\..\addons\ofxOsc\libs\oscpack\src\ip;..\..\..\addons\ofxOsc\libs\oscpack\src\ip\posix;..\..\..\addons\ofxOsc\libs\oscpack\src\osc;..\..\..\addons\ofxOsc\src;..\..\..\addons\ofxScreenSetup\src;..\..\..\addons\ofxTimeMeasurements\src;..\..\..\addons\ofxTuio\src;src\App;..\..\..\addons\ofxNotificationCenter\src;..\..\..\addons\ofxTextureAtlas\src;..\..\..\addons\ofxRectangleUtils\src;src\Materials;src\Texture</AdditionalIncludeDirectories>
       <CompileAs>CompileAsCpp</CompileAs>
       <ObjectFileName>$(IntDir)\Build\%(RelativeDir)\$(Configuration)\</ObjectFileName>
       <LanguageStandard>stdcpp17</LanguageStandard>
@@ -104,9 +104,14 @@
     <PostBuildEvent />
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\..\addons\ofxRectangleUtils\src\ofxRectangleUtils.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxTextureAtlas\src\TextureAtlas.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxTextureAtlas\src\TextureAtlasCreator.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxTextureAtlas\src\TextureAtlasDrawer.cpp" />
     <ClCompile Include="src\App\AppManager.cpp" />
     <ClCompile Include="src\App\AppSettings.cpp" />
     <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\Materials\ScreenObject.cpp" />
     <ClCompile Include="src\ofApp.cpp" />
     <ClCompile Include="..\..\..\addons\ofxAnimatable\src\ofxAnimatable.cpp" />
     <ClCompile Include="..\..\..\addons\ofxAnimatable\src\ofxAnimatableFloat.cpp" />
@@ -135,13 +140,22 @@
     <ClCompile Include="..\..\..\addons\ofxTuio\src\ofxTuioCursor.cpp" />
     <ClCompile Include="..\..\..\addons\ofxTuio\src\ofxTuioObject.cpp" />
     <ClCompile Include="..\..\..\addons\ofxTuio\src\ofxTuioPoint.cpp" />
+    <ClCompile Include="src\Texture\AtlasManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\addons\ofxNotificationCenter\src\ofxNotificationCenter.h" />
+    <ClInclude Include="..\..\..\addons\ofxRectangleUtils\src\ofAbstractRectanglePacker.h" />
+    <ClInclude Include="..\..\..\addons\ofxRectangleUtils\src\ofBaseOnlineRectanglePacker.h" />
+    <ClInclude Include="..\..\..\addons\ofxRectangleUtils\src\ofRectanglePacker.h" />
+    <ClInclude Include="..\..\..\addons\ofxRectangleUtils\src\ofxRectangleUtils.h" />
+    <ClInclude Include="..\..\..\addons\ofxTextureAtlas\src\TextureAtlas.h" />
+    <ClInclude Include="..\..\..\addons\ofxTextureAtlas\src\TextureAtlasCreator.h" />
+    <ClInclude Include="..\..\..\addons\ofxTextureAtlas\src\TextureAtlasDrawer.h" />
     <ClInclude Include="src\App\AppManager.h" />
     <ClInclude Include="src\App\AppSettings.h" />
     <ClInclude Include="src\App\CFCColors.h" />
     <ClInclude Include="src\App\CFCStructs.h" />
+    <ClInclude Include="src\Materials\ScreenObject.h" />
     <ClInclude Include="src\ofApp.h" />
     <ClInclude Include="..\..\..\addons\ofxAnimatable\src\ofxAnimatable.h" />
     <ClInclude Include="..\..\..\addons\ofxAnimatable\src\ofxAnimatableFloat.h" />
@@ -182,6 +196,7 @@
     <ClInclude Include="..\..\..\addons\ofxTuio\src\ofxTuioCursor.h" />
     <ClInclude Include="..\..\..\addons\ofxTuio\src\ofxTuioObject.h" />
     <ClInclude Include="..\..\..\addons\ofxTuio\src\ofxTuioPoint.h" />
+    <ClInclude Include="src\Texture\AtlasManager.h" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="$(OF_ROOT)\libs\openFrameworksCompiled\project\vs\openframeworksLib.vcxproj">

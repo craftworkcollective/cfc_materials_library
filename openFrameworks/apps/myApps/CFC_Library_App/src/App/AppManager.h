@@ -10,6 +10,7 @@
 #include "CFCStructs.h"
 #include "ofxNotificationCenter.h"
 #include "ofxScreenSetup.h"
+#include "AtlasManager.h"
 
 #define CONFIGS_DIRECTORY "configs"
 
@@ -57,13 +58,6 @@ class AppManager {
     ofxScreenSetup ss;
     void           setupChanged( ofxScreenSetup::ScreenSetupArg &arg );
 
-        // TextureAtlas ////////////////////////////////////////////
-    void onAtlasCreationFinished( bool &arg );
-    void onAtlasesLoaded( bool & );
-    void setUpTextures();
-    void createAtlas();
-    void drawAtlas();
-    bool loadAtlas();K
 };
 
 /*

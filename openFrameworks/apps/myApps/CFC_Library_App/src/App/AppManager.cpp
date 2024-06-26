@@ -167,6 +167,7 @@ void AppManager::nextAppState()
     setAppState( static_cast<AppState>( count ) );
 }
 
+
 #pragma mark UTILS
 
 void AppManager::onKeyPressed( ofKeyEventArgs &arg )

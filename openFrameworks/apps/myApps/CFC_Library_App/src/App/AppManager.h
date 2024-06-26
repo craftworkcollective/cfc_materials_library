@@ -56,6 +56,14 @@ class AppManager {
     // screen
     ofxScreenSetup ss;
     void           setupChanged( ofxScreenSetup::ScreenSetupArg &arg );
+
+        // TextureAtlas ////////////////////////////////////////////
+    void onAtlasCreationFinished( bool &arg );
+    void onAtlasesLoaded( bool & );
+    void setUpTextures();
+    void createAtlas();
+    void drawAtlas();
+    bool loadAtlas();K
 };
 
 /*

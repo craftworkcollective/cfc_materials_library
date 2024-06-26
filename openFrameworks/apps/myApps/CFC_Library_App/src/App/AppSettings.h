@@ -3,66 +3,68 @@
 #include "ofMain.h"
 
 struct Settings {
-	virtual ~Settings() = default;
-	virtual void   parseJson(const ofJson& json) = 0;
-	virtual ofJson toJson() const = 0;
+    virtual ~Settings() = default;
+    virtual void   parseJson( const ofJson &json ) = 0;
+    virtual ofJson toJson() const = 0;
 };
 
 class AppSettings final {
-public:
-	static AppSettings& one()
-	{
-		static AppSettings instance;
-		return instance;
-	}
-	~AppSettings() = default;
+  public:
+    static AppSettings &one()
+    {
+        static AppSettings instance;
+        return instance;
+    }
+    ~AppSettings() = default;
 
-	void setup();
+    void setup();
 
-	// --- APP SETTINGS --- //
-	bool getLogToFile() const { return mLogToFile; }
-	bool getTesting() const { return mTesting; }
-	bool getMouseOn() const { return mMouseOn; }
-	void setMouseOn(bool mouse_on) { mMouseOn = mouse_on; }
-    int  getWindowMode(){ return window_mode; }
+    // --- APP SETTINGS --- //
+    bool getLogToFile() const { return mLogToFile; }
+    bool getTesting() const { return mTesting; }
+    bool getMouseOn() const { return mMouseOn; }
+    void setMouseOn( bool mouse_on ) { mMouseOn = mouse_on; }
+    int  getWindowMode() { return window_mode; }
 
 
-	// --- WINDOW SETTINGS --- //
-	glm::vec2 getAppSize() { return mAppSize; }
+    // --- WINDOW SETTINGS --- //
+    glm::vec2 getAppSize() { return mAppSize; }
 
-	// --- PATHS FOR CONTENT --- //
-	const string& getImagePath() const { return ImagePath; }
+    // --- CONTENT --- //
+    const string &getImagePath() const { return ImagePath; }
+    bool          getCreateAtlases() const { return createAtlases; }
 
-	// --- FLGS --- //
-	bool getDebugJson() const { return debug_json; }
-	bool getAppDebug() { return appDebug; }
-	void toggleAppDebug() { appDebug = !appDebug; }
+    // --- FLGS --- //
+    bool getDebugJson() const { return debug_json; }
+    bool getAppDebug() { return appDebug; }
+    void toggleAppDebug() { appDebug = !appDebug; }
 
-private:
-	AppSettings() = default;
+  private:
+    AppSettings() = default;
 
-	// --- APP SETTINGS --- //
-	bool mLogToFile{ false };
-	bool mTesting{ false };
-    int  window_mode {0}; 
+    // --- APP SETTINGS --- //
+    bool mLogToFile{ false };
+    bool mTesting{ false };
+    int  window_mode{ 0 };
 
-	// --- WINDOW SETTINGS --- //
-	glm::vec2 mAppSize; 
+    // --- WINDOW SETTINGS --- //
+    glm::vec2 mAppSize;
 
-	// --- CONTENT --- //
-	string ImagePath;
-	string mTransitionWipe; 
+    // --- CONTENT --- //
+    string ImagePath;
+    string mTransitionWipe;
+    bool   createAtlases{ false };
 
-	// --- FLAGS --- //
-	bool debug_json{ true };
-	bool appDebug{ true };      // global debug state for application
-	bool mMouseOn{ true };
+    // --- FLAGS --- //
+    bool debug_json{ true };
+    bool appDebug{ true }; // global debug state for application
+    bool mMouseOn{ true };
 
-	// --- CLASS SPECIFIC --- //
-	string mAppSettingsFile = "settings/AppSettings.json";
+    // --- CLASS SPECIFIC --- //
+    string mAppSettingsFile = "settings/AppSettings.json";
 };
 
-static AppSettings& configs()
+static AppSettings &configs()
 {
-	return AppSettings::one();
+    return AppSettings::one();
 }

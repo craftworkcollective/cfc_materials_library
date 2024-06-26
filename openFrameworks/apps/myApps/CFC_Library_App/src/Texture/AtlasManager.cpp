@@ -111,23 +111,78 @@ void AtlasManager::drawAtlas()
         }
     }
 
-    // Draw sphere objects
-    for( auto &win : eventMan->appMan->windowMan->infoWindows ) {
-        if( win->getState() == InfoWindow::INTERACT ) {
-            for( auto &so : win->sphere->sphereObjects ) {
-                if( !so->umoObject->isFullyLoaded() && !so->umoObject->isReadyToDraw() ) {
-                    so->drawInBatch();
-                    numAtlasDrawCalls++;
-                }
-            }
-        }
-    }
+   
     */
 
     // atlasManager.endBatchDraw( debug );
     // camera.end();
     TS_STOP( "DrawAtlas" );
 }
+
+void AtlasManager::testDraw()
+{
+    TSGL_START( "draw materials" );
+    bool  debug = true;
+    float scale = 1.0f;
+
+    float s = 256 * scale;
+    float slant = s * SLANT;
+    float padding = 10 * scale;
+    float offsetX = slant + padding;
+    float offsetY = padding;
+    atlasManager.beginBatchDraw();
+
+    // i want to draw 2500 tiles, my file list only has N, so lets repeat
+    int nTimes = ceil( 2500.0f / filesToDraw.size() );
+
+
+    for( int i = 0; i < nTimes; i++ ) {
+        for( string file : filesToDraw ) {
+            TextureAtlasDrawer::TextureDimensions td = atlasManager.getTextureDimensions( file );
+            ofRectangle                           r = ofRectangle( offsetX, offsetY, s * td.aspectRatio, s );
+            TextureAtlasDrawer::TexQuad           tq = getParalelogramForRect( r );
+
+            atlasManager.drawTextureInBatch( file, tq );
+            offsetX += s * td.aspectRatio - slant + padding;
+            if( offsetX > ofGetWidth() ) {
+                offsetX = 0;
+                offsetY += s + padding;
+            }
+        }
+    }
+
+    ofSetColor( 255 );
+    int numCats = atlasManager.endBatchDraw( debug ); // draws! returns num tiles drawn
+    ofDrawBitmapStringHighlight("numCats: " + ofToString(numCats) + "\n"
+									"slant: " + ofToString(SLANT) +
+									"\nMouse scrollWheel to zoom",
+									30, 50);
+    TSGL_STOP( "draw cats" );
+
+}
+
+float                       p;
+
+TextureAtlasDrawer::TexQuad AtlasManager::getParalelogramForRect( const ofRectangle &r )
+{
+
+    float slant = r.height * SLANT;
+    float ar = r.width / r.height;
+
+    TextureAtlasDrawer::TexQuad quad;
+    quad.verts.tl = ofVec3f( r.x, r.y );
+    quad.verts.tr = ofVec3f( r.x + r.width - slant, r.y );
+    quad.verts.br = ofVec3f( r.x + r.width - 2 * slant, r.y + r.height );
+    quad.verts.bl = ofVec3f( r.x - slant, r.y + r.height );
+
+    quad.texCoords.tl = ofVec2f( ( slant + p ) / ( r.width ), 0 );
+    quad.texCoords.tr = ofVec2f( 1, 0 );
+    quad.texCoords.br = ofVec2f( ( r.width - ( p + slant ) ) / ( r.width ), 1 );
+    quad.texCoords.bl = ofVec2f( 0, 1 );
+
+    return quad;
+}
+
 
 void AtlasManager::drawDebug()
 {

@@ -118,6 +118,36 @@
     <ClCompile Include="src\Texture\AtlasManager.cpp">
       <Filter>src\Texture</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxInterface\src\AnimatableNode.cpp">
+      <Filter>addons\ofxInterface\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxInterface\src\Node.cpp">
+      <Filter>addons\ofxInterface\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxInterface\src\TouchEvent.cpp">
+      <Filter>addons\ofxInterface\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxInterface\src\TouchManager.cpp">
+      <Filter>addons\ofxInterface\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxInterface\src\VirtualTouch.cpp">
+      <Filter>addons\ofxInterface\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxInterface\src\components\BitmapTextButton.cpp">
+      <Filter>addons\ofxInterface\components</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxInterface\src\components\LambdaView.cpp">
+      <Filter>addons\ofxInterface\components</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxInterface\src\components\SolidColorPanel.cpp">
+      <Filter>addons\ofxInterface\components</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxInterface\src\components\TextureButton.cpp">
+      <Filter>addons\ofxInterface\components</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxInterface\src\components\ZoomableView.cpp">
+      <Filter>addons\ofxInterface\components</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="src">
@@ -215,6 +245,15 @@
     </Filter>
     <Filter Include="src\Materials">
       <UniqueIdentifier>{969a91a4-5fec-4116-8689-ea673e03ad18}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxInterface">
+      <UniqueIdentifier>{e5c98494-c9f5-405d-a0cf-e43d19542dbd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxInterface\src">
+      <UniqueIdentifier>{a319a72f-461d-4683-8b5f-39759b20b661}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxInterface\components">
+      <UniqueIdentifier>{a891d27f-a062-43d9-88b9-f78e1f64ad47}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -382,6 +421,39 @@
     </ClInclude>
     <ClInclude Include="src\Texture\AtlasManager.h">
       <Filter>src\Texture</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxInterface\src\AnimatableNode.h">
+      <Filter>addons\ofxInterface\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxInterface\src\Node.h">
+      <Filter>addons\ofxInterface\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxInterface\src\ofxInterface.h">
+      <Filter>addons\ofxInterface\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxInterface\src\TouchEvent.h">
+      <Filter>addons\ofxInterface\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxInterface\src\TouchManager.h">
+      <Filter>addons\ofxInterface\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxInterface\src\VirtualTouch.h">
+      <Filter>addons\ofxInterface\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxInterface\src\components\BitmapTextButton.h">
+      <Filter>addons\ofxInterface\components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxInterface\src\components\LambdaView.h">
+      <Filter>addons\ofxInterface\components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxInterface\src\components\SolidColorPanel.h">
+      <Filter>addons\ofxInterface\components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxInterface\src\components\TextureButton.h">
+      <Filter>addons\ofxInterface\components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxInterface\src\components\ZoomableView.h">
+      <Filter>addons\ofxInterface\components</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

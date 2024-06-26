@@ -31,3 +31,6 @@
 [submodule "openFrameworks/addons/ofxRectangleUtils"]
 	path = openFrameworks/addons/ofxRectangleUtils
 	url = https://github.com/armadillu/ofxRectangleUtils.git
+[submodule "openFrameworks/addons/ofxInterface"]
+	path = openFrameworks/addons/ofxInterface
+	url = https://github.com/armadillu/ofxInterface

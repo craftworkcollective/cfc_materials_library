@@ -73,7 +73,10 @@ void AppManager::setupChanged( ofxScreenSetup::ScreenSetupArg &arg )
 
 void AppManager::setupManagers()
 {
-    AtlasManager::get().setup(); 
+    if( AppSettings::one().getCreateAtlases() )
+        AtlasManager::get().setup();
+
+    setAppState( AppState::ATTRACT );
 }
 
 
@@ -100,10 +103,14 @@ void AppManager::draw()
 {
     switch( mAppState ) {
     case AppState::LOADING:
-        AtlasManager::get().drawDebug(); 
+        AtlasManager::get().drawDebug();
         break;
-    case AppState::ATTRACT:
+    case AppState::ATTRACT: {
+        
+        
+        AtlasManager::get().testDraw();
         break;
+    }
     case AppState::DRAWER:
         break;
     case AppState::MATERIAL:
@@ -119,10 +126,10 @@ void AppManager::setAppState( AppState appState )
 {
     mAppState = appState;
 
-     switch( mAppState ) {
+    switch( mAppState ) {
     case AppState::LOADING: {
-        setupManagers(); 
-        break; 
+        setupManagers();
+        break;
     }
     case AppState::ATTRACT:
         break;
@@ -147,7 +154,7 @@ void AppManager::startInternalTimer( float dur )
 string AppManager::getAppState()
 {
 
-   switch( mAppState ) {
+    switch( mAppState ) {
     case AppState::LOADING:
         return "AppState::LOADING";
     case AppState::ATTRACT:
@@ -214,5 +221,4 @@ void AppManager::onAnimFinished( ofxAnimatable::AnimationEvent &args )
 
 void AppManager::onContentStateFinished( ofxNotificationCenter::Notification &n )
 {
-   
 }

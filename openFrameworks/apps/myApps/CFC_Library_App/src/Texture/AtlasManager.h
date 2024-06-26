@@ -9,6 +9,8 @@
 #include "TextureAtlasDrawer.h"
 #include "ofxTimeMeasurements.h"
 
+#define SLANT ( ofMap( ofGetMouseX() / float( ofGetWidth() ), 0, 1, 0, 1, true ) )
+
 class AtlasManager {
   public:
     static AtlasManager &get()
@@ -21,7 +23,8 @@ class AtlasManager {
     ~AtlasManager(){};
 
     void setup();
-    void drawDebug(); 
+    void drawDebug();
+    void testDraw(); 
 
     // TextureAtlas ////////////////////////////////////////////
     void onAtlasCreationFinished( bool &arg );
@@ -31,11 +34,11 @@ class AtlasManager {
     void drawAtlas();
     bool loadAtlas();
 
-  private:
     // atlas drawer
     TextureAtlasDrawer atlasManager;
     vector<string>     filesToDraw;
 
+  private:
     // TEXTURE ATLAS /////////////////////////////////////////////////
     // atlas creation/loader
     TextureAtlasCreator atlasCreator;
@@ -47,4 +50,6 @@ class AtlasManager {
     bool                generateMipMaps = true;
     float               atlasMipmapBias = -0.3;
     bool                createAtlasRegardless = false; // if true, always create atlas regardles of content freshess
+    TextureAtlasDrawer::TexQuad getParalelogramForRect( const ofRectangle &r );
+
 };

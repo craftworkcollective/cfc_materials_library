@@ -33,6 +33,7 @@ void AppSettings::setup()
 				if (configurable.contains("content")) {
 					const auto& app = configurable.value("content", ofJson{});
 					mTransitionWipe = app.value("transition_wipe", "content/Transition-Wipe");
+                    createAtlases = app.value( "create_atlases", false );
 				}
 				else
 					ofLogWarning("AppSettings") << "No content settings found.";

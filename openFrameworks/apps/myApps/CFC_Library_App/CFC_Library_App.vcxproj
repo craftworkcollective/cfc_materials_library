@@ -61,7 +61,7 @@
       <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <WarningLevel>Level3</WarningLevel>
-      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);src;..\..\..\addons\ofxAnimatable\src;..\..\..\addons\ofxFontStash\libs;..\..\..\addons\ofxFontStash\libs\fontstash;..\..\..\addons\ofxFontStash\libs\fontstash\src;..\..\..\addons\ofxFontStash\src;..\..\..\addons\ofxOsc\libs;..\..\..\addons\ofxOsc\libs\oscpack;..\..\..\addons\ofxOsc\libs\oscpack\src;..\..\..\addons\ofxOsc\libs\oscpack\src\ip;..\..\..\addons\ofxOsc\libs\oscpack\src\ip\posix;..\..\..\addons\ofxOsc\libs\oscpack\src\osc;..\..\..\addons\ofxOsc\src;..\..\..\addons\ofxScreenSetup\src;..\..\..\addons\ofxTimeMeasurements\src;..\..\..\addons\ofxTuio\src;src\App;..\..\..\addons\ofxNotificationCenter\src;..\..\..\addons\ofxTextureAtlas\src;..\..\..\addons\ofxRectangleUtils\src;src\Materials;src\Texture</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);src;..\..\..\addons\ofxAnimatable\src;..\..\..\addons\ofxFontStash\libs;..\..\..\addons\ofxFontStash\libs\fontstash;..\..\..\addons\ofxFontStash\libs\fontstash\src;..\..\..\addons\ofxFontStash\src;..\..\..\addons\ofxOsc\libs;..\..\..\addons\ofxOsc\libs\oscpack;..\..\..\addons\ofxOsc\libs\oscpack\src;..\..\..\addons\ofxOsc\libs\oscpack\src\ip;..\..\..\addons\ofxOsc\libs\oscpack\src\ip\posix;..\..\..\addons\ofxOsc\libs\oscpack\src\osc;..\..\..\addons\ofxOsc\src;..\..\..\addons\ofxScreenSetup\src;..\..\..\addons\ofxTimeMeasurements\src;..\..\..\addons\ofxTuio\src;src\App;..\..\..\addons\ofxNotificationCenter\src;..\..\..\addons\ofxTextureAtlas\src;..\..\..\addons\ofxRectangleUtils\src;src\Materials;src\Texture;..\..\..\addons\ofxInterface\src;..\..\..\addons\ofxInterface\src\components</AdditionalIncludeDirectories>
       <CompileAs>CompileAsCpp</CompileAs>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <ObjectFileName>$(IntDir)\Build\%(RelativeDir)\$(Configuration)\</ObjectFileName>
@@ -84,7 +84,7 @@
       <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <WarningLevel>Level3</WarningLevel>
-      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);src;..\..\..\addons\ofxAnimatable\src;..\..\..\addons\ofxFontStash\libs;..\..\..\addons\ofxFontStash\libs\fontstash;..\..\..\addons\ofxFontStash\libs\fontstash\src;..\..\..\addons\ofxFontStash\src;..\..\..\addons\ofxOsc\libs;..\..\..\addons\ofxOsc\libs\oscpack;..\..\..\addons\ofxOsc\libs\oscpack\src;..\..\..\addons\ofxOsc\libs\oscpack\src\ip;..\..\..\addons\ofxOsc\libs\oscpack\src\ip\posix;..\..\..\addons\ofxOsc\libs\oscpack\src\osc;..\..\..\addons\ofxOsc\src;..\..\..\addons\ofxScreenSetup\src;..\..\..\addons\ofxTimeMeasurements\src;..\..\..\addons\ofxTuio\src;src\App;..\..\..\addons\ofxNotificationCenter\src;..\..\..\addons\ofxTextureAtlas\src;..\..\..\addons\ofxRectangleUtils\src;src\Materials;src\Texture</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);src;..\..\..\addons\ofxAnimatable\src;..\..\..\addons\ofxFontStash\libs;..\..\..\addons\ofxFontStash\libs\fontstash;..\..\..\addons\ofxFontStash\libs\fontstash\src;..\..\..\addons\ofxFontStash\src;..\..\..\addons\ofxOsc\libs;..\..\..\addons\ofxOsc\libs\oscpack;..\..\..\addons\ofxOsc\libs\oscpack\src;..\..\..\addons\ofxOsc\libs\oscpack\src\ip;..\..\..\addons\ofxOsc\libs\oscpack\src\ip\posix;..\..\..\addons\ofxOsc\libs\oscpack\src\osc;..\..\..\addons\ofxOsc\src;..\..\..\addons\ofxScreenSetup\src;..\..\..\addons\ofxTimeMeasurements\src;..\..\..\addons\ofxTuio\src;src\App;..\..\..\addons\ofxNotificationCenter\src;..\..\..\addons\ofxTextureAtlas\src;..\..\..\addons\ofxRectangleUtils\src;src\Materials;src\Texture;..\..\..\addons\ofxInterface\src;..\..\..\addons\ofxInterface\src\components</AdditionalIncludeDirectories>
       <CompileAs>CompileAsCpp</CompileAs>
       <ObjectFileName>$(IntDir)\Build\%(RelativeDir)\$(Configuration)\</ObjectFileName>
       <LanguageStandard>stdcpp17</LanguageStandard>
@@ -104,6 +104,16 @@
     <PostBuildEvent />
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\..\addons\ofxInterface\src\AnimatableNode.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxInterface\src\components\BitmapTextButton.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxInterface\src\components\LambdaView.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxInterface\src\components\SolidColorPanel.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxInterface\src\components\TextureButton.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxInterface\src\components\ZoomableView.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxInterface\src\Node.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxInterface\src\TouchEvent.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxInterface\src\TouchManager.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxInterface\src\VirtualTouch.cpp" />
     <ClCompile Include="..\..\..\addons\ofxRectangleUtils\src\ofxRectangleUtils.cpp" />
     <ClCompile Include="..\..\..\addons\ofxTextureAtlas\src\TextureAtlas.cpp" />
     <ClCompile Include="..\..\..\addons\ofxTextureAtlas\src\TextureAtlasCreator.cpp" />
@@ -143,6 +153,17 @@
     <ClCompile Include="src\Texture\AtlasManager.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\..\addons\ofxInterface\src\AnimatableNode.h" />
+    <ClInclude Include="..\..\..\addons\ofxInterface\src\components\BitmapTextButton.h" />
+    <ClInclude Include="..\..\..\addons\ofxInterface\src\components\LambdaView.h" />
+    <ClInclude Include="..\..\..\addons\ofxInterface\src\components\SolidColorPanel.h" />
+    <ClInclude Include="..\..\..\addons\ofxInterface\src\components\TextureButton.h" />
+    <ClInclude Include="..\..\..\addons\ofxInterface\src\components\ZoomableView.h" />
+    <ClInclude Include="..\..\..\addons\ofxInterface\src\Node.h" />
+    <ClInclude Include="..\..\..\addons\ofxInterface\src\ofxInterface.h" />
+    <ClInclude Include="..\..\..\addons\ofxInterface\src\TouchEvent.h" />
+    <ClInclude Include="..\..\..\addons\ofxInterface\src\TouchManager.h" />
+    <ClInclude Include="..\..\..\addons\ofxInterface\src\VirtualTouch.h" />
     <ClInclude Include="..\..\..\addons\ofxNotificationCenter\src\ofxNotificationCenter.h" />
     <ClInclude Include="..\..\..\addons\ofxRectangleUtils\src\ofAbstractRectanglePacker.h" />
     <ClInclude Include="..\..\..\addons\ofxRectangleUtils\src\ofBaseOnlineRectanglePacker.h" />

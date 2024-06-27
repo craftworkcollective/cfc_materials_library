@@ -3,7 +3,7 @@
 void AtlasManager::setup()
 {
     ofAddListener( atlasCreator.eventAtlasCreationFinished, this, &AtlasManager::onAtlasCreationFinished );
-    createAtlas();
+    ofAddListener( atlasCreator.eventAllAtlasesLoaded, this, &AtlasManager::onAtlasesLoaded );
 }
 
 //--------------------------------------------------------------
@@ -43,7 +43,7 @@ bool AtlasManager::loadAtlas()
     atlasCreator.setNumImagesPerUpdate( 1 );
     return atlasCreator.loadAtlasesFromDisk( internalFormat, // internal format
         "textureCache",                                      // dir
-        "jpeg",                                              // image format
+        "png",                                              // image format
         true,                                                // gen mipmaps
         atlasMipmapBias                                      // mipmap bias
     );
@@ -153,11 +153,11 @@ void AtlasManager::testDraw()
 
     ofSetColor( 255 );
     int numCats = atlasManager.endBatchDraw( debug ); // draws! returns num tiles drawn
-    ofDrawBitmapStringHighlight("numCats: " + ofToString(numCats) + "\n"
+    ofDrawBitmapStringHighlight("materials: " + ofToString(numCats) + "\n"
 									"slant: " + ofToString(SLANT) +
 									"\nMouse scrollWheel to zoom",
 									30, 50);
-    TSGL_STOP( "draw cats" );
+    TSGL_STOP( "draw materials" );
 
 }
 

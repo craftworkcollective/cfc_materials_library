@@ -73,8 +73,12 @@ void AppManager::setupChanged( ofxScreenSetup::ScreenSetupArg &arg )
 
 void AppManager::setupManagers()
 {
+    AtlasManager::get().setup();
+
     if( AppSettings::one().getCreateAtlases() )
-        AtlasManager::get().setup();
+        AtlasManager::get().createAtlas();
+    else
+        AtlasManager::get().loadAtlas();
 
     setAppState( AppState::ATTRACT );
 }
@@ -106,8 +110,8 @@ void AppManager::draw()
         AtlasManager::get().drawDebug();
         break;
     case AppState::ATTRACT: {
-        
-        
+
+
         AtlasManager::get().testDraw();
         break;
     }

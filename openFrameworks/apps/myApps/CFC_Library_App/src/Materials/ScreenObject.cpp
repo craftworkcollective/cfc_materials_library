@@ -18,3 +18,20 @@ ScreenObject::~ScreenObject()
     ofRemoveListener( animVal.animFinished, this, &ScreenObject::onAnimValFinished );
     */
 }
+
+
+void ScreenObject::setup( ofVec2f maxSize, ofVec2f position )
+{
+}
+
+void ScreenObject::update( float dt )
+{
+}
+
+void ScreenObject::draw()
+{
+}
+
+void ScreenObject::drawDebug()
+{
+}

@@ -35,3 +35,17 @@ void ScreenObject::draw()
 void ScreenObject::drawDebug()
 {
 }
+
+void ScreenObject::setupTexture()
+{
+
+    textureFile = umoObject->imagePath;
+    TextureAtlasDrawer::TextureDimensions td = AtlasManager::get().atlasManager.getTextureDimensions( textureFile );
+
+    float ar = td.height * td.width;
+    float scaledWidth = size.y / ( ar );
+    float percWidth = ( scaledWidth - size.x ) / scaledWidth;
+
+    //calcCrop( 0.5 ); // default to half img width
+
+}

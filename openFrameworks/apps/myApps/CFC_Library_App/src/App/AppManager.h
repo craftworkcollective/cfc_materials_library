@@ -11,7 +11,7 @@
 #include "ofxNotificationCenter.h"
 #include "ofxScreenSetup.h"
 #include "AtlasManager.h"
-
+#include "CFCObject.h"
 #define CONFIGS_DIRECTORY "configs"
 
 class AppManager {

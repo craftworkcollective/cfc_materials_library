@@ -34,3 +34,6 @@
 [submodule "openFrameworks/addons/ofxInterface"]
 	path = openFrameworks/addons/ofxInterface
 	url = https://github.com/armadillu/ofxInterface
+[submodule "google_spreadsheet_cms"]
+	path = google_spreadsheet_cms
+	url = https://github.com/nicoleyimessier/google_spreadsheet_cms.git

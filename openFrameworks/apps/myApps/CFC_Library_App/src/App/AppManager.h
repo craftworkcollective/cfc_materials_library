@@ -16,7 +16,7 @@
 
 #define CONFIGS_DIRECTORY "configs"
 
-class AppManager {
+class AppManager : public ofxInterface::Node {
   public:
     static AppManager &get()
     {
@@ -49,7 +49,7 @@ class AppManager {
 
     // screen objects
     vector<CFCObject *>              objects;
-    vector<unique_ptr<ScreenObject>> screenObjects;
+    vector<ScreenObject*>             screenObjects;
     int                              numScreenObjects;
     void                             layoutScreenObjects();
 

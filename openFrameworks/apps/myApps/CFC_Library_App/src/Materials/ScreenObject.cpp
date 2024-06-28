@@ -44,6 +44,8 @@ void ScreenObject::setStartPosition( ofVec2f pos )
 {
     maxSize = size;
     mTargetSize = size; 
+    
+    setSize( maxSize.x, maxSize.y );
 };
 
 void ScreenObject::setupTexture()
@@ -134,8 +136,9 @@ void ScreenObject::drawInBatch()
         q.verts.bl += mPos;
 
         ofSetColor( 255 );
-        //AtlasManager::get().atlasManager.drawTextureInBatch( textureFile, q, ofColor( mColor, mAlpha/2 ) );
         AtlasManager::get().atlasManager.drawTextureInBatch( textureFile, q, ofColor( ofColor::white, mAlpha ) );
+        //AtlasManager::get().atlasManager.drawTextureInBatch( textureFile, q, ofColor( mColor, mAlpha * .3 ) );
+        //AtlasManager::get().atlasManager.drawTextureInBatch( textureFile, q, ofColor( ofColor::white, mAlpha ) );
         ofSetColor( 255 );
     }
 }

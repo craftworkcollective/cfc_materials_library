@@ -22,6 +22,8 @@ class ofApp : public ofBaseApp {
     void dragEvent( ofDragInfo dragInfo );
     void gotMessage( ofMessage msg );
 
-    AppManager app;
+    AppManager *app;
     float      mFrameRate = 60.0f;
+    bool                bShowDebug {true}; 
+    ofxInterface::Node *scene;
 };

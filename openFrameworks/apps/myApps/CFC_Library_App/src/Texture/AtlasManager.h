@@ -43,7 +43,7 @@ class AtlasManager {
     float               altasGrayscaleness = 0.5; // to mute the colors of the atlas so tile colors stand out more
     int                 atlasSize = 8192;         // fbo size for atlas
     GLint               internalFormat = GL_RGB;
-    ofVec2f             maxItemSideSize = ofVec2f( 960, 400 ) * 0.5;
+    ofVec2f             maxItemSideSize = ofVec2f( 1200, 1200 );
     float               padding = 8.0f;
     bool                generateMipMaps = true;
     float               atlasMipmapBias = -0.3;

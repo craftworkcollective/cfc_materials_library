@@ -10,14 +10,7 @@ using namespace CFC;
 
 void AppManager::setup()
 {
-    //! general setup
-    ofSetFrameRate( 60 );
-    ofSetVerticalSync( true );
-    ofEnableAlphaBlending();
-    ofBackground( 0 );
-
-    // set up configs
-    configs().setup();
+ 
 
     // log to file
     if( configs().getLogToFile() ) {
@@ -161,11 +154,13 @@ void AppManager::layoutScreenObjects()
 
     for( int row = 0; row < configs().getNumRows(); ++row ) {
         for( int col = 0; col < configs().getNumCols(); ++col ) {
-            screenObjects.push_back( std::make_unique<ScreenObject>() );
+            screenObjects.push_back( new ScreenObject() );
             auto &obj = screenObjects[index];
             int   wrappedIndex = index % objects.size();
-            screenObjects[index]->setup( objects[wrappedIndex] );
-            screenObjects[index]->setMaxSize( ofVec2f( maxColumnWidth_grid, height_so ) );
+            obj->setup( objects[wrappedIndex] );
+            obj->setMaxSize( ofVec2f( maxColumnWidth_grid, height_so ) );
+            obj->setName( ofToString(index) ); 
+            addChild( obj ); 
             index++;
         }
     }

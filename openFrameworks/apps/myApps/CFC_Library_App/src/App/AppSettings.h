@@ -41,6 +41,9 @@ class AppSettings final {
 
     int getNumRows() { return numRows; };
     int getNumCols() { return numCols; };
+    float getCanvasBuffer() { return canvasBuffer; };
+    int   getOutsideGridPad() {return outsideGridPad; };
+    int   getGridSpacing() {return gridSpacing; };
 
 
   private:
@@ -68,8 +71,11 @@ class AppSettings final {
     string mAppSettingsFile = "settings/AppSettings.json";
 
     // internal
-    int numRows{ 6 };
-    int numCols{ 10 };
+    int numRows{ 4 };
+    int numCols{ 12 };
+    float canvasBuffer{ 2000.0f };
+    int   outsideGridPad{ 50 };
+    int   gridSpacing{ 50 };
 };
 
 static AppSettings &configs()

@@ -133,13 +133,7 @@ void AppManager::setupObjects()
 
     ofLogNotice() << "Loaded " << objects.size() + 1 << " materials.";
 
-    // set up screen objects
-    for( int i = 0; i < numScreenObjects; i++ ) {
-        screenObjects.push_back( std::make_unique<ScreenObject>() );
-        auto &obj = screenObjects[i];
-        int   wrappedIndex = i % objects.size();
-        screenObjects[i]->setup( objects[wrappedIndex] );
-    }
+    layoutScreenObjects();
 
     // setup atlas
     AtlasManager::get().setup();
@@ -148,40 +142,48 @@ void AppManager::setupObjects()
         AtlasManager::get().createAtlas( imgList );
     else
         AtlasManager::get().loadAtlas();
-
-    layoutScreenObjects();
 }
 
 void AppManager::layoutScreenObjects()
 {
     // grid information
-    float maxColumnWidth_grid = configs().getAppSize().x / configs().getNumCols();
-    float drawAbleScreenSpace = configs().getAppSize().y - 2 * outsideGridPad;
-    float height_so = ( drawAbleScreenSpace - gridSpacing * ( configs().getNumRows() - 1 ) ) / configs().getNumRows();
-    float yOrigin = outsideGridPad + height_so / 2;
-    float xOrigin = maxColumnWidth_grid / 2;
+    float canvasWidth = configs().getAppSize().x + configs().getCanvasBuffer();
+    float maxColumnWidth_grid = canvasWidth / configs().getNumCols();
+    float drawAbleScreenSpace = configs().getAppSize().y - 2 * configs().getOutsideGridPad();
+    float height_so = ( drawAbleScreenSpace - configs().getGridSpacing()  * ( configs().getNumRows() - 1 ) ) / configs().getNumRows();
+    float yOrigin = configs().getOutsideGridPad() + height_so / 2;
+    float xOrigin = -configs().getCanvasBuffer() / 2 - maxColumnWidth_grid;
 
-    // setup size
-    for( auto &obj : screenObjects ) {
-        obj->setMaxSize( ofVec2f( maxColumnWidth_grid, height_so ) );
+    // set up screen objects
+    int index = 0;
+
+    for( int row = 0; row < configs().getNumRows(); ++row ) {
+        for( int col = 0; col < configs().getNumCols(); ++col ) {
+            screenObjects.push_back( std::make_unique<ScreenObject>() );
+            auto &obj = screenObjects[index];
+            int   wrappedIndex = index % objects.size();
+            screenObjects[index]->setup( objects[wrappedIndex] );
+            screenObjects[index]->setMaxSize( ofVec2f( maxColumnWidth_grid, height_so ) );
+            index++;
+        }
     }
 
-    int index = 0;
+
+    numScreenObjects = index;
+    index = 0;
     for( int row = 0; row < configs().getNumRows(); ++row ) {
         for( int col = 0; col < configs().getNumCols(); ++col ) {
             float x = xOrigin + col * maxColumnWidth_grid;
-            float y = yOrigin + row * ( height_so + gridSpacing );
+            float y = yOrigin + row * ( height_so + configs().getGridSpacing() );
             screenObjects[index]->setPosition( ofVec2f( x, y ) );
+            screenObjects[index]->setStartPosition( ofVec2f( x, y ) );
             screenObjects[index]->setOnScreen( true );
             index++;
             // screenObjects.push_back( ScreenObject( x, y, maxColumnWidth_grid, height_so ) );
         }
     }
 
-    // turn objects taht are offScreen off
-    for( int i = index; i < screenObjects.size(); i++ ) {
-        screenObjects[i]->setOnScreen( false );
-    }
+    
 }
 
 void AppManager::setupChanged( ofxScreenSetup::ScreenSetupArg &arg )
@@ -343,6 +345,10 @@ void AppManager::onKeyPressed( ofKeyEventArgs &arg )
     case 'x': {
         img.grabScreen( 0, 0, ofGetWidth(), ofGetHeight() );
         img.save( ofGetTimestampString() + "screenshot.png" );
+        break;
+    }
+    case 'f': {
+        ofToggleFullscreen();
         break;
     }
     default:

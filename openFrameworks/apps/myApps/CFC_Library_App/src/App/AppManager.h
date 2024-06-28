@@ -50,7 +50,7 @@ class AppManager {
     // screen objects
     vector<CFCObject *>              objects;
     vector<unique_ptr<ScreenObject>> screenObjects;
-    int                              numScreenObjects = 100;
+    int                              numScreenObjects;
     void                             layoutScreenObjects();
 
     // --- LISTENERS --- //
@@ -75,8 +75,6 @@ class AppManager {
     ofImage img;
 
     // grid
-    int     outsideGridPad {100}; 
-    int     gridSpacing {50}; 
     ofVec2f maxSiz;
 };
 

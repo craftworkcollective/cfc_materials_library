@@ -30,8 +30,13 @@ void ScreenObject::setup( CFCObject *cfcObject )
 void ScreenObject::setPosition( ofVec2f pos )
 {
     mPos = pos;
-    startPos = pos; 
 }
+
+void ScreenObject::setStartPosition( ofVec2f pos )
+{
+    startPos = pos;
+}
+
 
  void ScreenObject::setMaxSize( ofVec2f size )
 {
@@ -85,6 +90,7 @@ void ScreenObject::update( float dt )
 {
     updateDrift();
     mPos = startPos +  drift;
+    setPosition(mPos); 
     //updateVisibility();
 }
 
@@ -95,17 +101,19 @@ void ScreenObject::updateDrift()
     drift.y = 0;
     drift.x += 1.0f;
 
-    float renderX = configs().getAppSize().x;
+    //configs().getAppSize().x + canvasBuffer / 2
+    float renderX = configs().getAppSize().x + configs().getCanvasBuffer() ;
     float columnWidth = renderX / configs().getNumCols();
-    float xOrigin = -columnWidth;
-    //float xPosMax = renderX * GLOB.sizeMultiplier + xOrigin;
-    float xPosMax = renderX  + xOrigin;
+    float xOrigin =  - configs().getCanvasBuffer() / 2;
+    float xPosMax = configs().getAppSize().x + configs().getCanvasBuffer()/2;
 
     if( mPos.x > xPosMax ) {
         // NEED TO DO: RESET
-        //startPos = ofVec2f( xOrigin, startPos.y );
-        //drift = ofVec2f( 0, 0 );
+        startPos = ofVec2f( xOrigin, startPos.y );
+        drift = ofVec2f( 0, 0 );
     }
+
+   
 }
 
 void ScreenObject::draw()

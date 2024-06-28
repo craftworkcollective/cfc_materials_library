@@ -21,6 +21,7 @@ class ScreenObject : public ofxInterface::Node {
 
     // Setup and Update
     void setup( CFCObject *cfcObject );
+    void setStartPosition(ofVec2f pos); 
     void setPosition( ofVec2f pos );
     void update( float dt );
     void updateDrift();
@@ -40,6 +41,7 @@ class ScreenObject : public ofxInterface::Node {
     ofColor getColor() { return mColor; };
     bool    getOnScreen() { return mOnScreen; };
     string  getTextureFile() { return textureFile; };
+    ofVec2f getTempPos() { return mPos; }
 
   private:
     // ATTRIBUTES

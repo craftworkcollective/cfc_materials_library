@@ -12,6 +12,8 @@
 #include "ofxScreenSetup.h"
 #include "AtlasManager.h"
 #include "CFCObject.h"
+#include "ScreenObject.h"
+
 #define CONFIGS_DIRECTORY "configs"
 
 class AppManager {
@@ -26,9 +28,12 @@ class AppManager {
     ~AppManager(){};
 
     void setup();
+    void setupObjects(); 
     void setupManagers();
     void update( float dt );
     void draw();
+    void drawAtlas(); 
+    void drawAtlasTest(); 
 
     // --- STATES --- //
     void   setAppState( CFC::AppState appState );
@@ -43,20 +48,31 @@ class AppManager {
     // --- STATES --- //
     CFC::AppState mAppState;
 
+    //screen objects
+    vector<CFCObject *> objects; 
+    vector<unique_ptr<ScreenObject>> screenObjects;
+    int numScreenObjects = 100; 
+
     // --- LISTENERS --- //
     void onContentStateFinished( ofxNotificationCenter::Notification &n );
+    void onAtlasCreationFinished( bool &arg );
+    void onAtlasesLoaded( bool & );
 
     //! animatable object
     ofxAnimatableFloat mAnim;
     void               onAnimFinished( ofxAnimatable::AnimationEvent &args );
     void               startInternalTimer( float dur );
 
-    // logs
+    // paths
     string log_path = "logs";
+    string materialsJson = "settings/Materials.json";
 
     // screen
     ofxScreenSetup ss;
     void           setupChanged( ofxScreenSetup::ScreenSetupArg &arg );
+
+    //screenshot
+    ofImage img; 
 
 };
 

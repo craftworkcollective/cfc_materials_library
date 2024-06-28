@@ -455,6 +455,9 @@
     <ClInclude Include="..\..\..\addons\ofxInterface\src\components\ZoomableView.h">
       <Filter>addons\ofxInterface\components</Filter>
     </ClInclude>
+    <ClInclude Include="src\Materials\CFCObject.h">
+      <Filter>src\Materials</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="icon.rc" />

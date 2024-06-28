@@ -2,34 +2,11 @@
 
 void AtlasManager::setup()
 {
-    ofAddListener( atlasCreator.eventAtlasCreationFinished, this, &AtlasManager::onAtlasCreationFinished );
-    ofAddListener( atlasCreator.eventAllAtlasesLoaded, this, &AtlasManager::onAtlasesLoaded );
 }
 
 //--------------------------------------------------------------
-void AtlasManager::createAtlas()
+void AtlasManager::createAtlas(vector<string>imgList)
 {
-    vector<string> imgList;
-
-    /*
-    for( auto u : umassObjects ) {
-        string id = u->imagePath;
-        imgList.push_back( id );
-    }
-    */
-
-    // images
-    string      path = "images";
-    ofDirectory dir( path );
-    dir.allowExt( "jpg" );
-    dir.listDir();
-
-    // go through and print out all the paths
-    float total_width = 0.0f;
-    for( int i = 0; i < dir.size(); i++ ) {
-        imgList.push_back( dir.getPath( i ) );
-    }
-
 
     // create as many atlas as required to fit all the images in an atlas of 4096X4096
     ofLogNotice( "AtlasManager" ) << "Create atlas for " << imgList.size() << " images";
@@ -49,32 +26,6 @@ bool AtlasManager::loadAtlas()
     );
 }
 
-
-//--------------------------------------------------------------
-void AtlasManager::onAtlasCreationFinished( bool &arg )
-{
-    // after the atlases are created, save them to disk
-    atlasCreator.saveToDisk( "textureCache", "png" );
-    atlasCreator.registerWithManager( atlasManager );
-
-    // get all the files that were in the atlas
-    filesToDraw = atlasCreator.getAllImagePaths();
-    ofLogNotice( "AtlasManager" ) << "Atlases have been created! There are " << filesToDraw.size() << " images in the atlases.";
-    // ppStartupState = UMASS::FINISHED_LOADING_ATLAS;
-    //  setupScene();
-    //  setUpTextures();
-}
-
-//--------------------------------------------------------------
-void AtlasManager::onAtlasesLoaded( bool & )
-{
-
-    // get all the files that were in the atlas
-    filesToDraw = atlasCreator.getAllImagePaths();
-    ofLogNotice( "AtlasManager" ) << "Atlases have loaded! There are " << filesToDraw.size() << " images in the atlases.";
-    atlasCreator.registerWithManager( atlasManager );
-}
-
 //--------------------------------------------------------------
 void AtlasManager::setUpTextures()
 {
@@ -85,38 +36,6 @@ void AtlasManager::setUpTextures()
         screenObjects[i]->setupTexture();
     }
     */
-}
-
-//--------------------------------------------------------------
-void AtlasManager::drawAtlas()
-{
-
-    // camera.disableMouseInput();
-    // camera.begin();
-
-    // ofTranslate( -ofxApp::get().getRenderSize().x / 2, -ofxApp::get().getRenderSize().y / 2 );
-    int numAtlasDrawCalls = 0;
-
-    TS_START( "DrawAtlas" );
-    atlasManager.beginBatchDraw();
-
-    /*
-    // Draw Screen objects
-    for( auto &s : eventMan->appMan->objectMan->screenObjects ) {
-        if( s->animationState != ScreenObject::VIDEO_MODE  ) {
-            if( s->onScreen ) { // no need to draw using atlas if we are offscreen
-                numAtlasDrawCalls++;
-                s->drawInBatch();
-            }
-        }
-    }
-
-   
-    */
-
-    // atlasManager.endBatchDraw( debug );
-    // camera.end();
-    TS_STOP( "DrawAtlas" );
 }
 
 void AtlasManager::testDraw()
@@ -141,7 +60,7 @@ void AtlasManager::testDraw()
             TextureAtlasDrawer::TextureDimensions td = atlasManager.getTextureDimensions( file );
             ofRectangle                           r = ofRectangle( offsetX, offsetY, s * td.aspectRatio, s );
             TextureAtlasDrawer::TexQuad           tq = getParalelogramForRect( r );
-
+            
             atlasManager.drawTextureInBatch( file, tq );
             offsetX += s * td.aspectRatio - slant + padding;
             if( offsetX > ofGetWidth() ) {
@@ -152,8 +71,8 @@ void AtlasManager::testDraw()
     }
 
     ofSetColor( 255 );
-    int numCats = atlasManager.endBatchDraw( debug ); // draws! returns num tiles drawn
-    ofDrawBitmapStringHighlight("materials: " + ofToString(numCats) + "\n"
+    int numImages = atlasManager.endBatchDraw( debug ); // draws! returns num tiles drawn
+    ofDrawBitmapStringHighlight("materials: " + ofToString(numImages) + "\n"
 									"slant: " + ofToString(SLANT) +
 									"\nMouse scrollWheel to zoom",
 									30, 50);
@@ -166,7 +85,7 @@ float                       p;
 TextureAtlasDrawer::TexQuad AtlasManager::getParalelogramForRect( const ofRectangle &r )
 {
 
-    float slant = r.height * SLANT;
+    float slant = r.height * 0.0f;
     float ar = r.width / r.height;
 
     TextureAtlasDrawer::TexQuad quad;

@@ -176,6 +176,7 @@
     <ClInclude Include="src\App\AppSettings.h" />
     <ClInclude Include="src\App\CFCColors.h" />
     <ClInclude Include="src\App\CFCStructs.h" />
+    <ClInclude Include="src\Materials\CFCObject.h" />
     <ClInclude Include="src\Materials\ScreenObject.h" />
     <ClInclude Include="src\ofApp.h" />
     <ClInclude Include="..\..\..\addons\ofxAnimatable\src\ofxAnimatable.h" />

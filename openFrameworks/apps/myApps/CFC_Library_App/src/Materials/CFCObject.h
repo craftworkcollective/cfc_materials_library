@@ -12,14 +12,17 @@
 class CFCObject {
 
   public:
+    CFCObject(){};
+    ~CFCObject(){};
 
-   CFCObject(); 
-   ~CFCObject(); 
-
-    string  uid;
-    string  title;
-    string  category;
-    string  description;
-    string  imagePath;
-   
+    string uid{ "" };
+    string title{ "" };
+    string category{ "" };
+    string description{ "" };
+    string imagePath{ "" };
+    string drawerLabel{ "" };
+    string color{ "" };
+    string uses{ "" };
+    string unexpectedUses{ "" };
+    string logoFilePath{ "" };
 };

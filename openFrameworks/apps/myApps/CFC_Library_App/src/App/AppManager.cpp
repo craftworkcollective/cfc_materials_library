@@ -54,6 +54,8 @@ void AppManager::setup()
     //! Add listeners
     ofAddListener( ofEvents().keyReleased, this, &AppManager::onKeyPressed );
     ofAddListener( mAnim.animFinished, this, &AppManager::onAnimFinished );
+    ofAddListener( AtlasManager::get().atlasCreator.eventAtlasCreationFinished, this, &AppManager::onAtlasCreationFinished );
+    ofAddListener( AtlasManager::get().atlasCreator.eventAllAtlasesLoaded, this, &AppManager::onAtlasesLoaded );
     // ofxNotificationCenter::one().addObserver( this, &AppManager::onContentStateFinished, "FINISHED_CONTENT_ID" );
 
     // Reset window size
@@ -62,6 +64,93 @@ void AppManager::setup()
     setAppState( AppState::LOADING );
 }
 
+void AppManager::setupObjects()
+{
+    // load am images into vector
+    vector<string> imgList;
+    string         path = "images";
+    ofDirectory    dir( path );
+    dir.allowExt( "jpg" );
+    dir.listDir();
+
+    // go through and print out all the paths
+    float total_width = 0.0f;
+    for( int i = 0; i < dir.size(); i++ ) {
+        imgList.push_back( dir.getPath( i ) );
+    }
+
+    ofFile file;
+
+    if( file.open( ofToDataPath( materialsJson ) ) ) {
+        ofJson materialSettings;
+
+        try {
+            // Load the JSON.
+            file >> materialSettings;
+
+            // Parse the JSON.
+            if( materialSettings.contains( "materials" ) ) {
+                const auto &materials = materialSettings["materials"];
+
+                int index = 0;
+                for( int i = 0; i < materials.size(); i++ ) {
+                    const auto &material = materials[i];
+
+                    // Create a new unique_ptr and set its fields
+                    string imgPath = "images\\" + material.value( "TopDown", "" );
+                    if( std::find( imgList.begin(), imgList.end(), imgPath ) != imgList.end() ) {
+
+
+                        objects.push_back( new CFCObject() );
+                        auto &obj = objects[index];
+                        index++;
+
+                        obj->uid = material.value( "UID", "" );
+                        obj->title = material.value( "Title", "" );
+                        // obj->category = material.value("window_mode", "");
+                        obj->description = material.value( "Description", "" );
+                        obj->imagePath = material.value( "TopDown", "" );
+                        obj->drawerLabel = material.value( "DrawerLabel", "" );
+                        obj->color = material.value( "MaterialColor", "" );
+                        obj->uses = material.value( "Uses", "" );
+                        obj->unexpectedUses = material.value( "UnexpectedUses", "" );
+                        obj->logoFilePath = material.value( "LogoFileName", "" );
+                    }
+                    else {
+                        string title = material.value( "Title", "" );
+                        ofLogError() << imgPath << " does not exists " << title;
+                    }
+                }
+            }
+        }
+        catch( const exception &exc ) {
+            ofLogError() << exc.what() << " while parsing " << materialSettings.dump( 1 );
+        }
+    }
+    else {
+        ofLogError( "AppSettings::setup" ) << "Unable to read " << materialsJson << "!";
+    }
+
+    ofLogNotice() << "Loaded " << objects.size() + 1 << " materials.";
+
+    // set up screen objects
+    for( int i = 0; i < numScreenObjects; i++ ) {
+        screenObjects.push_back( std::make_unique<ScreenObject>() );
+        auto &obj = screenObjects[i];
+        int   wrappedIndex = i % objects.size();
+        screenObjects[i]->setup( objects[wrappedIndex] );
+    }
+
+    // NEED TO DO:   reposition based on the number of rows and columns
+
+    // setup atlas
+    AtlasManager::get().setup();
+
+    if( AppSettings::one().getCreateAtlases() )
+        AtlasManager::get().createAtlas( imgList );
+    else
+        AtlasManager::get().loadAtlas();
+}
 
 void AppManager::setupChanged( ofxScreenSetup::ScreenSetupArg &arg )
 {
@@ -73,14 +162,6 @@ void AppManager::setupChanged( ofxScreenSetup::ScreenSetupArg &arg )
 
 void AppManager::setupManagers()
 {
-    AtlasManager::get().setup();
-
-    if( AppSettings::one().getCreateAtlases() )
-        AtlasManager::get().createAtlas();
-    else
-        AtlasManager::get().loadAtlas();
-
-    setAppState( AppState::ATTRACT );
 }
 
 
@@ -110,9 +191,9 @@ void AppManager::draw()
         AtlasManager::get().drawDebug();
         break;
     case AppState::ATTRACT: {
+        // drawAtlasTest();
 
-
-        AtlasManager::get().testDraw();
+        drawAtlas();
         break;
     }
     case AppState::DRAWER:
@@ -124,6 +205,83 @@ void AppManager::draw()
     }
 }
 
+void AppManager::drawAtlas()
+{
+    int  numAtlasDrawCalls = 0;
+    bool debug = true;
+
+    TS_START( "DrawAtlas" );
+    AtlasManager::get().atlasManager.beginBatchDraw();
+
+    // Draw Screen objects
+    for( auto &so : screenObjects ) {
+        if( so->getOnScreen() ) { // no need to draw using atlas if we are offscreen
+            numAtlasDrawCalls++;
+            so->drawInBatch();
+        }
+    }
+
+    AtlasManager::get().atlasManager.endBatchDraw( debug );
+
+    TS_STOP( "DrawAtlas" );
+}
+
+
+void AppManager::drawAtlasTest()
+{
+    // int  numAtlasDrawCalls = 0;
+    // bool debug = true;
+
+    // TS_START( "DrawAtlas" );
+    // AtlasManager::get().atlasManager.beginBatchDraw();
+
+    //// Draw Screen objects
+    // for( auto &so : screenObjects ) {
+    //     if( so->getOnScreen() ) { // no need to draw using atlas if we are offscreen
+    //         numAtlasDrawCalls++;
+    //         so->drawInBatch();
+    //     }
+    // }
+
+    // int numImages = AtlasManager::get().atlasManager.endBatchDraw( debug );
+
+    // TS_STOP( "DrawAtlas" );
+
+    TSGL_START( "draw materials" );
+    bool  debug = true;
+    float scale = 1.0f;
+    float s = 256 * scale;
+    float slant = 0.0f;
+    float padding = 10 * scale;
+    float offsetX = slant + padding;
+    float offsetY = padding;
+    AtlasManager::get().atlasManager.beginBatchDraw();
+
+
+    for( auto &so : screenObjects ) {
+        TextureAtlasDrawer::TextureDimensions td = AtlasManager::get().atlasManager.getTextureDimensions( so->getTextureFile() );
+        ofRectangle                           r = ofRectangle( offsetX, offsetY, s * td.aspectRatio, s );
+        TextureAtlasDrawer::TexQuad           tq = AtlasManager::get().getParalelogramForRect( r );
+
+        AtlasManager::get().atlasManager.drawTextureInBatch( so->getTextureFile(), tq );
+        offsetX += s * td.aspectRatio - slant + padding;
+        if( offsetX > ofGetWidth() ) {
+            offsetX = 0;
+            offsetY += s + padding;
+        }
+    }
+
+
+    ofSetColor( 255 );
+    int numImages = AtlasManager::get().atlasManager.endBatchDraw( debug ); // draws! returns num tiles drawn
+    ofDrawBitmapStringHighlight("materials: " + ofToString(numImages) + "\n"
+									"slant: " + ofToString(SLANT) +
+									"\nMouse scrollWheel to zoom",
+									30, 50);
+    TSGL_STOP( "draw materials" );
+}
+
+
 #pragma mark STATE MGMT
 
 void AppManager::setAppState( AppState appState )
@@ -133,6 +291,8 @@ void AppManager::setAppState( AppState appState )
     switch( mAppState ) {
     case AppState::LOADING: {
         setupManagers();
+        setupObjects();
+        // setAppState( AppState::ATTRACT );
         break;
     }
     case AppState::ATTRACT:
@@ -200,6 +360,12 @@ void AppManager::onKeyPressed( ofKeyEventArgs &arg )
     }
     case 's': {
         ss.cycleToNextScreenMode();
+        break;
+    }
+    case 'x': {
+        img.grabScreen( 0, 0, ofGetWidth(), ofGetHeight() );
+        img.save( ofGetTimestampString() + "screenshot.png" );
+        break;
     }
     default:
         break;
@@ -225,4 +391,38 @@ void AppManager::onAnimFinished( ofxAnimatable::AnimationEvent &args )
 
 void AppManager::onContentStateFinished( ofxNotificationCenter::Notification &n )
 {
+}
+
+
+//--------------------------------------------------------------
+void AppManager::onAtlasCreationFinished( bool &arg )
+{
+    // after the atlases are created, save them to disk
+    AtlasManager::get().atlasCreator.saveToDisk( "textureCache", "png" );
+    AtlasManager::get().atlasCreator.registerWithManager( AtlasManager::get().atlasManager );
+
+    // get all the files that were in the atlas
+    AtlasManager::get().filesToDraw = AtlasManager::get().atlasCreator.getAllImagePaths();
+    ofLogNotice( "AppManager" ) << "Atlases have been created! There are " << AtlasManager::get().filesToDraw.size()
+                                << " images in the atlases.";
+
+    //  setupScene();
+    //  setUpTextures();
+    AtlasManager::get().loadAtlas();
+}
+
+//--------------------------------------------------------------
+void AppManager::onAtlasesLoaded( bool & )
+{
+
+    // get all the files that were in the atlas
+    AtlasManager::get().filesToDraw = AtlasManager::get().atlasCreator.getAllImagePaths();
+    ofLogNotice( "AppManager" ) << "Atlases have loaded! There are " << AtlasManager::get().filesToDraw.size() << " images in the atlases.";
+    AtlasManager::get().atlasCreator.registerWithManager( AtlasManager::get().atlasManager );
+
+    // set up textures in screen objects
+    for( auto &so : screenObjects )
+        so->setupTexture();
+
+    setAppState( AppState::ATTRACT );
 }

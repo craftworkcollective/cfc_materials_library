@@ -26,22 +26,20 @@ class AtlasManager {
     void drawDebug();
     void testDraw(); 
 
-    // TextureAtlas ////////////////////////////////////////////
-    void onAtlasCreationFinished( bool &arg );
-    void onAtlasesLoaded( bool & );
     void setUpTextures();
-    void createAtlas();
-    void drawAtlas();
+    void createAtlas(vector<string>imgList);
     bool loadAtlas();
 
     // atlas drawer
+
+    TextureAtlasCreator         atlasCreator;
     TextureAtlasDrawer atlasManager;
     vector<string>     filesToDraw;
+    TextureAtlasDrawer::TexQuad getParalelogramForRect( const ofRectangle &r );
 
   private:
     // TEXTURE ATLAS /////////////////////////////////////////////////
     // atlas creation/loader
-    TextureAtlasCreator atlasCreator;
     float               altasGrayscaleness = 0.5; // to mute the colors of the atlas so tile colors stand out more
     int                 atlasSize = 8192;         // fbo size for atlas
     GLint               internalFormat = GL_RGB;
@@ -50,6 +48,5 @@ class AtlasManager {
     bool                generateMipMaps = true;
     float               atlasMipmapBias = -0.3;
     bool                createAtlasRegardless = false; // if true, always create atlas regardles of content freshess
-    TextureAtlasDrawer::TexQuad getParalelogramForRect( const ofRectangle &r );
 
 };

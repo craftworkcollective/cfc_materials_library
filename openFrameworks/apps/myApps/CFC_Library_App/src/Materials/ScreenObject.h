@@ -7,6 +7,7 @@
 #pragma once
 
 #include "AtlasManager.h"
+#include "CFCObject.h"
 #include "CFCStructs.h"
 #include "ofMain.h"
 #include "ofxAnimatableFloat.h"
@@ -18,22 +19,43 @@ class ScreenObject : public ofxInterface::Node {
     ~ScreenObject();
 
     // Setup and Update
-    void setup( ofVec2f maxSize, ofVec2f position );
+    void setup( CFCObject *cfcObject );
+    void setPosition( ofVec2f pos );
     void update( float dt );
     void draw();
     void drawDebug();
+    void calcCrop( float widthPerc );
 
-    // Texture Thumbnail 
+    // Texture Thumbnail
     void drawInBatch();
     void setupTexture();
 
+
+    // Attributes /////////////////////////////////////////////////
+    void    setColor( ofColor _color ) { mColor = _color; };
+    void    setOnScreen( bool onScreen ) { mOnScreen = onScreen; };
+    ofColor getColor() { return mColor; };
+    bool    getOnScreen() { return mOnScreen; };
+    string  getTextureFile() { return textureFile; };
+
   private:
-    // Animatable Floats
+    // ATTRIBUTES
     ofxAnimatableFloat animVal;
+    ofVec2f            mPos;
+    ofVec2f            mTargetSize;
+    ofVec2f            maxSize;
+    ofColor            mColor{ ofColor::white };
+    float              mAlpha{ 255.0f };
+    bool               mOnScreen{ true };
+
+    // Material Data
+    CFCObject *mCfcObject;
 
     // texture
-    string                      textureFile;
-    TextureAtlasDrawer::TexQuad texQuad;
-    TextureAtlasDrawer::TexQuad targetTexQuad;
-    bool                        drifting = false;
+    string                                textureFile;
+    TextureAtlasDrawer::TexQuad           texQuad;
+    TextureAtlasDrawer::TexQuad           targetTexQuad;
+    TextureAtlasDrawer::TextureDimensions td;
+    bool                                  drifting = false;
+    TextureAtlasDrawer::TexQuad           getParalelogramForRect( const ofRectangle &r );
 };

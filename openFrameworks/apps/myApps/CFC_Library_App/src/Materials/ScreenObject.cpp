@@ -45,7 +45,7 @@ void ScreenObject::setupTexture()
     float scaledWidth = size.y / ( ar );
     float percWidth = ( scaledWidth - size.x ) / scaledWidth;
 
-    calcCrop( 0.5 ); // default to half img width
+    calcCrop( 1.0f );
 }
 
 void ScreenObject::calcCrop( float widthPerc )
@@ -89,17 +89,18 @@ void ScreenObject::draw()
 
 void ScreenObject::drawInBatch()
 {
+    if( mOnScreen ) {
+        texQuad = targetTexQuad;
+        TextureAtlasDrawer::TexQuad q = texQuad;
+        q.verts.tl += mPos;
+        q.verts.tr += mPos;
+        q.verts.br += mPos;
+        q.verts.bl += mPos;
 
-    texQuad = targetTexQuad; 
-    TextureAtlasDrawer::TexQuad q = texQuad;
-    q.verts.tl += mPos;
-    q.verts.tr += mPos;
-    q.verts.br += mPos;
-    q.verts.bl += mPos;
-
-    ofSetColor( 255 );
-    AtlasManager::get().atlasManager.drawTextureInBatch( textureFile, q, ofColor( mColor, mAlpha ) );
-    ofSetColor( 255 );
+        ofSetColor( 255 );
+        AtlasManager::get().atlasManager.drawTextureInBatch( textureFile, q, ofColor( mColor, mAlpha ) );
+        ofSetColor( 255 );
+    }
 }
 
 

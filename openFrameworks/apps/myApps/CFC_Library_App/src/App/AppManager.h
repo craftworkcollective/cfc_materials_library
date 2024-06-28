@@ -7,12 +7,12 @@
 #pragma once
 
 #include "AppSettings.h"
-#include "CFCStructs.h"
-#include "ofxNotificationCenter.h"
-#include "ofxScreenSetup.h"
 #include "AtlasManager.h"
 #include "CFCObject.h"
+#include "CFCStructs.h"
 #include "ScreenObject.h"
+#include "ofxNotificationCenter.h"
+#include "ofxScreenSetup.h"
 
 #define CONFIGS_DIRECTORY "configs"
 
@@ -28,12 +28,11 @@ class AppManager {
     ~AppManager(){};
 
     void setup();
-    void setupObjects(); 
+    void setupObjects();
     void setupManagers();
     void update( float dt );
     void draw();
-    void drawAtlas(); 
-    void drawAtlasTest(); 
+    void drawAtlas();
 
     // --- STATES --- //
     void   setAppState( CFC::AppState appState );
@@ -48,10 +47,11 @@ class AppManager {
     // --- STATES --- //
     CFC::AppState mAppState;
 
-    //screen objects
-    vector<CFCObject *> objects; 
+    // screen objects
+    vector<CFCObject *>              objects;
     vector<unique_ptr<ScreenObject>> screenObjects;
-    int numScreenObjects = 100; 
+    int                              numScreenObjects = 100;
+    void                             layoutScreenObjects();
 
     // --- LISTENERS --- //
     void onContentStateFinished( ofxNotificationCenter::Notification &n );
@@ -71,9 +71,15 @@ class AppManager {
     ofxScreenSetup ss;
     void           setupChanged( ofxScreenSetup::ScreenSetupArg &arg );
 
-    //screenshot
-    ofImage img; 
+    // screenshot
+    ofImage img;
 
+    // grid
+    int     numRows{ 6 };
+    int     numCols{ 10 };
+    int     outsideGridPad {100}; 
+    int     gridSpacing {50}; 
+    ofVec2f maxSiz;
 };
 
 /*

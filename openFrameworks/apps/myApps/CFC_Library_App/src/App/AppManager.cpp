@@ -141,7 +141,7 @@ void AppManager::setupObjects()
         screenObjects[i]->setup( objects[wrappedIndex] );
     }
 
-    // NEED TO DO:   reposition based on the number of rows and columns
+    layoutScreenObjects();
 
     // setup atlas
     AtlasManager::get().setup();
@@ -150,6 +150,32 @@ void AppManager::setupObjects()
         AtlasManager::get().createAtlas( imgList );
     else
         AtlasManager::get().loadAtlas();
+}
+
+void AppManager::layoutScreenObjects()
+{
+    // grid information
+    float maxColumnWidth_grid = configs().getAppSize().x / numCols;
+    float drawAbleScreenSpace = configs().getAppSize().y - 2 * outsideGridPad;
+    float height_so = ( drawAbleScreenSpace - gridSpacing * ( numRows - 1 ) ) / numRows;
+    float yOrigin = outsideGridPad + height_so / 2;
+    float xOrigin = maxColumnWidth_grid / 2;
+
+    int index = 0;
+    for( int row = 0; row < numRows; ++row ) {
+        for( int col = 0; col < numCols; ++col ) {
+            float x = xOrigin + col * maxColumnWidth_grid;
+            float y = yOrigin + row * ( height_so + gridSpacing );
+            screenObjects[index]->setPosition( ofVec2f( x, y ) );
+            screenObjects[index]->setOnScreen( true );
+            index++;
+            // screenObjects.push_back( ScreenObject( x, y, maxColumnWidth_grid, height_so ) );
+        }
+    }
+
+    for( int i = index; i < screenObjects.size(); i++ ) {
+        screenObjects[i]->setOnScreen( false );
+    }
 }
 
 void AppManager::setupChanged( ofxScreenSetup::ScreenSetupArg &arg )
@@ -191,8 +217,6 @@ void AppManager::draw()
         AtlasManager::get().drawDebug();
         break;
     case AppState::ATTRACT: {
-        // drawAtlasTest();
-
         drawAtlas();
         break;
     }
@@ -227,61 +251,6 @@ void AppManager::drawAtlas()
 }
 
 
-void AppManager::drawAtlasTest()
-{
-    // int  numAtlasDrawCalls = 0;
-    // bool debug = true;
-
-    // TS_START( "DrawAtlas" );
-    // AtlasManager::get().atlasManager.beginBatchDraw();
-
-    //// Draw Screen objects
-    // for( auto &so : screenObjects ) {
-    //     if( so->getOnScreen() ) { // no need to draw using atlas if we are offscreen
-    //         numAtlasDrawCalls++;
-    //         so->drawInBatch();
-    //     }
-    // }
-
-    // int numImages = AtlasManager::get().atlasManager.endBatchDraw( debug );
-
-    // TS_STOP( "DrawAtlas" );
-
-    TSGL_START( "draw materials" );
-    bool  debug = true;
-    float scale = 1.0f;
-    float s = 256 * scale;
-    float slant = 0.0f;
-    float padding = 10 * scale;
-    float offsetX = slant + padding;
-    float offsetY = padding;
-    AtlasManager::get().atlasManager.beginBatchDraw();
-
-
-    for( auto &so : screenObjects ) {
-        TextureAtlasDrawer::TextureDimensions td = AtlasManager::get().atlasManager.getTextureDimensions( so->getTextureFile() );
-        ofRectangle                           r = ofRectangle( offsetX, offsetY, s * td.aspectRatio, s );
-        TextureAtlasDrawer::TexQuad           tq = AtlasManager::get().getParalelogramForRect( r );
-
-        AtlasManager::get().atlasManager.drawTextureInBatch( so->getTextureFile(), tq );
-        offsetX += s * td.aspectRatio - slant + padding;
-        if( offsetX > ofGetWidth() ) {
-            offsetX = 0;
-            offsetY += s + padding;
-        }
-    }
-
-
-    ofSetColor( 255 );
-    int numImages = AtlasManager::get().atlasManager.endBatchDraw( debug ); // draws! returns num tiles drawn
-    ofDrawBitmapStringHighlight("materials: " + ofToString(numImages) + "\n"
-									"slant: " + ofToString(SLANT) +
-									"\nMouse scrollWheel to zoom",
-									30, 50);
-    TSGL_STOP( "draw materials" );
-}
-
-
 #pragma mark STATE MGMT
 
 void AppManager::setAppState( AppState appState )
@@ -292,7 +261,6 @@ void AppManager::setAppState( AppState appState )
     case AppState::LOADING: {
         setupManagers();
         setupObjects();
-        // setAppState( AppState::ATTRACT );
         break;
     }
     case AppState::ATTRACT:

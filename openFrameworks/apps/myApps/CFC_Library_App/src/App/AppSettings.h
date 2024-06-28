@@ -1,6 +1,8 @@
 #pragma once
 
 #include "ofMain.h"
+#include "CFCStructs.h"
+#include "CFCColors.h"
 
 struct Settings {
     virtual ~Settings() = default;
@@ -18,6 +20,7 @@ class AppSettings final {
     ~AppSettings() = default;
 
     void setup();
+    ofColor getMaterialColor( CFC::MaterialTypes type ); 
 
     // --- APP SETTINGS --- //
     bool getLogToFile() const { return mLogToFile; }
@@ -71,8 +74,8 @@ class AppSettings final {
     string mAppSettingsFile = "settings/AppSettings.json";
 
     // internal
-    int numRows{ 4 };
-    int numCols{ 12 };
+    int numRows{ 5 };
+    int numCols{ 15 };
     float canvasBuffer{ 2000.0f };
     int   outsideGridPad{ 50 };
     int   gridSpacing{ 50 };

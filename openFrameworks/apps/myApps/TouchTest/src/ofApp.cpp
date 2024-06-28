@@ -92,7 +92,7 @@ void ofApp::update()
             imgPoses[i] = 0.0f;
     }
 
-     if( ofGetElapsedTimef() - scanTime > 2.0f )
+    if( ofGetElapsedTimef() - scanTime > 2.0f )
         title = cfc;
 }
 
@@ -132,8 +132,8 @@ void ofApp::draw()
         break;
     }
 
-  
-    ofDrawBitmapString( "Press 'w' to cycle through window modes", 20, 20 );
+
+    ofDrawBitmapString( "Press 'w' to cycle through window modes\n activeQR: " + activeQr + ".", 20, 20 );
 
 
     font.draw( title, 100, 100.0f, 100.0f );
@@ -158,7 +158,7 @@ void ofApp::draw()
         images[i].draw( imgPoses[i], 500.0f, images[i].getWidth() / images[i].getHeight() * maxHeight, maxHeight );
     }
 
-    ofDrawCircle(mX, mY, 50.0f); 
+    ofDrawCircle( mX, mY, 50.0f );
 }
 
 void ofApp::setAppState( AnimationStates state )
@@ -210,7 +210,30 @@ void ofApp::keyPressed( int key )
 //--------------------------------------------------------------
 void ofApp::keyReleased( int key )
 {
+    ofLogNotice() << "key: " << ( key ); 
 
+    if( key != 'z' && key != 13 ) {
+  
+        newQr.push_back(char(key));
+    }
+    else if( key == 'z' )
+    {
+        activeQr = newQr; 
+        newQr = "";
+
+          if( activeQr == "a1" ) {
+
+            ofLogNotice() << "DRAWER A1 IS ACTIVE";
+         }
+          else if( activeQr == "a2" ) {
+
+            ofLogNotice() << "DRAWER A2 IS ACTIVE";
+         }
+    }
+
+   
+
+    /*
     switch( key ) {
     case '1':
         ofBackground( 0 );
@@ -229,8 +252,8 @@ void ofApp::keyReleased( int key )
         lineColor = ofColor( 0 );
         break;
     case '9':
-        scanTime = ofGetElapsedTimef(); 
-        title = qr_scan; 
+        scanTime = ofGetElapsedTimef();
+        title = qr_scan;
         break;
     case 'n': {
         // next state
@@ -247,6 +270,7 @@ void ofApp::keyReleased( int key )
     default:
         break;
     }
+    */
 }
 
 void ofApp::setupChanged( ofxScreenSetup::ScreenSetupArg &arg )
@@ -274,8 +298,8 @@ void ofApp::mouseDragged( int x, int y, int button )
 //--------------------------------------------------------------
 void ofApp::mousePressed( int x, int y, int button )
 {
-    mX = x; 
-    mY = y; 
+    mX = x;
+    mY = y;
 }
 
 //--------------------------------------------------------------

@@ -107,7 +107,7 @@ void AppManager::setupObjects()
 
                         obj->uid = material.value( "UID", "" );
                         obj->title = material.value( "Title", "" );
-                        // obj->category = material.value("window_mode", "");
+                        obj->categoryString = material.value( "MaterialCategory", "" );
                         obj->description = material.value( "Description", "" );
                         obj->imagePath = material.value( "TopDown", "" );
                         obj->drawerLabel = material.value( "DrawerLabel", "" );
@@ -115,6 +115,8 @@ void AppManager::setupObjects()
                         obj->uses = material.value( "Uses", "" );
                         obj->unexpectedUses = material.value( "UnexpectedUses", "" );
                         obj->logoFilePath = material.value( "LogoFileName", "" );
+
+                        obj->assignCategory(); 
                     }
                     else {
                         string title = material.value( "Title", "" );

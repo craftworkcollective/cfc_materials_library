@@ -17,7 +17,7 @@ class CFCObject {
 
     string uid{ "" };
     string title{ "" };
-    string category{ "" };
+    string categoryString{ "" };
     string description{ "" };
     string imagePath{ "" };
     string drawerLabel{ "" };
@@ -25,4 +25,18 @@ class CFCObject {
     string uses{ "" };
     string unexpectedUses{ "" };
     string logoFilePath{ "" };
+
+    CFC::MaterialTypes materialType;
+
+    void assignCategory()
+    {
+        if( categoryString == "manufactured" ) 
+            materialType = CFC::MaterialTypes::MANUFACTURED; 
+        else if( categoryString == "meta" ) 
+            materialType = CFC::MaterialTypes::META; 
+        else if( categoryString == "common" ) 
+            materialType = CFC::MaterialTypes::COMMON; 
+        else if( categoryString == "novel" )
+            materialType = CFC::MaterialTypes::NOVEL; 
+    }
 };

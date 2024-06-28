@@ -25,6 +25,8 @@ void ScreenObject::setup( CFCObject *cfcObject )
     mCfcObject = cfcObject;
     mPos.x = ofRandom( ofGetWidth() );
     mPos.y = ofRandom( ofGetHeight() );
+
+    mColor = configs().getMaterialColor(mCfcObject->materialType); 
 }
 
 void ScreenObject::setPosition( ofVec2f pos )
@@ -132,7 +134,8 @@ void ScreenObject::drawInBatch()
         q.verts.bl += mPos;
 
         ofSetColor( 255 );
-        AtlasManager::get().atlasManager.drawTextureInBatch( textureFile, q, ofColor( mColor, mAlpha ) );
+        //AtlasManager::get().atlasManager.drawTextureInBatch( textureFile, q, ofColor( mColor, mAlpha/2 ) );
+        AtlasManager::get().atlasManager.drawTextureInBatch( textureFile, q, ofColor( ofColor::white, mAlpha ) );
         ofSetColor( 255 );
     }
 }

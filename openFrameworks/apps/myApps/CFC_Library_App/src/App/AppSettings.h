@@ -39,6 +39,10 @@ class AppSettings final {
     bool getAppDebug() { return appDebug; }
     void toggleAppDebug() { appDebug = !appDebug; }
 
+    int getNumRows() { return numRows; };
+    int getNumCols() { return numCols; };
+
+
   private:
     AppSettings() = default;
 
@@ -62,6 +66,10 @@ class AppSettings final {
 
     // --- CLASS SPECIFIC --- //
     string mAppSettingsFile = "settings/AppSettings.json";
+
+    // internal
+    int numRows{ 6 };
+    int numCols{ 10 };
 };
 
 static AppSettings &configs()

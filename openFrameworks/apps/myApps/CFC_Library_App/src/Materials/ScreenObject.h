@@ -6,6 +6,7 @@
 
 #pragma once
 
+#include "AppSettings.h"
 #include "AtlasManager.h"
 #include "CFCObject.h"
 #include "CFCStructs.h"
@@ -22,6 +23,7 @@ class ScreenObject : public ofxInterface::Node {
     void setup( CFCObject *cfcObject );
     void setPosition( ofVec2f pos );
     void update( float dt );
+    void updateDrift();
     void draw();
     void drawDebug();
     void calcCrop( float widthPerc );
@@ -34,6 +36,7 @@ class ScreenObject : public ofxInterface::Node {
     // Attributes /////////////////////////////////////////////////
     void    setColor( ofColor _color ) { mColor = _color; };
     void    setOnScreen( bool onScreen ) { mOnScreen = onScreen; };
+    void    setMaxSize( ofVec2f size );
     ofColor getColor() { return mColor; };
     bool    getOnScreen() { return mOnScreen; };
     string  getTextureFile() { return textureFile; };
@@ -42,11 +45,14 @@ class ScreenObject : public ofxInterface::Node {
     // ATTRIBUTES
     ofxAnimatableFloat animVal;
     ofVec2f            mPos;
+    ofVec2f            startPos;
     ofVec2f            mTargetSize;
     ofVec2f            maxSize;
+    ofVec2f            drift;
     ofColor            mColor{ ofColor::white };
     float              mAlpha{ 255.0f };
     bool               mOnScreen{ true };
+    bool               mDrifting{ false };
 
     // Material Data
     CFCObject *mCfcObject;

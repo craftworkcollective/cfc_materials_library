@@ -30,14 +30,17 @@ void ScreenObject::setup( CFCObject *cfcObject )
 void ScreenObject::setPosition( ofVec2f pos )
 {
     mPos = pos;
+    startPos = pos; 
 }
+
+ void ScreenObject::setMaxSize( ofVec2f size )
+{
+    maxSize = size;
+    mTargetSize = size; 
+};
 
 void ScreenObject::setupTexture()
 {
-    mTargetSize.x = 400.0f;
-    mTargetSize.y = 400.0f;
-    maxSize.x = 400.0f;
-    maxSize.y = 400.0f;
 
     textureFile = "images\\" + mCfcObject->imagePath;
 
@@ -80,6 +83,29 @@ void ScreenObject::calcCrop( float widthPerc )
 
 void ScreenObject::update( float dt )
 {
+    updateDrift();
+    mPos = startPos +  drift;
+    //updateVisibility();
+}
+
+void ScreenObject::updateDrift()
+{
+    mDrifting = true;
+
+    drift.y = 0;
+    drift.x += 1.0f;
+
+    float renderX = configs().getAppSize().x;
+    float columnWidth = renderX / configs().getNumCols();
+    float xOrigin = -columnWidth;
+    //float xPosMax = renderX * GLOB.sizeMultiplier + xOrigin;
+    float xPosMax = renderX  + xOrigin;
+
+    if( mPos.x > xPosMax ) {
+        // NEED TO DO: RESET
+        //startPos = ofVec2f( xOrigin, startPos.y );
+        //drift = ofVec2f( 0, 0 );
+    }
 }
 
 void ScreenObject::draw()

@@ -75,8 +75,6 @@ class AppManager {
     ofImage img;
 
     // grid
-    int     numRows{ 6 };
-    int     numCols{ 10 };
     int     outsideGridPad {100}; 
     int     gridSpacing {50}; 
     ofVec2f maxSiz;

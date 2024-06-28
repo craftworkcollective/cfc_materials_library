@@ -141,8 +141,6 @@ void AppManager::setupObjects()
         screenObjects[i]->setup( objects[wrappedIndex] );
     }
 
-    layoutScreenObjects();
-
     // setup atlas
     AtlasManager::get().setup();
 
@@ -150,20 +148,27 @@ void AppManager::setupObjects()
         AtlasManager::get().createAtlas( imgList );
     else
         AtlasManager::get().loadAtlas();
+
+    layoutScreenObjects();
 }
 
 void AppManager::layoutScreenObjects()
 {
     // grid information
-    float maxColumnWidth_grid = configs().getAppSize().x / numCols;
+    float maxColumnWidth_grid = configs().getAppSize().x / configs().getNumCols();
     float drawAbleScreenSpace = configs().getAppSize().y - 2 * outsideGridPad;
-    float height_so = ( drawAbleScreenSpace - gridSpacing * ( numRows - 1 ) ) / numRows;
+    float height_so = ( drawAbleScreenSpace - gridSpacing * ( configs().getNumRows() - 1 ) ) / configs().getNumRows();
     float yOrigin = outsideGridPad + height_so / 2;
     float xOrigin = maxColumnWidth_grid / 2;
 
+    // setup size
+    for( auto &obj : screenObjects ) {
+        obj->setMaxSize( ofVec2f( maxColumnWidth_grid, height_so ) );
+    }
+
     int index = 0;
-    for( int row = 0; row < numRows; ++row ) {
-        for( int col = 0; col < numCols; ++col ) {
+    for( int row = 0; row < configs().getNumRows(); ++row ) {
+        for( int col = 0; col < configs().getNumCols(); ++col ) {
             float x = xOrigin + col * maxColumnWidth_grid;
             float y = yOrigin + row * ( height_so + gridSpacing );
             screenObjects[index]->setPosition( ofVec2f( x, y ) );
@@ -173,6 +178,7 @@ void AppManager::layoutScreenObjects()
         }
     }
 
+    // turn objects taht are offScreen off
     for( int i = index; i < screenObjects.size(); i++ ) {
         screenObjects[i]->setOnScreen( false );
     }
@@ -198,8 +204,12 @@ void AppManager::update( float dt )
     switch( mAppState ) {
     case AppState::LOADING:
         break;
-    case AppState::ATTRACT:
+    case AppState::ATTRACT: {
+        for( auto &so : screenObjects ) {
+            so->update( dt );
+        }
         break;
+    }
     case AppState::DRAWER:
         break;
     case AppState::MATERIAL:

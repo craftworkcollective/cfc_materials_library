@@ -24,6 +24,6 @@ class ofApp : public ofBaseApp {
 
     AppManager *app;
     float      mFrameRate = 60.0f;
-    bool                bShowDebug {true}; 
+    bool                bShowDebug {false}; 
     ofxInterface::Node *scene;
 };

@@ -148,6 +148,9 @@
     <ClCompile Include="..\..\..\addons\ofxInterface\src\components\ZoomableView.cpp">
       <Filter>addons\ofxInterface\components</Filter>
     </ClCompile>
+    <ClCompile Include="src\Templates\Drawer.cpp">
+      <Filter>src\Templates</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="src">
@@ -254,6 +257,9 @@
     </Filter>
     <Filter Include="addons\ofxInterface\components">
       <UniqueIdentifier>{a891d27f-a062-43d9-88b9-f78e1f64ad47}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Templates">
+      <UniqueIdentifier>{13da82b5-89af-4cd7-8d6f-deebe84d6c76}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -457,6 +463,9 @@
     </ClInclude>
     <ClInclude Include="src\Materials\CFCObject.h">
       <Filter>src\Materials</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Templates\Drawer.h">
+      <Filter>src\Templates</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

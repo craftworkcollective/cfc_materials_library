@@ -270,6 +270,10 @@ void AppManager::setAppState( AppState appState )
     case AppState::LOADING: {
         setupManagers();
         setupObjects();
+
+        drawer = new Drawer();
+        drawer->setup(); 
+        addChild(drawer);
         break;
     }
     case AppState::ATTRACT:

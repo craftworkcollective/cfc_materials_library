@@ -61,7 +61,7 @@
       <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <WarningLevel>Level3</WarningLevel>
-      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);src;..\..\..\addons\ofxAnimatable\src;..\..\..\addons\ofxFontStash\libs;..\..\..\addons\ofxFontStash\libs\fontstash;..\..\..\addons\ofxFontStash\libs\fontstash\src;..\..\..\addons\ofxFontStash\src;..\..\..\addons\ofxOsc\libs;..\..\..\addons\ofxOsc\libs\oscpack;..\..\..\addons\ofxOsc\libs\oscpack\src;..\..\..\addons\ofxOsc\libs\oscpack\src\ip;..\..\..\addons\ofxOsc\libs\oscpack\src\ip\posix;..\..\..\addons\ofxOsc\libs\oscpack\src\osc;..\..\..\addons\ofxOsc\src;..\..\..\addons\ofxScreenSetup\src;..\..\..\addons\ofxTimeMeasurements\src;..\..\..\addons\ofxTuio\src;src\App;..\..\..\addons\ofxNotificationCenter\src;..\..\..\addons\ofxTextureAtlas\src;..\..\..\addons\ofxRectangleUtils\src;src\Materials;src\Texture;..\..\..\addons\ofxInterface\src;..\..\..\addons\ofxInterface\src\components</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);src;..\..\..\addons\ofxAnimatable\src;..\..\..\addons\ofxFontStash\libs;..\..\..\addons\ofxFontStash\libs\fontstash;..\..\..\addons\ofxFontStash\libs\fontstash\src;..\..\..\addons\ofxFontStash\src;..\..\..\addons\ofxOsc\libs;..\..\..\addons\ofxOsc\libs\oscpack;..\..\..\addons\ofxOsc\libs\oscpack\src;..\..\..\addons\ofxOsc\libs\oscpack\src\ip;..\..\..\addons\ofxOsc\libs\oscpack\src\ip\posix;..\..\..\addons\ofxOsc\libs\oscpack\src\osc;..\..\..\addons\ofxOsc\src;..\..\..\addons\ofxScreenSetup\src;..\..\..\addons\ofxTimeMeasurements\src;..\..\..\addons\ofxTuio\src;src\App;..\..\..\addons\ofxNotificationCenter\src;..\..\..\addons\ofxTextureAtlas\src;..\..\..\addons\ofxRectangleUtils\src;src\Materials;src\Texture;..\..\..\addons\ofxInterface\src;..\..\..\addons\ofxInterface\src\components;src\Templates</AdditionalIncludeDirectories>
       <CompileAs>CompileAsCpp</CompileAs>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <ObjectFileName>$(IntDir)\Build\%(RelativeDir)\$(Configuration)\</ObjectFileName>
@@ -84,7 +84,7 @@
       <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <WarningLevel>Level3</WarningLevel>
-      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);src;..\..\..\addons\ofxAnimatable\src;..\..\..\addons\ofxFontStash\libs;..\..\..\addons\ofxFontStash\libs\fontstash;..\..\..\addons\ofxFontStash\libs\fontstash\src;..\..\..\addons\ofxFontStash\src;..\..\..\addons\ofxOsc\libs;..\..\..\addons\ofxOsc\libs\oscpack;..\..\..\addons\ofxOsc\libs\oscpack\src;..\..\..\addons\ofxOsc\libs\oscpack\src\ip;..\..\..\addons\ofxOsc\libs\oscpack\src\ip\posix;..\..\..\addons\ofxOsc\libs\oscpack\src\osc;..\..\..\addons\ofxOsc\src;..\..\..\addons\ofxScreenSetup\src;..\..\..\addons\ofxTimeMeasurements\src;..\..\..\addons\ofxTuio\src;src\App;..\..\..\addons\ofxNotificationCenter\src;..\..\..\addons\ofxTextureAtlas\src;..\..\..\addons\ofxRectangleUtils\src;src\Materials;src\Texture;..\..\..\addons\ofxInterface\src;..\..\..\addons\ofxInterface\src\components</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);src;..\..\..\addons\ofxAnimatable\src;..\..\..\addons\ofxFontStash\libs;..\..\..\addons\ofxFontStash\libs\fontstash;..\..\..\addons\ofxFontStash\libs\fontstash\src;..\..\..\addons\ofxFontStash\src;..\..\..\addons\ofxOsc\libs;..\..\..\addons\ofxOsc\libs\oscpack;..\..\..\addons\ofxOsc\libs\oscpack\src;..\..\..\addons\ofxOsc\libs\oscpack\src\ip;..\..\..\addons\ofxOsc\libs\oscpack\src\ip\posix;..\..\..\addons\ofxOsc\libs\oscpack\src\osc;..\..\..\addons\ofxOsc\src;..\..\..\addons\ofxScreenSetup\src;..\..\..\addons\ofxTimeMeasurements\src;..\..\..\addons\ofxTuio\src;src\App;..\..\..\addons\ofxNotificationCenter\src;..\..\..\addons\ofxTextureAtlas\src;..\..\..\addons\ofxRectangleUtils\src;src\Materials;src\Texture;..\..\..\addons\ofxInterface\src;..\..\..\addons\ofxInterface\src\components;src\Templates</AdditionalIncludeDirectories>
       <CompileAs>CompileAsCpp</CompileAs>
       <ObjectFileName>$(IntDir)\Build\%(RelativeDir)\$(Configuration)\</ObjectFileName>
       <LanguageStandard>stdcpp17</LanguageStandard>
@@ -150,6 +150,7 @@
     <ClCompile Include="..\..\..\addons\ofxTuio\src\ofxTuioCursor.cpp" />
     <ClCompile Include="..\..\..\addons\ofxTuio\src\ofxTuioObject.cpp" />
     <ClCompile Include="..\..\..\addons\ofxTuio\src\ofxTuioPoint.cpp" />
+    <ClCompile Include="src\Templates\Drawer.cpp" />
     <ClCompile Include="src\Texture\AtlasManager.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -218,6 +219,7 @@
     <ClInclude Include="..\..\..\addons\ofxTuio\src\ofxTuioCursor.h" />
     <ClInclude Include="..\..\..\addons\ofxTuio\src\ofxTuioObject.h" />
     <ClInclude Include="..\..\..\addons\ofxTuio\src\ofxTuioPoint.h" />
+    <ClInclude Include="src\Templates\Drawer.h" />
     <ClInclude Include="src\Texture\AtlasManager.h" />
   </ItemGroup>
   <ItemGroup>

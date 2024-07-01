@@ -13,6 +13,7 @@
 #include "ScreenObject.h"
 #include "ofxNotificationCenter.h"
 #include "ofxScreenSetup.h"
+#include "Drawer.h"
 
 #define CONFIGS_DIRECTORY "configs"
 
@@ -76,6 +77,9 @@ class AppManager : public ofxInterface::Node {
 
     // grid
     ofVec2f maxSiz;
+
+    // drawer
+    Drawer *drawer; 
 };
 
 /*

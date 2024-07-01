@@ -11,12 +11,10 @@ ScreenObject::ScreenObject()
 
 ScreenObject::~ScreenObject()
 {
-    /*
     ofRemoveListener( eventTouchDown, this, &ScreenObject::onTouchDown );
     ofRemoveListener( eventTouchUp, this, &ScreenObject::onTouchUp );
     ofRemoveListener( eventClick, this, &ScreenObject::onClick );
-    ofRemoveListener( animVal.animFinished, this, &ScreenObject::onAnimValFinished );
-    */
+    //ofRemoveListener( animVal.animFinished, this, &ScreenObject::onAnimValFinished );
 }
 
 
@@ -27,12 +25,14 @@ void ScreenObject::setup( CFCObject *cfcObject )
     mPos.y = ofRandom( ofGetHeight() );
 
     mColor = configs().getMaterialColor(mCfcObject->materialType); 
+
+       
+    // register touch events
+    ofAddListener( eventTouchDown, this, &ScreenObject::onTouchDown );
+    ofAddListener( eventTouchUp, this, &ScreenObject::onTouchUp );
+    ofAddListener( eventClick, this, &ScreenObject::onClick );
 }
 
-void ScreenObject::setPosition( ofVec2f pos )
-{
-    mPos = pos;
-}
 
 void ScreenObject::setStartPosition( ofVec2f pos )
 {
@@ -94,7 +94,7 @@ void ScreenObject::update( float dt )
 {
     updateDrift();
     mPos = startPos +  drift;
-    setPosition(mPos); 
+    setPosition(mPos - maxSize/2); 
     //updateVisibility();
 }
 
@@ -120,6 +120,20 @@ void ScreenObject::updateDrift()
    
 }
 
+
+void ScreenObject::drawDebug()
+{
+    Node::drawDebug();
+
+    if( mTouched ) {
+        ofSetColor( 100, 0, 0, 100 );
+        ofFill();
+        ofDrawRectangle( 0, 0, maxSize.x, maxSize.y );
+        ofNoFill(); 
+    }
+}
+
+
 void ScreenObject::draw()
 {
 }
@@ -143,11 +157,6 @@ void ScreenObject::drawInBatch()
     }
 }
 
-
-void ScreenObject::drawDebug()
-{
-}
-
 TextureAtlasDrawer::TexQuad ScreenObject::getParalelogramForRect( const ofRectangle &r )
 {
 
@@ -166,4 +175,28 @@ TextureAtlasDrawer::TexQuad ScreenObject::getParalelogramForRect( const ofRectan
     quad.texCoords.bl = ofVec2f( 0, 1 );
 
     return quad;
+}
+
+void ScreenObject::onTouchDown( ofxInterface::TouchEvent &event )
+{
+    // event.position is always in global space, use toLocal
+    ofVec2f local = toLocal( event.position );
+    mTouched = true;
+    mTouchAnchor = local;
+}
+
+
+void ScreenObject::onTouchUp( ofxInterface::TouchEvent &event )
+{
+    ofVec2f local = toLocal( event.position );
+    mTouched = false;
+}
+
+void ScreenObject::onClick( ofxInterface::TouchEvent &event )
+{
+    /*
+    umoData thisData;
+    thisData.umoId = objectId;
+    ofNotifyEvent( eventUmoClicked, thisData, this );
+    */
 }

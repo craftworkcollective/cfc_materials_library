@@ -221,14 +221,6 @@ void ofApp::keyReleased( int key )
         activeQr = newQr; 
         newQr = "";
 
-          if( activeQr == "a1" ) {
-
-            ofLogNotice() << "DRAWER A1 IS ACTIVE";
-         }
-          else if( activeQr == "a2" ) {
-
-            ofLogNotice() << "DRAWER A2 IS ACTIVE";
-         }
     }
 
    

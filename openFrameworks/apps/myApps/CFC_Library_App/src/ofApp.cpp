@@ -23,6 +23,7 @@ void ofApp::setup()
 
     app = new AppManager();
     app->setup();
+    app->setName( "APP" ); 
     app->setPosition( ofVec2f( 0.0f, 0.0f ) );
     app->setSize( ofVec2f( configs().getAppSize().x, configs().getAppSize().y ) );
     scene->addChild( app );
@@ -74,16 +75,19 @@ void ofApp::mouseMoved( int x, int y )
 //--------------------------------------------------------------
 void ofApp::mouseDragged( int x, int y, int button )
 {
+    ofxInterface::TouchManager::one().touchMove( button, ofVec2f( x, y ) );
 }
 
 //--------------------------------------------------------------
 void ofApp::mousePressed( int x, int y, int button )
 {
+    ofxInterface::TouchManager::one().touchDown( button, ofVec2f( x, y ) );
 }
 
 //--------------------------------------------------------------
 void ofApp::mouseReleased( int x, int y, int button )
 {
+    ofxInterface::TouchManager::one().touchUp( button, ofVec2f( x, y ) );
 }
 
 //--------------------------------------------------------------

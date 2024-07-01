@@ -1,6 +1,8 @@
 #OSX getInfo versioning info (/World/Scripts/XcodeAttachGitInfoToBinary.sh)
 gitInfo.h
 
+openFrameworks/apps/myApps/CFC_Library_App/bin/data/images
+
 #ofxApp examples downloaded assets
 AddonsExamples/ofxAppExample/bin/data/assets
 AddonsExamples/ofxAppExample/bin/data/jsonDownloads

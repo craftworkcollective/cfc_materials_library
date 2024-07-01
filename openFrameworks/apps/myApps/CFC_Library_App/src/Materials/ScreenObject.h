@@ -21,8 +21,7 @@ class ScreenObject : public ofxInterface::Node {
 
     // Setup and Update
     void setup( CFCObject *cfcObject );
-    void setStartPosition(ofVec2f pos); 
-    void setPosition( ofVec2f pos );
+    void setStartPosition( ofVec2f pos );
     void update( float dt );
     void updateDrift();
     void draw();
@@ -33,7 +32,6 @@ class ScreenObject : public ofxInterface::Node {
     void drawInBatch();
     void setupTexture();
 
-
     // Attributes /////////////////////////////////////////////////
     void    setColor( ofColor _color ) { mColor = _color; };
     void    setOnScreen( bool onScreen ) { mOnScreen = onScreen; };
@@ -43,6 +41,12 @@ class ScreenObject : public ofxInterface::Node {
     string  getTextureFile() { return textureFile; };
     ofVec2f getTempPos() { return mPos; }
 
+
+    // touch
+    void onTouchDown( ofxInterface::TouchEvent &event );
+    void onTouchUp( ofxInterface::TouchEvent &event );
+    void onClick( ofxInterface::TouchEvent &event );
+
   private:
     // ATTRIBUTES
     ofxAnimatableFloat animVal;
@@ -51,6 +55,7 @@ class ScreenObject : public ofxInterface::Node {
     ofVec2f            mTargetSize;
     ofVec2f            maxSize;
     ofVec2f            drift;
+    ofVec2f            mTouchAnchor;
     ofColor            mColor{ ofColor::white };
     float              mAlpha{ 255.0f };
     bool               mOnScreen{ true };
@@ -66,4 +71,7 @@ class ScreenObject : public ofxInterface::Node {
     TextureAtlasDrawer::TextureDimensions td;
     bool                                  drifting = false;
     TextureAtlasDrawer::TexQuad           getParalelogramForRect( const ofRectangle &r );
+
+    // touch
+    bool mTouched{ false };
 };

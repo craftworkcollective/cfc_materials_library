@@ -70,7 +70,6 @@ class ScreenObject : public ofxInterface::Node {
     TextureAtlasDrawer::TexQuad           targetTexQuad;
     TextureAtlasDrawer::TextureDimensions td;
     bool                                  drifting = false;
-    TextureAtlasDrawer::TexQuad           getParalelogramForRect( const ofRectangle &r );
 
     // touch
     bool mTouched{ false };

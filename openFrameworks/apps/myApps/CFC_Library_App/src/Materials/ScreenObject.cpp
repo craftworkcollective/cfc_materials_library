@@ -157,25 +157,6 @@ void ScreenObject::drawInBatch()
     }
 }
 
-TextureAtlasDrawer::TexQuad ScreenObject::getParalelogramForRect( const ofRectangle &r )
-{
-
-    float slant = r.height;
-    float ar = r.width / r.height;
-
-    TextureAtlasDrawer::TexQuad quad;
-    quad.verts.tl = ofVec3f( r.x, r.y );
-    quad.verts.tr = ofVec3f( r.x + r.width - slant, r.y );
-    quad.verts.br = ofVec3f( r.x + r.width - 2 * slant, r.y + r.height );
-    quad.verts.bl = ofVec3f( r.x - slant, r.y + r.height );
-
-    quad.texCoords.tl = ofVec2f( ( slant ) / ( r.width ), 0 );
-    quad.texCoords.tr = ofVec2f( 1, 0 );
-    quad.texCoords.br = ofVec2f( ( r.width - ( slant ) ) / ( r.width ), 1 );
-    quad.texCoords.bl = ofVec2f( 0, 1 );
-
-    return quad;
-}
 
 void ScreenObject::onTouchDown( ofxInterface::TouchEvent &event )
 {

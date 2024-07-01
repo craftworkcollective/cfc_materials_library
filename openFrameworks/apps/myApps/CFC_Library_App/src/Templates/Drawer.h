@@ -6,10 +6,11 @@
 
 #pragma once
 #include "AppSettings.h"
+#include "AtlasManager.h"
 #include "CFCColors.h"
+#include "FontManager.h"
 #include "ofxInterface.h"
 #include "ofxTimeMeasurements.h"
-#include "FontManager.h"
 
 class Drawer : public ofxInterface::Node {
   public:
@@ -19,7 +20,7 @@ class Drawer : public ofxInterface::Node {
 
     void setup();
     void draw();
-    void drawInBatch(); 
+    void drawInBatch();
     void update( float dt );
 
     void setTitle( string txt ) { mTitle = txt; };
@@ -31,6 +32,8 @@ class Drawer : public ofxInterface::Node {
     void setDrawer( string txt ) { mDrawer = txt; };
     void setLogoPath( string path ) { mLogoImgPath = path; };
     void setMaterialImgPath( string path ) { mMaterialImgPath = path; }
+
+    TextureAtlasDrawer::TexQuad getParalelogramForRect( const ofRectangle &r );
 
   private:
     string mTitle{ "Mock Rib Pocket Stretch Sensor" };

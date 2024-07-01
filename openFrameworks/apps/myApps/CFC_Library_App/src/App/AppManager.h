@@ -14,7 +14,7 @@
 #include "ofxNotificationCenter.h"
 #include "ofxScreenSetup.h"
 #include "Drawer.h"
-
+#include "FontManager.h"
 #define CONFIGS_DIRECTORY "configs"
 
 class AppManager : public ofxInterface::Node {

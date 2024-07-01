@@ -42,7 +42,7 @@ void AppManager::setup()
     bool  useTexture = true;
 
     // setup fonts
-    // FontManager::one().setupFonts();
+    FontManager::one().setupFonts();
 
     //! Add listeners
     ofAddListener( ofEvents().keyReleased, this, &AppManager::onKeyPressed );

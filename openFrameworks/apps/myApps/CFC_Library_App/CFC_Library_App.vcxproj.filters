@@ -151,6 +151,9 @@
     <ClCompile Include="src\Templates\Drawer.cpp">
       <Filter>src\Templates</Filter>
     </ClCompile>
+    <ClCompile Include="src\Font\FontManager.cpp">
+      <Filter>src\Font</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="src">
@@ -260,6 +263,9 @@
     </Filter>
     <Filter Include="src\Templates">
       <UniqueIdentifier>{13da82b5-89af-4cd7-8d6f-deebe84d6c76}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Font">
+      <UniqueIdentifier>{e715779d-bfcc-40b0-82ea-f2b3de4c501d}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -466,6 +472,9 @@
     </ClInclude>
     <ClInclude Include="src\Templates\Drawer.h">
       <Filter>src\Templates</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Font\FontManager.h">
+      <Filter>src\Font</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

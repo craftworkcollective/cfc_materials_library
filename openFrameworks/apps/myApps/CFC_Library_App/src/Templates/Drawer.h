@@ -9,6 +9,7 @@
 #include "CFCColors.h"
 #include "ofxInterface.h"
 #include "ofxTimeMeasurements.h"
+#include "FontManager.h"
 
 class Drawer : public ofxInterface::Node {
   public:
@@ -18,6 +19,7 @@ class Drawer : public ofxInterface::Node {
 
     void setup();
     void draw();
+    void drawInBatch(); 
     void update( float dt );
 
     void setTitle( string txt ) { mTitle = txt; };
@@ -46,7 +48,6 @@ class Drawer : public ofxInterface::Node {
     string mLogoImgPath{ "" };
 
     ofVec2f mSize{ ofVec2f( 3072.0f, 1388.0f ) };
-
+    ofVec2f imgSize{ ofVec2f( 3072.0f, 1388.0f ) };
     float   padding{ 100.0f };
-    ofImage img;
 };

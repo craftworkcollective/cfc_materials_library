@@ -9,6 +9,7 @@
 #include "AtlasManager.h"
 #include "CFCColors.h"
 #include "CloseButton.h"
+#include "DrawerObject.h"
 #include "FontManager.h"
 #include "ofxAnimatableFloat.h"
 #include "ofxInterface.h"
@@ -32,14 +33,11 @@ class DrawerWindow : public ofxInterface::Node {
     void setDrawer( string txt ) { mDrawer = txt; };
     void setState( CFC::DrawerState state );
 
-    // texture
-    void calcCrop( float widthPerc );
-
   private:
     string mCategory{ "" };
     string mDrawer{ "" };
 
-    ofVec2f imgSize{ ofVec2f( 1188, 1188 ) }; // image
+
     ofVec2f mSize{ ofVec2f( 3072.0f, 1388.0f ) };
     float   padding{ 100.0f };
 
@@ -50,13 +48,11 @@ class DrawerWindow : public ofxInterface::Node {
     // state
     CFC::DrawerState mState{ CFC::DrawerState::NOT_ACTIVE };
 
-
-    // texture
-    string                                textureFile;
-    TextureAtlasDrawer::TexQuad                   texQuad;
-    TextureAtlasDrawer::TexQuad                   targetTexQuad;
-    TextureAtlasDrawer::TextureDimensions         td;
-    bool                                  drifting = false;
+    // drawerObjects
+    float xPos = 100.0f; 
+  
+    vector<DrawerObject *> objects;
+    int numActive = 0; 
 
     // animations
     ofxAnimatableFloat alpha;

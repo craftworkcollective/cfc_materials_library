@@ -106,9 +106,11 @@ void MaterialWindow::setState( CFC::DrawerState state )
     switch( mState ) {
     case CFC::DrawerState::NOT_ACTIVE:
         setSize( 0.0f, 0.0f );
+        closeBtn->setSize(0.0f, 0.0f); 
         break;
     case CFC::DrawerState::FADE_IN:
         setSize( mSize.x, mSize.y );
+        closeBtn->setSize( 50.0f, 50.0f ); 
         alpha.animateFromTo( 0, 1 );
         break;
     case CFC::DrawerState::ACTIVE:

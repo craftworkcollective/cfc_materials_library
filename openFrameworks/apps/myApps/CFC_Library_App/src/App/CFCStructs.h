@@ -36,6 +36,8 @@ struct ScreenObjectData {
 struct DrawerData {
     string categoryString;
     string drawerLabel;
+    vector<int> uids; 
+    vector<string> imgPaths; 
 };
 
 } // namespace CFC

@@ -34,6 +34,13 @@ void DrawerWindow::setup()
     alpha.animateTo( 1.0f );
     ofAddListener( alpha.animFinished, this, &DrawerWindow::onAnimValFinished );
 
+    // setup drawer objects
+    for( int i = 0; i < 4; i++ ) {
+        objects.push_back( new DrawerObject() );
+        objects[i]->setup( ofVec2f( 650, 650 ), ofVec2f( 650 * i + i * 91 + 100.0f, 554.0f ) );
+        addChild( objects[i] );
+    }
+
     setState( CFC::DrawerState::NOT_ACTIVE );
 }
 
@@ -57,7 +64,14 @@ void DrawerWindow::draw()
         ofSetColor( CFCColors::brandRed, alphaVal );
         ofDrawRectangle( 0.0f, 0.0f, size.x, size.y );
 
-        
+        TS_START( "DrawAtlas Drawer" );
+        AtlasManager::get().atlasManager.beginBatchDraw();
+        for(int i=0; i < numActive; i++) {
+            objects[i]->drawInBatch( alphaVal );
+        }
+        AtlasManager::get().atlasManager.endBatchDraw( false );
+        TS_STOP( "DrawAtlas Drawer" );
+
 
         break;
     }
@@ -66,35 +80,18 @@ void DrawerWindow::draw()
     }
 }
 
-void DrawerWindow::drawInBatch( float alpha )
-{
-    texQuad = targetTexQuad;
-    TextureAtlasDrawer::TexQuad q = texQuad;
-
-    float padding = 100.0f;
-
-    ofVec2f mPos = ofVec2f( padding, padding );
-    q.verts.tl += mPos;
-    q.verts.tr += mPos;
-    q.verts.br += mPos;
-    q.verts.bl += mPos;
-
-
-    ofSetColor( 255 );
-    //AtlasManager::get().atlasManager.drawTextureInBatch( mMaterialImgPath, q, ofColor( ofColor::white, alpha ) );
-    ofSetColor( 255 );
-}
-
 void DrawerWindow::setState( CFC::DrawerState state )
 {
     mState = state;
 
     switch( mState ) {
     case CFC::DrawerState::NOT_ACTIVE:
+        closeBtn->setSize( 0.0f, 0.0f ); 
         setSize( 0.0f, 0.0f );
         break;
     case CFC::DrawerState::FADE_IN:
         setSize( mSize.x, mSize.y );
+        closeBtn->setSize( 50.0f, 50.0f ); 
         alpha.animateFromTo( 0, 1 );
         break;
     case CFC::DrawerState::ACTIVE:
@@ -127,18 +124,29 @@ void DrawerWindow::onAnimValFinished( ofxAnimatable::AnimationEvent &event )
 
 
 void DrawerWindow::passData( CFC::DrawerData data )
-{   
+{
 
     mDrawer = data.drawerLabel;
     mCategory = data.categoryString;
 
+    for( int i = 0; i < data.imgPaths.size(); i++ ) {
+        if( i < objects.size() ) {
+            objects[i]->setTexturePath( data.imgPaths[i] );
+            objects[i]->calcCrop( 1.0 );
+        }
+    }
 
+    numActive = data.imgPaths.size(); 
+
+    /*
+    * NEED TO DO
     // set up texture
     float ar = td.height * td.width;
     float scaledWidth = size.y / ( ar );
     float percWidth = ( scaledWidth - size.x ) / scaledWidth;
 
     calcCrop( 1.0f );
+    */
 
     setState( CFC::DrawerState::FADE_IN );
 
@@ -151,33 +159,6 @@ void DrawerWindow::passData( CFC::DrawerData data )
     ofVec2f position;
     */
 }
-
-void DrawerWindow::calcCrop( float widthPerc )
-{
-
-   // TextureAtlasDrawer::TextureDimensions td = AtlasManager::get().atlasManager.getTextureDimensions( mMaterialImgPath );
-    float                                 realWidth = imgSize.y * td.aspectRatio;
-    // bc screenobjects have a capped width, we need to already crop; this is the max width % we can show for that photo
-    float cropWidthPct = ofClamp( imgSize.x / realWidth, 0, 1 );
-
-    float wPct
-        = ofMap( widthPerc, 0, 1, 0, 0.5 * cropWidthPct, true ); // and here we remap that max width % we can show to what "widthPerc" is
-    float newW = realWidth * wPct;                               // pixels
-
-    // drawPosition - pixels
-    targetTexQuad.verts.tl = ofVec2f( 0, 0 );
-    targetTexQuad.verts.tr = ofVec2f( +newW * 2, 0 );
-    targetTexQuad.verts.br = ofVec2f( +newW * 2, +imgSize.y );
-    targetTexQuad.verts.bl = ofVec2f( 0, +imgSize.y );
-
-
-    // texture crop - normalized coords
-    targetTexQuad.texCoords.tl = ofVec2f( 0.5f - wPct, 0 );
-    targetTexQuad.texCoords.tr = ofVec2f( 0.5f + wPct, 0 );
-    targetTexQuad.texCoords.br = ofVec2f( 0.5f + wPct, 1 );
-    targetTexQuad.texCoords.bl = ofVec2f( 0.5f - wPct, 1 );
-}
-
 
 void DrawerWindow::onCloseBtnClicked( CFC::ScreenObjectData &data )
 {

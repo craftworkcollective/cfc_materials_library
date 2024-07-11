@@ -137,12 +137,12 @@ void AppManager::setupObjects()
     for( int i = 0; i < objects.size(); i++ ) {
         string key = objects[i]->drawerLabel;
         if( objectsByDrawer.count( key ) > 0 ) {
-            objectsByDrawer[key].push_back( i ); 
+            objectsByDrawer[key].push_back( i );
         }
         else {
             ofLogNotice() << "Key '" << key << "' does not exist.";
             objectsByDrawer[key] = vector<int>{};
-            objectsByDrawer[key].push_back(i); 
+            objectsByDrawer[key].push_back( i );
         }
     }
 
@@ -386,7 +386,20 @@ void AppManager::onKeyPressed( ofKeyEventArgs &arg )
 
         CFC::DrawerData data;
         data.categoryString = "Common";
-        data.drawerLabel = "A6";
+        data.drawerLabel = "A5";
+
+        if( objectsByDrawer.count( data.drawerLabel ) > 0 ) {
+
+            for( int i = 0; i < objectsByDrawer[data.drawerLabel].size(); i++ ) {
+                int index = objectsByDrawer[data.drawerLabel][i]; 
+                data.uids.push_back(index);
+                data.imgPaths.push_back( "images\\" + objects[index]->imagePath ); 
+            }
+        }
+        else {
+            ofLogNotice() << "Key '" << data.drawerLabel << "' does not exist.";
+        }
+
         drawerWindow->passData( data );
         break;
     }

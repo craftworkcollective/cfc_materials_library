@@ -14,10 +14,10 @@
 #include "ofxInterface.h"
 #include "ofxTimeMeasurements.h"
 
-class MaterialWindow : public ofxInterface::Node {
+class DrawerWindow : public ofxInterface::Node {
   public:
-    MaterialWindow();
-    ~MaterialWindow();
+    DrawerWindow();
+    ~DrawerWindow();
 
 
     void setup();
@@ -28,33 +28,16 @@ class MaterialWindow : public ofxInterface::Node {
 
 
     // setters
-    void setTitle( string txt ) { mTitle = txt; };
-    void setDescription( string txt ) { mDescription = txt; };
-    void setCompositeMaterials( string txt ) { mCompositeMaterials = txt; };
-    void setPrimaryUses( string txt ) { mPrimaryUses = txt; };
     void setCategory( string txt ) { mCategory = txt; };
     void setDrawer( string txt ) { mDrawer = txt; };
-    void setLogoPath( string path ) { mLogoImgPath = path; };
-    void setMaterialImgPath( string path ) { mMaterialImgPath = path; }
     void setState( CFC::DrawerState state );
 
     // texture
     void calcCrop( float widthPerc );
 
   private:
-    string mTitle{ "Mock Rib Pocket Stretch Sensor" };
-    string mDescription{
-        "A knitted stretch sensor can be connected to an output such as a light to decrease or increase the brightness. The more a "
-        "resistive material is stretched, the more its resistance will increase because it has more surface area to cover. This sensor was "
-        "made with conductive and non-conductive yarns using a Brother KH-910 knitting machine."
-    };
-    string mCompositeMaterials{ "Conductive Yarn, Non-Conductive Yarn" };
-    string mPrimaryUses{ "" };
     string mCategory{ "" };
     string mDrawer{ "" };
-    string mMaterialImgPath{ "" };
-    string mLogoImgPath{ "" };
-    string mDetails{ "" };
 
     ofVec2f imgSize{ ofVec2f( 1188, 1188 ) }; // image
     ofVec2f mSize{ ofVec2f( 3072.0f, 1388.0f ) };
@@ -70,9 +53,9 @@ class MaterialWindow : public ofxInterface::Node {
 
     // texture
     string                                textureFile;
-    TextureAtlasDrawer::TexQuad           texQuad;
-    TextureAtlasDrawer::TexQuad           targetTexQuad;
-    TextureAtlasDrawer::TextureDimensions td;
+    TextureAtlasDrawer::TexQuad                   texQuad;
+    TextureAtlasDrawer::TexQuad                   targetTexQuad;
+    TextureAtlasDrawer::TextureDimensions         td;
     bool                                  drifting = false;
 
     // animations

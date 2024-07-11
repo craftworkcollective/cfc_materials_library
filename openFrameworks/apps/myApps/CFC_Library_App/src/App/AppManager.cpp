@@ -158,7 +158,7 @@ void AppManager::layoutScreenObjects()
             screenObjects.push_back( new ScreenObject() );
             auto &obj = screenObjects[index];
             int   wrappedIndex = index % objects.size();
-            obj->setup( objects[wrappedIndex], index);
+            obj->setup( objects[wrappedIndex], index );
             obj->setMaxSize( ofVec2f( maxColumnWidth_grid, height_so ) );
             obj->setName( ofToString( index ) );
             addChild( obj );
@@ -277,6 +277,10 @@ void AppManager::setAppState( AppState appState )
         materialWindow = new MaterialWindow();
         materialWindow->setup();
         addChild( materialWindow );
+
+        drawerWindow = new DrawerWindow();
+        drawerWindow->setup();
+        addChild( drawerWindow );
         break;
     }
     case AppState::ATTRACT:
@@ -360,6 +364,13 @@ void AppManager::onKeyPressed( ofKeyEventArgs &arg )
         ofToggleFullscreen();
         break;
     }
+    case 'q':
+        CFC::DrawerData data;
+        data.categoryString = "Common";
+        data.drawerLabel = "A6"; 
+        drawerWindow->passData(data);
+        drawerWindow->setState( CFC::DrawerState::FADE_IN );
+        break;
     default:
         break;
     }
@@ -423,7 +434,6 @@ void AppManager::onAtlasesLoaded( bool & )
 void AppManager::onScreenObjectClicked( CFC::ScreenObjectData &data )
 {
     ofLogNotice() << "button " << data.uid << " clicked";
-    mData = data; 
-    setAppState(CFC::AppState::MATERIAL);
-  
+    mData = data;
+    setAppState( CFC::AppState::MATERIAL );
 }

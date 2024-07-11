@@ -33,4 +33,9 @@ struct ScreenObjectData {
     ofVec2f position;
 };
 
+struct DrawerData {
+    string categoryString;
+    string drawerLabel;
+};
+
 } // namespace CFC

@@ -1,14 +1,14 @@
-#include "MaterialWindow.h"
+#include "DrawerWindow.h"
 
-MaterialWindow::MaterialWindow()
+DrawerWindow::DrawerWindow()
 {
 }
 
-MaterialWindow::~MaterialWindow()
+DrawerWindow::~DrawerWindow()
 {
 }
 
-void MaterialWindow::setup()
+void DrawerWindow::setup()
 {
     setName( "DRAWER" );
 
@@ -23,7 +23,7 @@ void MaterialWindow::setup()
     float btnSize = 50.0f;
     closeBtn->setup( ofVec2f( btnSize, btnSize ), ofVec2f( mSize.x - 2 * btnSize, btnSize ) );
     addChild( closeBtn );
-    ofAddListener( closeBtn->eventCloseClicked, this, &MaterialWindow::onCloseBtnClicked );
+    ofAddListener( closeBtn->eventCloseClicked, this, &DrawerWindow::onCloseBtnClicked );
 
     // setup animations
 
@@ -32,19 +32,19 @@ void MaterialWindow::setup()
     alpha.setRepeatType( PLAY_ONCE );
     alpha.setDuration( duration );
     alpha.animateTo( 1.0f );
-    ofAddListener( alpha.animFinished, this, &MaterialWindow::onAnimValFinished );
+    ofAddListener( alpha.animFinished, this, &DrawerWindow::onAnimValFinished );
 
     setState( CFC::DrawerState::NOT_ACTIVE );
 }
 
-void MaterialWindow::update( float dt )
+void DrawerWindow::update( float dt )
 {
     alpha.update( dt );
     closeBtn->setAlpha( 255.0f * alpha.getCurrentValue() );
 }
 
 
-void MaterialWindow::draw()
+void DrawerWindow::draw()
 {
     switch( mState ) {
     case CFC::DrawerState::NOT_ACTIVE:
@@ -57,21 +57,7 @@ void MaterialWindow::draw()
         ofSetColor( CFCColors::brandRed, alphaVal );
         ofDrawRectangle( 0.0f, 0.0f, size.x, size.y );
 
-        ofSetColor( 255, alphaVal );
-        FontManager::one().drawTitle( mTitle );
-        //( string description, string composite, string uses, string details)
-        FontManager::one().drawBody( mDescription, mCompositeMaterials, mPrimaryUses, mDetails );
-
-
-        TS_START( "DrawAtlas Drawer" );
-        AtlasManager::get().atlasManager.beginBatchDraw();
-        drawInBatch( alphaVal );
-        AtlasManager::get().atlasManager.endBatchDraw( false );
-        TS_STOP( "DrawAtlas Drawer" );
-
-        ofSetColor( 0, alphaVal );
-        FontManager::one().drawDrawer( mDrawer );
-        FontManager::one().drawMaterialCategory( mCategory );
+        
 
         break;
     }
@@ -80,7 +66,7 @@ void MaterialWindow::draw()
     }
 }
 
-void MaterialWindow::drawInBatch( float alpha )
+void DrawerWindow::drawInBatch( float alpha )
 {
     texQuad = targetTexQuad;
     TextureAtlasDrawer::TexQuad q = texQuad;
@@ -95,11 +81,11 @@ void MaterialWindow::drawInBatch( float alpha )
 
 
     ofSetColor( 255 );
-    AtlasManager::get().atlasManager.drawTextureInBatch( mMaterialImgPath, q, ofColor( ofColor::white, alpha ) );
+    //AtlasManager::get().atlasManager.drawTextureInBatch( mMaterialImgPath, q, ofColor( ofColor::white, alpha ) );
     ofSetColor( 255 );
 }
 
-void MaterialWindow::setState( CFC::DrawerState state )
+void DrawerWindow::setState( CFC::DrawerState state )
 {
     mState = state;
 
@@ -121,7 +107,7 @@ void MaterialWindow::setState( CFC::DrawerState state )
     }
 }
 
-void MaterialWindow::onAnimValFinished( ofxAnimatable::AnimationEvent &event )
+void DrawerWindow::onAnimValFinished( ofxAnimatable::AnimationEvent &event )
 {
     switch( mState ) {
     case CFC::DrawerState::NOT_ACTIVE:
@@ -140,16 +126,12 @@ void MaterialWindow::onAnimValFinished( ofxAnimatable::AnimationEvent &event )
 }
 
 
-void MaterialWindow::passData( CFC::ScreenObjectData data )
-{
-    mTitle = data.title;
-    mDescription = data.description;
-    mMaterialImgPath = data.texturePath;
+void DrawerWindow::passData( CFC::ScreenObjectData data )
+{   
+
     mDrawer = data.drawerLabel;
     mCategory = data.categoryString;
-    mDetails = data.details;
-    mPrimaryUses = data.uses;
-    mDetails = data.details;
+
 
     // set up texture
     float ar = td.height * td.width;
@@ -170,10 +152,10 @@ void MaterialWindow::passData( CFC::ScreenObjectData data )
     */
 }
 
-void MaterialWindow::calcCrop( float widthPerc )
+void DrawerWindow::calcCrop( float widthPerc )
 {
 
-    TextureAtlasDrawer::TextureDimensions td = AtlasManager::get().atlasManager.getTextureDimensions( mMaterialImgPath );
+   // TextureAtlasDrawer::TextureDimensions td = AtlasManager::get().atlasManager.getTextureDimensions( mMaterialImgPath );
     float                                 realWidth = imgSize.y * td.aspectRatio;
     // bc screenobjects have a capped width, we need to already crop; this is the max width % we can show for that photo
     float cropWidthPct = ofClamp( imgSize.x / realWidth, 0, 1 );
@@ -197,7 +179,7 @@ void MaterialWindow::calcCrop( float widthPerc )
 }
 
 
-void MaterialWindow::onCloseBtnClicked( CFC::ScreenObjectData &data )
+void DrawerWindow::onCloseBtnClicked( CFC::ScreenObjectData &data )
 {
     setState( CFC::DrawerState::FADE_OUT );
 }

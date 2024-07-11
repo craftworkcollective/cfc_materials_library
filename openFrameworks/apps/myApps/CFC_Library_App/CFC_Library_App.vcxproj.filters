@@ -157,6 +157,12 @@
     <ClCompile Include="src\Templates\CloseButton.cpp">
       <Filter>src\Templates</Filter>
     </ClCompile>
+    <ClCompile Include="src\Templates\DrawerWindow.cpp">
+      <Filter>src\Templates</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Templates\DrawerObject.cpp">
+      <Filter>src\Templates</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="src">
@@ -480,6 +486,12 @@
       <Filter>src\Font</Filter>
     </ClInclude>
     <ClInclude Include="src\Templates\CloseButton.h">
+      <Filter>src\Templates</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Templates\DrawerWindow.h">
+      <Filter>src\Templates</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Templates\DrawerObject.h">
       <Filter>src\Templates</Filter>
     </ClInclude>
   </ItemGroup>

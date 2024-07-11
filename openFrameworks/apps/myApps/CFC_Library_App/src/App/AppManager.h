@@ -10,8 +10,9 @@
 #include "AtlasManager.h"
 #include "CFCObject.h"
 #include "CFCStructs.h"
-#include "MaterialWindow.h"
+#include "DrawerWindow.h"
 #include "FontManager.h"
+#include "MaterialWindow.h"
 #include "ScreenObject.h"
 #include "ofxNotificationCenter.h"
 #include "ofxScreenSetup.h"
@@ -82,6 +83,7 @@ class AppManager : public ofxInterface::Node {
     ofVec2f maxSiz;
 
     // drawer
+    DrawerWindow         *drawerWindow;
     MaterialWindow       *materialWindow;
     CFC::ScreenObjectData mData;
 };

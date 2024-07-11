@@ -66,7 +66,7 @@ void ScreenObject::setupTexture()
 void ScreenObject::calcCrop( float widthPerc )
 {
 
-    TextureAtlasMaterialWindow::TextureDimensions td = AtlasManager::get().atlasManager.getTextureDimensions( textureFile );
+    TextureAtlasDrawer::TextureDimensions td = AtlasManager::get().atlasManager.getTextureDimensions( textureFile );
     float                                 realWidth = maxSize.y * td.aspectRatio;
     // bc screenobjects have a capped width, we need to already crop; this is the max width % we can show for that photo
     float cropWidthPct = ofClamp( maxSize.x / realWidth, 0, 1 );
@@ -146,7 +146,7 @@ void ScreenObject::drawInBatch()
 {
     if( mOnScreen ) {
         texQuad = targetTexQuad;
-        TextureAtlasMaterialWindow::TexQuad q = texQuad;
+        TextureAtlasDrawer::TexQuad q = texQuad;
         q.verts.tl += mPos;
         q.verts.tr += mPos;
         q.verts.br += mPos;

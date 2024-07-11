@@ -35,7 +35,7 @@ class AtlasManager {
     TextureAtlasCreator         atlasCreator;
     TextureAtlasDrawer atlasManager;
     vector<string>     filesToDraw;
-    TextureAtlasMaterialWindow::TexQuad getParalelogramForRect( const ofRectangle &r );
+    TextureAtlasDrawer::TexQuad getParalelogramForRect( const ofRectangle &r );
 
   private:
     // TEXTURE ATLAS /////////////////////////////////////////////////

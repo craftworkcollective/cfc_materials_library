@@ -83,7 +83,7 @@ void MaterialWindow::draw()
 void MaterialWindow::drawInBatch( float alpha )
 {
     texQuad = targetTexQuad;
-    TextureAtlasMaterialWindow::TexQuad q = texQuad;
+    TextureAtlasDrawer::TexQuad q = texQuad;
 
     float padding = 100.0f;
 
@@ -173,7 +173,7 @@ void MaterialWindow::passData( CFC::ScreenObjectData data )
 void MaterialWindow::calcCrop( float widthPerc )
 {
 
-    TextureAtlasMaterialWindow::TextureDimensions td = AtlasManager::get().atlasManager.getTextureDimensions( mMaterialImgPath );
+    TextureAtlasDrawer::TextureDimensions td = AtlasManager::get().atlasManager.getTextureDimensions( mMaterialImgPath );
     float                                 realWidth = imgSize.y * td.aspectRatio;
     // bc screenobjects have a capped width, we need to already crop; this is the max width % we can show for that photo
     float cropWidthPct = ofClamp( imgSize.x / realWidth, 0, 1 );

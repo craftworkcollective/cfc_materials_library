@@ -148,7 +148,7 @@
     <ClCompile Include="..\..\..\addons\ofxInterface\src\components\ZoomableView.cpp">
       <Filter>addons\ofxInterface\components</Filter>
     </ClCompile>
-    <ClCompile Include="src\Templates\Drawer.cpp">
+    <ClCompile Include="src\Templates\MaterialWindow.cpp">
       <Filter>src\Templates</Filter>
     </ClCompile>
     <ClCompile Include="src\Font\FontManager.cpp">
@@ -473,7 +473,7 @@
     <ClInclude Include="src\Materials\CFCObject.h">
       <Filter>src\Materials</Filter>
     </ClInclude>
-    <ClInclude Include="src\Templates\Drawer.h">
+    <ClInclude Include="src\Templates\MaterialWindow.h">
       <Filter>src\Templates</Filter>
     </ClInclude>
     <ClInclude Include="src\Font\FontManager.h">

@@ -8,9 +8,11 @@
 #include "AppSettings.h"
 #include "AtlasManager.h"
 #include "CFCColors.h"
+#include "CloseButton.h"
 #include "FontManager.h"
 #include "ofxInterface.h"
 #include "ofxTimeMeasurements.h"
+#include "ofxAnimatableFloat.h"
 
 class Drawer : public ofxInterface::Node {
   public:
@@ -20,7 +22,7 @@ class Drawer : public ofxInterface::Node {
 
     void setup();
     void draw();
-    void drawInBatch();
+    void drawInBatch(float alpha);
     void update( float dt );
     void passData( CFC::ScreenObjectData data );
 
@@ -37,6 +39,7 @@ class Drawer : public ofxInterface::Node {
     void setMaterialImgPath( string path ) { mMaterialImgPath = path; }
     void setState( CFC::DrawerState state );
 
+    // texture
     void Drawer::calcCrop( float widthPerc );
 
   private:
@@ -58,6 +61,11 @@ class Drawer : public ofxInterface::Node {
     ofVec2f mSize{ ofVec2f( 3072.0f, 1388.0f ) };
     float   padding{ 100.0f };
 
+    // UI
+    CloseButton *closeBtn;
+    void         onCloseBtnClicked( CFC::ScreenObjectData &data );
+
+    // state
     CFC::DrawerState mState{ CFC::DrawerState::NOT_ACTIVE };
 
 
@@ -67,4 +75,9 @@ class Drawer : public ofxInterface::Node {
     TextureAtlasDrawer::TexQuad           targetTexQuad;
     TextureAtlasDrawer::TextureDimensions td;
     bool                                  drifting = false;
+
+    // animations
+    ofxAnimatableFloat alpha;
+    float duration = 0.5;
+    void onAnimValFinished( ofxAnimatable::AnimationEvent &event );
 };

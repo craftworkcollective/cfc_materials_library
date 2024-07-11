@@ -151,6 +151,7 @@
     <ClCompile Include="..\..\..\addons\ofxTuio\src\ofxTuioCursor.cpp" />
     <ClCompile Include="..\..\..\addons\ofxTuio\src\ofxTuioObject.cpp" />
     <ClCompile Include="..\..\..\addons\ofxTuio\src\ofxTuioPoint.cpp" />
+    <ClCompile Include="src\Templates\CloseButton.cpp" />
     <ClCompile Include="src\Templates\Drawer.cpp" />
     <ClCompile Include="src\Texture\AtlasManager.cpp" />
   </ItemGroup>
@@ -221,6 +222,7 @@
     <ClInclude Include="..\..\..\addons\ofxTuio\src\ofxTuioCursor.h" />
     <ClInclude Include="..\..\..\addons\ofxTuio\src\ofxTuioObject.h" />
     <ClInclude Include="..\..\..\addons\ofxTuio\src\ofxTuioPoint.h" />
+    <ClInclude Include="src\Templates\CloseButton.h" />
     <ClInclude Include="src\Templates\Drawer.h" />
     <ClInclude Include="src\Texture\AtlasManager.h" />
   </ItemGroup>

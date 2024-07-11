@@ -32,6 +32,8 @@ void ScreenObject::setup( CFCObject *cfcObject, int uid )
     ofAddListener( eventTouchDown, this, &ScreenObject::onTouchDown );
     ofAddListener( eventTouchUp, this, &ScreenObject::onTouchUp );
     ofAddListener( eventClick, this, &ScreenObject::onClick );
+
+   
 }
 
 

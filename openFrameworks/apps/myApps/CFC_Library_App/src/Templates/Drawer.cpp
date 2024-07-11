@@ -17,7 +17,32 @@ void Drawer::setup()
 
     setPosition( paddingX, paddingY );
     setSize( mSize );
+
+    // set up close btn
+    closeBtn = new CloseButton();
+    float btnSize = 50.0f;
+    closeBtn->setup( ofVec2f( btnSize, btnSize ), ofVec2f( mSize.x - 2 * btnSize, btnSize ) );
+    addChild( closeBtn );
+    ofAddListener( closeBtn->eventCloseClicked, this, &Drawer::onCloseBtnClicked );
+
+    // setup animations
+
+    alpha.reset( 0.0f );
+    alpha.setCurve( SINH );
+    alpha.setRepeatType( PLAY_ONCE );
+    alpha.setDuration( duration );
+    alpha.animateTo( 1.0f );
+    ofAddListener( alpha.animFinished, this, &Drawer::onAnimValFinished );
+
+    setState(CFC::DrawerState::NOT_ACTIVE);
 }
+
+void Drawer::update( float dt )
+{
+    alpha.update( dt );
+    closeBtn->setAlpha( 255.0f * alpha.getCurrentValue() );
+}
+
 
 void Drawer::draw()
 {
@@ -28,17 +53,18 @@ void Drawer::draw()
     case CFC::DrawerState::ACTIVE:
     case CFC::DrawerState::FADE_OUT: {
 
-        ofSetColor( CFCColors::brandRed );
+        float alphaVal = 255.0f * alpha.getCurrentValue();
+        ofSetColor( CFCColors::brandRed, alphaVal );
         ofDrawRectangle( 0.0f, 0.0f, size.x, size.y );
 
-        ofSetColor( 255 );
+        ofSetColor( 255, alphaVal );
         FontManager::one().drawTitle( mTitle );
         FontManager::one().drawBody( mDescription );
 
 
         TS_START( "DrawAtlas Drawer" );
         AtlasManager::get().atlasManager.beginBatchDraw();
-        drawInBatch();
+        drawInBatch( alphaVal );
         AtlasManager::get().atlasManager.endBatchDraw( false );
         TS_STOP( "DrawAtlas Drawer" );
 
@@ -49,7 +75,7 @@ void Drawer::draw()
     }
 }
 
-void Drawer::drawInBatch()
+void Drawer::drawInBatch( float alpha )
 {
     texQuad = targetTexQuad;
     TextureAtlasDrawer::TexQuad q = texQuad;
@@ -64,12 +90,8 @@ void Drawer::drawInBatch()
 
 
     ofSetColor( 255 );
-    AtlasManager::get().atlasManager.drawTextureInBatch( mMaterialImgPath, q, ofColor( ofColor::white, 255.0f ) );
+    AtlasManager::get().atlasManager.drawTextureInBatch( mMaterialImgPath, q, ofColor( ofColor::white, alpha ) );
     ofSetColor( 255 );
-}
-
-void Drawer::update( float dt )
-{
 }
 
 void Drawer::setState( CFC::DrawerState state )
@@ -78,12 +100,34 @@ void Drawer::setState( CFC::DrawerState state )
 
     switch( mState ) {
     case CFC::DrawerState::NOT_ACTIVE:
+        setSize( 0.0f, 0.0f );
         break;
     case CFC::DrawerState::FADE_IN:
+        setSize( mSize.x, mSize.y );
+        alpha.animateFromTo( 0, 1 );
         break;
     case CFC::DrawerState::ACTIVE:
         break;
     case CFC::DrawerState::FADE_OUT:
+        alpha.animateFromTo( 1, 0 );
+        break;
+    default:
+        break;
+    }
+}
+
+void Drawer::onAnimValFinished( ofxAnimatable::AnimationEvent &event )
+{
+    switch( mState ) {
+    case CFC::DrawerState::NOT_ACTIVE:
+        break;
+    case CFC::DrawerState::FADE_IN:
+        setState( CFC::DrawerState::ACTIVE );
+        break;
+    case CFC::DrawerState::ACTIVE:
+        break;
+    case CFC::DrawerState::FADE_OUT:
+        setState( CFC::DrawerState::NOT_ACTIVE );
         break;
     default:
         break;
@@ -133,10 +177,10 @@ void Drawer::calcCrop( float widthPerc )
     float newW = realWidth * wPct;                               // pixels
 
     // drawPosition - pixels
-    targetTexQuad.verts.tl = ofVec2f( 0, 0); 
-    targetTexQuad.verts.tr = ofVec2f( +newW*2, 0 ); 
-    targetTexQuad.verts.br = ofVec2f( +newW*2, +imgSize.y );
-    targetTexQuad.verts.bl = ofVec2f( 0, +imgSize.y  );
+    targetTexQuad.verts.tl = ofVec2f( 0, 0 );
+    targetTexQuad.verts.tr = ofVec2f( +newW * 2, 0 );
+    targetTexQuad.verts.br = ofVec2f( +newW * 2, +imgSize.y );
+    targetTexQuad.verts.bl = ofVec2f( 0, +imgSize.y );
 
 
     // texture crop - normalized coords
@@ -144,4 +188,10 @@ void Drawer::calcCrop( float widthPerc )
     targetTexQuad.texCoords.tr = ofVec2f( 0.5f + wPct, 0 );
     targetTexQuad.texCoords.br = ofVec2f( 0.5f + wPct, 1 );
     targetTexQuad.texCoords.bl = ofVec2f( 0.5f - wPct, 1 );
+}
+
+
+void Drawer::onCloseBtnClicked( CFC::ScreenObjectData &data )
+{
+    setState( CFC::DrawerState::FADE_OUT );
 }

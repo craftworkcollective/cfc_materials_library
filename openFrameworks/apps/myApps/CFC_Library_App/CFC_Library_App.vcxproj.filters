@@ -154,6 +154,9 @@
     <ClCompile Include="src\Font\FontManager.cpp">
       <Filter>src\Font</Filter>
     </ClCompile>
+    <ClCompile Include="src\Templates\CloseButton.cpp">
+      <Filter>src\Templates</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="src">
@@ -475,6 +478,9 @@
     </ClInclude>
     <ClInclude Include="src\Font\FontManager.h">
       <Filter>src\Font</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Templates\CloseButton.h">
+      <Filter>src\Templates</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

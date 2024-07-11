@@ -13,6 +13,7 @@
             "Uses": "Papermaking ", 
             "UnexpectedUses": "", 
             "LogoFileName": "test.png", 
+            "AdditionalDetails": "Craftwork is a multidisciplinary design and art studio exploring the nature of textiles and technology through installations, storytelling, and material-based research.",
             "UID": "0"
         }, 
         {
@@ -28,6 +29,7 @@
             "Uses": " ppaer pullp, fiber, thread, material, graments, household materials ", 
             "UnexpectedUses": "", 
             "LogoFileName": "test.png", 
+            "AdditionalDetails": "Craftwork is a multidisciplinary design and art studio exploring the nature of textiles and technology through installations, storytelling, and material-based research.",
             "UID": "1"
         }, 
         {
@@ -43,6 +45,7 @@
             "Uses": "", 
             "UnexpectedUses": "", 
             "LogoFileName": "test.png", 
+            "AdditionalDetails": "Craftwork is a multidisciplinary design and art studio exploring the nature of textiles and technology through installations, storytelling, and material-based research.",
             "UID": "2"
         }, 
         {
@@ -57,7 +60,8 @@
             "Materials": "", 
             "Uses": " Fashion, automotive and home goods industries", 
             "UnexpectedUses": "", 
-            "LogoFileName": "test.png", 
+            "LogoFileName": "test.png",
+            "AdditionalDetails": "Craftwork is a multidisciplinary design and art studio exploring the nature of textiles and technology through installations, storytelling, and material-based research.", 
             "UID": "3"
         }, 
         {
@@ -72,7 +76,8 @@
             "Materials": "", 
             "Uses": "fiber, thread, apparel, graments, household materials ", 
             "UnexpectedUses": "", 
-            "LogoFileName": "test.png", 
+            "LogoFileName": "test.png",
+            "AdditionalDetails": "Craftwork is a multidisciplinary design and art studio exploring the nature of textiles and technology through installations, storytelling, and material-based research.", 
             "UID": "4"
         }, 
         {
@@ -87,7 +92,8 @@
             "Materials": "", 
             "Uses": "Jewelery, metalsmithing ", 
             "UnexpectedUses": "", 
-            "LogoFileName": "test.png", 
+            "LogoFileName": "test.png",
+            "AdditionalDetails": "Craftwork is a multidisciplinary design and art studio exploring the nature of textiles and technology through installations, storytelling, and material-based research.", 
             "UID": "5"
         }, 
         {
@@ -102,7 +108,8 @@
             "Materials": "", 
             "Uses": "Windows, displays, enclosures, shelving, signage, sneezeguards, lighting, furniture", 
             "UnexpectedUses": "Crafting, jewelry, art installations", 
-            "LogoFileName": "test.png", 
+            "LogoFileName": "test.png",
+            "AdditionalDetails": "Craftwork is a multidisciplinary design and art studio exploring the nature of textiles and technology through installations, storytelling, and material-based research.", 
             "UID": "6"
         }, 
         {
@@ -117,7 +124,8 @@
             "Materials": "", 
             "Uses": "Winter and water sport hard goods, climbing holds, automotive and other RIM components, electrical encapsulation", 
             "UnexpectedUses": "", 
-            "LogoFileName": "test.png", 
+            "LogoFileName": "test.png",
+            "AdditionalDetails": "Craftwork is a multidisciplinary design and art studio exploring the nature of textiles and technology through installations, storytelling, and material-based research.", 
             "UID": "7"
         }, 
         {
@@ -132,7 +140,8 @@
             "Materials": "", 
             "Uses": "Core material for outdoor recreation hard goods (alpine and backcountry skis  and snowboards, water skis, paddles, hydrofoils) and core material for composites in automotive, construction industries", 
             "UnexpectedUses": "", 
-            "LogoFileName": "test.png", 
+            "LogoFileName": "test.png",
+            "AdditionalDetails": "Craftwork is a multidisciplinary design and art studio exploring the nature of textiles and technology through installations, storytelling, and material-based research.", 
             "UID": "8"
         }, 
         {
@@ -147,7 +156,8 @@
             "Materials": "", 
             "Uses": "Fruit woods are used when shaping tools for glass blowing ", 
             "UnexpectedUses": "", 
-            "LogoFileName": "test.png", 
+            "LogoFileName": "test.png",
+            "AdditionalDetails": "Craftwork is a multidisciplinary design and art studio exploring the nature of textiles and technology through installations, storytelling, and material-based research.", 
             "UID": "9"
         }, 
         {
@@ -163,6 +173,7 @@
             "Uses": "Glass stringers are thin filaments of glass that can be used to create unique designs and patterns in glass blowing.", 
             "UnexpectedUses": "", 
             "LogoFileName": "test.png", 
+            "AdditionalDetails": "Craftwork is a multidisciplinary design and art studio exploring the nature of textiles and technology through installations, storytelling, and material-based research.",
             "UID": "10"
         }, 
         {
@@ -178,6 +189,7 @@
             "Uses": "Used to add color to glass", 
             "UnexpectedUses": "", 
             "LogoFileName": "test.png", 
+            "AdditionalDetails": "Craftwork is a multidisciplinary design and art studio exploring the nature of textiles and technology through installations, storytelling, and material-based research.",
             "UID": "11"
         }, 
         {
@@ -193,6 +205,7 @@
             "Uses": "Conductive threads are typically produced for applications such as anti-static properties, electromagnetic shielding, smart textiles, wearable technology, data transmission, and heating functions. These threads are designed with fine, flattened wires coiled around them to make them conductive. ", 
             "UnexpectedUses": "Conductive threads are creatively used in art, fashion, and craft. For example, artists create things like touch-responsive installations, some fashion designers are makimg garments that light up or change color, and crafters might create illuminated embroidery and interactive quilts, blending technology with traditional techniques.", 
             "LogoFileName": "test.png", 
+            "AdditionalDetails": "Craftwork is a multidisciplinary design and art studio exploring the nature of textiles and technology through installations, storytelling, and material-based research.",
             "UID": "12"
         }, 
         {
@@ -208,6 +221,7 @@
             "Uses": "Conductive threads are typically produced for applications such as anti-static properties, electromagnetic shielding, smart textiles, wearable technology, data transmission, and heating functions. These threads are designed with fine, flattened wires coiled around them to make them conductive. ", 
             "UnexpectedUses": "Conductive threads are creatively used in art, fashion, and craft. For example, artists create things like touch-responsive installations, some fashion designers are makimg garments that light up or change color, and crafters might create illuminated embroidery and interactive quilts, blending technology with traditional techniques.", 
             "LogoFileName": "test.png", 
+            "AdditionalDetails": "Craftwork is a multidisciplinary design and art studio exploring the nature of textiles and technology through installations, storytelling, and material-based research.",
             "UID": "13"
         }, 
         {
@@ -222,7 +236,8 @@
             "Materials": "", 
             "Uses": "fiber, thread, apparel, graments, household materials ", 
             "UnexpectedUses": "", 
-            "LogoFileName": "test.png", 
+            "LogoFileName": "test.png",
+            "AdditionalDetails": "Craftwork is a multidisciplinary design and art studio exploring the nature of textiles and technology through installations, storytelling, and material-based research.", 
             "UID": "14"
         }, 
         {
@@ -238,6 +253,7 @@
             "Uses": "Jewelery, metalsmithing ", 
             "UnexpectedUses": "", 
             "LogoFileName": "test.png", 
+            "AdditionalDetails": "Craftwork is a multidisciplinary design and art studio exploring the nature of textiles and technology through installations, storytelling, and material-based research.",
             "UID": "15"
         }, 
         {
@@ -253,6 +269,7 @@
             "Uses": "fiber, thread, material, graments, household materials ", 
             "UnexpectedUses": "", 
             "LogoFileName": "test.png", 
+            "AdditionalDetails": "Craftwork is a multidisciplinary design and art studio exploring the nature of textiles and technology through installations, storytelling, and material-based research.",
             "UID": "16"
         }, 
         {
@@ -268,6 +285,7 @@
             "Uses": "Insulation, footwear, sports gear, body protection, packaging, costuming, crafting, boating and fishing gear, pool accessories, exercise mats, traction pads, car mats, and gaskets.", 
             "UnexpectedUses": "Artificial flowers, biomedical drug delivery, nicotine patches, solar panels", 
             "LogoFileName": "test.png", 
+            "AdditionalDetails": "Craftwork is a multidisciplinary design and art studio exploring the nature of textiles and technology through installations, storytelling, and material-based research.",
             "UID": "17"
         }, 
         {
@@ -283,6 +301,7 @@
             "Uses": "Insulation, refrigeration, construction", 
             "UnexpectedUses": "Product design modelmaking, hobby & craft", 
             "LogoFileName": "test.png", 
+            "AdditionalDetails": "Craftwork is a multidisciplinary design and art studio exploring the nature of textiles and technology through installations, storytelling, and material-based research.",
             "UID": "18"
         }, 
         {
@@ -298,6 +317,7 @@
             "Uses": "fiber, thread, apparel, graments, household materials ", 
             "UnexpectedUses": "", 
             "LogoFileName": "test.png", 
+            "AdditionalDetails": "Craftwork is a multidisciplinary design and art studio exploring the nature of textiles and technology through installations, storytelling, and material-based research.",
             "UID": "19"
         }
     ]

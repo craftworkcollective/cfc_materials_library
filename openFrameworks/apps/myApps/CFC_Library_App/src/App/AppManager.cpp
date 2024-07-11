@@ -108,6 +108,7 @@ void AppManager::setupObjects()
                         obj->uses = material.value( "Uses", "" );
                         obj->unexpectedUses = material.value( "UnexpectedUses", "" );
                         obj->logoFilePath = material.value( "LogoFileName", "" );
+                        obj->details = material.value( "AdditionalDetails", "" );
 
                         obj->assignCategory();
                     }
@@ -230,8 +231,10 @@ void AppManager::draw()
         break;
     }
     case AppState::DRAWER:
+        drawAtlas();
         break;
     case AppState::MATERIAL:
+        drawAtlas();
         break;
     default:
         break;
@@ -271,9 +274,9 @@ void AppManager::setAppState( AppState appState )
         setupManagers();
         setupObjects();
 
-        drawer = new Drawer();
-        drawer->setup();
-        addChild( drawer );
+        materialWindow = new MaterialWindow();
+        materialWindow->setup();
+        addChild( materialWindow );
         break;
     }
     case AppState::ATTRACT:
@@ -281,6 +284,7 @@ void AppManager::setAppState( AppState appState )
     case AppState::DRAWER:
         break;
     case AppState::MATERIAL:
+        materialWindow->passData( mData );
         break;
     default:
         break;
@@ -419,6 +423,7 @@ void AppManager::onAtlasesLoaded( bool & )
 void AppManager::onScreenObjectClicked( CFC::ScreenObjectData &data )
 {
     ofLogNotice() << "button " << data.uid << " clicked";
-
-     drawer->passData( data );
+    mData = data; 
+    setAppState(CFC::AppState::MATERIAL);
+  
 }

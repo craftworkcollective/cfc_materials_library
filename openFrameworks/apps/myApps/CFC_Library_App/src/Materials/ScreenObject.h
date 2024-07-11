@@ -71,9 +71,9 @@ class ScreenObject : public ofxInterface::Node {
 
     // texture
     string                                textureFile;
-    TextureAtlasDrawer::TexQuad           texQuad;
-    TextureAtlasDrawer::TexQuad           targetTexQuad;
-    TextureAtlasDrawer::TextureDimensions td;
+    TextureAtlasMaterialWindow::TexQuad           texQuad;
+    TextureAtlasMaterialWindow::TexQuad           targetTexQuad;
+    TextureAtlasMaterialWindow::TextureDimensions td;
     bool                                  drifting = false;
 
     // touch

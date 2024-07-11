@@ -10,7 +10,7 @@
 #include "AtlasManager.h"
 #include "CFCObject.h"
 #include "CFCStructs.h"
-#include "Drawer.h"
+#include "MaterialWindow.h"
 #include "FontManager.h"
 #include "ScreenObject.h"
 #include "ofxNotificationCenter.h"
@@ -60,7 +60,7 @@ class AppManager : public ofxInterface::Node {
     void onContentStateFinished( ofxNotificationCenter::Notification &n );
     void onAtlasCreationFinished( bool &arg );
     void onAtlasesLoaded( bool & );
-    void onScreenObjectClicked( CFC::ScreenObjectData &data ); 
+    void onScreenObjectClicked( CFC::ScreenObjectData &data );
 
     //! animatable object
     ofxAnimatableFloat mAnim;
@@ -82,7 +82,8 @@ class AppManager : public ofxInterface::Node {
     ofVec2f maxSiz;
 
     // drawer
-    Drawer *drawer;
+    MaterialWindow       *materialWindow;
+    CFC::ScreenObjectData mData;
 };
 
 /*

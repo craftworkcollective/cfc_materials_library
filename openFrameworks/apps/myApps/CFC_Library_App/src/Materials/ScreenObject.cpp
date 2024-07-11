@@ -66,7 +66,7 @@ void ScreenObject::setupTexture()
 void ScreenObject::calcCrop( float widthPerc )
 {
 
-    TextureAtlasDrawer::TextureDimensions td = AtlasManager::get().atlasManager.getTextureDimensions( textureFile );
+    TextureAtlasMaterialWindow::TextureDimensions td = AtlasManager::get().atlasManager.getTextureDimensions( textureFile );
     float                                 realWidth = maxSize.y * td.aspectRatio;
     // bc screenobjects have a capped width, we need to already crop; this is the max width % we can show for that photo
     float cropWidthPct = ofClamp( maxSize.x / realWidth, 0, 1 );
@@ -146,7 +146,7 @@ void ScreenObject::drawInBatch()
 {
     if( mOnScreen ) {
         texQuad = targetTexQuad;
-        TextureAtlasDrawer::TexQuad q = texQuad;
+        TextureAtlasMaterialWindow::TexQuad q = texQuad;
         q.verts.tl += mPos;
         q.verts.tr += mPos;
         q.verts.br += mPos;
@@ -184,6 +184,11 @@ void ScreenObject::onClick( ofxInterface::TouchEvent &event )
     data.title = mCfcObject->title; 
     data.description = mCfcObject->description; 
     data.texturePath = textureFile; 
+    data.drawerLabel = mCfcObject->drawerLabel; 
+    data.categoryString = mCfcObject->categoryString;
+    data.uses = mCfcObject->uses; 
+    data.details = mCfcObject->details; 
+
     ofNotifyEvent( eventSoClicked, data, this );
     
 }

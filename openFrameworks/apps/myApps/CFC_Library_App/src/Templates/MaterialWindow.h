@@ -10,19 +10,19 @@
 #include "CFCColors.h"
 #include "CloseButton.h"
 #include "FontManager.h"
+#include "ofxAnimatableFloat.h"
 #include "ofxInterface.h"
 #include "ofxTimeMeasurements.h"
-#include "ofxAnimatableFloat.h"
 
-class Drawer : public ofxInterface::Node {
+class MaterialWindow : public ofxInterface::Node {
   public:
-    Drawer();
-    ~Drawer();
+    MaterialWindow();
+    ~MaterialWindow();
 
 
     void setup();
     void draw();
-    void drawInBatch(float alpha);
+    void drawInBatch( float alpha );
     void update( float dt );
     void passData( CFC::ScreenObjectData data );
 
@@ -32,7 +32,6 @@ class Drawer : public ofxInterface::Node {
     void setDescription( string txt ) { mDescription = txt; };
     void setCompositeMaterials( string txt ) { mCompositeMaterials = txt; };
     void setPrimaryUses( string txt ) { mPrimaryUses = txt; };
-    void setAdditionalMaterials( string txt ) { mAdditionalMaterials = txt; };
     void setCategory( string txt ) { mCategory = txt; };
     void setDrawer( string txt ) { mDrawer = txt; };
     void setLogoPath( string path ) { mLogoImgPath = path; };
@@ -40,7 +39,7 @@ class Drawer : public ofxInterface::Node {
     void setState( CFC::DrawerState state );
 
     // texture
-    void Drawer::calcCrop( float widthPerc );
+    void calcCrop( float widthPerc );
 
   private:
     string mTitle{ "Mock Rib Pocket Stretch Sensor" };
@@ -51,11 +50,11 @@ class Drawer : public ofxInterface::Node {
     };
     string mCompositeMaterials{ "Conductive Yarn, Non-Conductive Yarn" };
     string mPrimaryUses{ "" };
-    string mAdditionalMaterials{ "" };
     string mCategory{ "" };
     string mDrawer{ "" };
     string mMaterialImgPath{ "" };
     string mLogoImgPath{ "" };
+    string mDetails{ "" };
 
     ofVec2f imgSize{ ofVec2f( 1188, 1188 ) }; // image
     ofVec2f mSize{ ofVec2f( 3072.0f, 1388.0f ) };
@@ -71,13 +70,13 @@ class Drawer : public ofxInterface::Node {
 
     // texture
     string                                textureFile;
-    TextureAtlasDrawer::TexQuad           texQuad;
-    TextureAtlasDrawer::TexQuad           targetTexQuad;
-    TextureAtlasDrawer::TextureDimensions td;
+    TextureAtlasMaterialWindow::TexQuad           texQuad;
+    TextureAtlasMaterialWindow::TexQuad           targetTexQuad;
+    TextureAtlasMaterialWindow::TextureDimensions td;
     bool                                  drifting = false;
 
     // animations
     ofxAnimatableFloat alpha;
-    float duration = 0.5;
-    void onAnimValFinished( ofxAnimatable::AnimationEvent &event );
+    float              duration = 0.5;
+    void               onAnimValFinished( ofxAnimatable::AnimationEvent &event );
 };

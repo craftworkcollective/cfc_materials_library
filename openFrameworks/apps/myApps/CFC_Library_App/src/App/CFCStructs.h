@@ -11,7 +11,7 @@
 namespace CFC {
 
 enum class AppState { LOADING, ATTRACT, DRAWER, MATERIAL, NUM_STATES };
-enum class DrawerState {NOT_ACTIVE, FADE_IN, ACTIVE, FADE_OUT, NUM_STATES};
+enum class DrawerState { NOT_ACTIVE, FADE_IN, ACTIVE, FADE_OUT, NUM_STATES };
 enum class MaterialTypes { MANUFACTURED, META, COMMON, NOVEL, NUM_STATES };
 
 // --- CONTENT --- //
@@ -19,7 +19,7 @@ enum class ContentType { NUM_CONTENT_TYPES };
 
 
 struct ScreenObjectData {
-    int  uid;
+    int     uid;
     string  title;
     string  categoryString;
     string  description;
@@ -27,8 +27,9 @@ struct ScreenObjectData {
     string  drawerLabel;
     string  color;
     string  uses;
-    string  unexpectedUses;
+    string  materials;
     string  logoFilePath;
+    string details; 
     ofVec2f position;
 };
 

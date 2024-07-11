@@ -57,9 +57,9 @@ void AtlasManager::testDraw()
 
     for( int i = 0; i < nTimes; i++ ) {
         for( string file : filesToDraw ) {
-            TextureAtlasDrawer::TextureDimensions td = atlasManager.getTextureDimensions( file );
+            TextureAtlasMaterialWindow::TextureDimensions td = atlasManager.getTextureDimensions( file );
             ofRectangle                           r = ofRectangle( offsetX, offsetY, s * td.aspectRatio, s );
-            TextureAtlasDrawer::TexQuad           tq = getParalelogramForRect( r );
+            TextureAtlasMaterialWindow::TexQuad           tq = getParalelogramForRect( r );
             
             atlasManager.drawTextureInBatch( file, tq );
             offsetX += s * td.aspectRatio - slant + padding;
@@ -82,13 +82,13 @@ void AtlasManager::testDraw()
 
 float                       p;
 
-TextureAtlasDrawer::TexQuad AtlasManager::getParalelogramForRect( const ofRectangle &r )
+TextureAtlasMaterialWindow::TexQuad AtlasManager::getParalelogramForRect( const ofRectangle &r )
 {
 
     float slant = r.height * 0.0f;
     float ar = r.width / r.height;
 
-    TextureAtlasDrawer::TexQuad quad;
+    TextureAtlasMaterialWindow::TexQuad quad;
     quad.verts.tl = ofVec3f( r.x, r.y );
     quad.verts.tr = ofVec3f( r.x + r.width - slant, r.y );
     quad.verts.br = ofVec3f( r.x + r.width - 2 * slant, r.y + r.height );

@@ -25,18 +25,19 @@ class CFCObject {
     string uses{ "" };
     string unexpectedUses{ "" };
     string logoFilePath{ "" };
+    string details { ""}; 
 
     CFC::MaterialTypes materialType;
 
     void assignCategory()
     {
-        if( categoryString == "manufactured" ) 
-            materialType = CFC::MaterialTypes::MANUFACTURED; 
-        else if( categoryString == "meta" ) 
-            materialType = CFC::MaterialTypes::META; 
-        else if( categoryString == "common" ) 
-            materialType = CFC::MaterialTypes::COMMON; 
+        if( categoryString == "manufactured" )
+            materialType = CFC::MaterialTypes::MANUFACTURED;
+        else if( categoryString == "meta" )
+            materialType = CFC::MaterialTypes::META;
+        else if( categoryString == "common" )
+            materialType = CFC::MaterialTypes::COMMON;
         else if( categoryString == "novel" )
-            materialType = CFC::MaterialTypes::NOVEL; 
+            materialType = CFC::MaterialTypes::NOVEL;
     }
 };

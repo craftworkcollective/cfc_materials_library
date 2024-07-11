@@ -57,6 +57,8 @@ class AppManager : public ofxInterface::Node {
     int                    numScreenObjects;
     void                   layoutScreenObjects();
 
+    map<std::string, vector<int>> objectsByDrawer;
+
     // --- LISTENERS --- //
     void onContentStateFinished( ofxNotificationCenter::Notification &n );
     void onAtlasCreationFinished( bool &arg );

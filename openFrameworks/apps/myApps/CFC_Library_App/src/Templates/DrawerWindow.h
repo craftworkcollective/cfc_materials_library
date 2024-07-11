@@ -24,7 +24,7 @@ class DrawerWindow : public ofxInterface::Node {
     void draw();
     void drawInBatch( float alpha );
     void update( float dt );
-    void passData( CFC::ScreenObjectData data );
+    void passData( CFC::DrawerData data );
 
 
     // setters

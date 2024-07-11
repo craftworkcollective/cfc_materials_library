@@ -126,7 +126,7 @@ void DrawerWindow::onAnimValFinished( ofxAnimatable::AnimationEvent &event )
 }
 
 
-void DrawerWindow::passData( CFC::ScreenObjectData data )
+void DrawerWindow::passData( CFC::DrawerData data )
 {   
 
     mDrawer = data.drawerLabel;

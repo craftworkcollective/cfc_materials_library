@@ -103,7 +103,7 @@ void AppManager::setupObjects()
                         obj->categoryString = material.value( "MaterialCategory", "" );
                         obj->description = material.value( "Description", "" );
                         obj->imagePath = material.value( "TopDown", "" );
-                        obj->drawerLabel = material.value( "DrawerLabel", "" );
+                        obj->drawerLabel = ofToUpper( material.value( "DrawerLabel", "" ) );
                         obj->color = material.value( "MaterialColor", "" );
                         obj->uses = material.value( "Uses", "" );
                         obj->unexpectedUses = material.value( "UnexpectedUses", "" );
@@ -128,6 +128,24 @@ void AppManager::setupObjects()
     }
 
     ofLogNotice() << "Loaded " << objects.size() + 1 << " materials.";
+
+    // shuffle vector
+    auto rng = std::default_random_engine{};
+    std::shuffle( std::begin( objects ), std::end( objects ), rng );
+
+    // organize screen objects into dictionary
+    for( int i = 0; i < objects.size(); i++ ) {
+        string key = objects[i]->drawerLabel;
+        if( objectsByDrawer.count( key ) > 0 ) {
+            objectsByDrawer[key].push_back( i ); 
+        }
+        else {
+            ofLogNotice() << "Key '" << key << "' does not exist.";
+            objectsByDrawer[key] = vector<int>{};
+            objectsByDrawer[key].push_back(i); 
+        }
+    }
+
 
     layoutScreenObjects();
 
@@ -364,13 +382,14 @@ void AppManager::onKeyPressed( ofKeyEventArgs &arg )
         ofToggleFullscreen();
         break;
     }
-    case 'q':
+    case 'q': {
+
         CFC::DrawerData data;
         data.categoryString = "Common";
-        data.drawerLabel = "A6"; 
-        drawerWindow->passData(data);
-        drawerWindow->setState( CFC::DrawerState::FADE_IN );
+        data.drawerLabel = "A6";
+        drawerWindow->passData( data );
         break;
+    }
     default:
         break;
     }

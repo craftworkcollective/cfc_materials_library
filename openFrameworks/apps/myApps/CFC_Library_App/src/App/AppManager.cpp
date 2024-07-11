@@ -285,6 +285,7 @@ void AppManager::drawAtlas()
 
 void AppManager::setAppState( AppState appState )
 {
+    AppState previous = mAppState;  
     mAppState = appState;
 
     switch( mAppState ) {
@@ -303,11 +304,21 @@ void AppManager::setAppState( AppState appState )
     }
     case AppState::ATTRACT:
         break;
-    case AppState::DRAWER:
+    case AppState::DRAWER: {
+        if( previous == AppState::MATERIAL )
+            materialWindow->setState( CFC::DrawerState::FADE_OUT );
+
+        drawerWindow->passData( mDrawerData );
         break;
-    case AppState::MATERIAL:
+    }
+    case AppState::MATERIAL: {
+    
+        if( previous == AppState::DRAWER)
+            drawerWindow->setState(CFC::DrawerState::FADE_OUT);
+
         materialWindow->passData( mData );
         break;
+    }
     default:
         break;
     }
@@ -400,7 +411,8 @@ void AppManager::onKeyPressed( ofKeyEventArgs &arg )
             ofLogNotice() << "Key '" << data.drawerLabel << "' does not exist.";
         }
 
-        drawerWindow->passData( data );
+        mDrawerData = data; 
+        setAppState(CFC::AppState::DRAWER); 
         break;
     }
     default:

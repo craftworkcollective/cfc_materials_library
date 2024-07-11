@@ -88,6 +88,7 @@ class AppManager : public ofxInterface::Node {
     DrawerWindow         *drawerWindow;
     MaterialWindow       *materialWindow;
     CFC::ScreenObjectData mData;
+    CFC::DrawerData       mDrawerData;
 };
 
 /*

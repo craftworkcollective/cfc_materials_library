@@ -10,7 +10,7 @@ using namespace CFC;
 
 void AppManager::setup()
 {
- 
+
 
     // log to file
     if( configs().getLogToFile() ) {
@@ -109,7 +109,7 @@ void AppManager::setupObjects()
                         obj->unexpectedUses = material.value( "UnexpectedUses", "" );
                         obj->logoFilePath = material.value( "LogoFileName", "" );
 
-                        obj->assignCategory(); 
+                        obj->assignCategory();
                     }
                     else {
                         string title = material.value( "Title", "" );
@@ -145,7 +145,7 @@ void AppManager::layoutScreenObjects()
     float canvasWidth = configs().getAppSize().x + configs().getCanvasBuffer();
     float maxColumnWidth_grid = canvasWidth / configs().getNumCols();
     float drawAbleScreenSpace = configs().getAppSize().y - 2 * configs().getOutsideGridPad();
-    float height_so = ( drawAbleScreenSpace - configs().getGridSpacing()  * ( configs().getNumRows() - 1 ) ) / configs().getNumRows();
+    float height_so = ( drawAbleScreenSpace - configs().getGridSpacing() * ( configs().getNumRows() - 1 ) ) / configs().getNumRows();
     float yOrigin = configs().getOutsideGridPad() + height_so / 2;
     float xOrigin = -configs().getCanvasBuffer() / 2 - maxColumnWidth_grid;
 
@@ -157,10 +157,12 @@ void AppManager::layoutScreenObjects()
             screenObjects.push_back( new ScreenObject() );
             auto &obj = screenObjects[index];
             int   wrappedIndex = index % objects.size();
-            obj->setup( objects[wrappedIndex] );
+            obj->setup( objects[wrappedIndex], index);
             obj->setMaxSize( ofVec2f( maxColumnWidth_grid, height_so ) );
-            obj->setName( ofToString(index) ); 
-            addChild( obj ); 
+            obj->setName( ofToString( index ) );
+            addChild( obj );
+
+            ofAddListener( obj->eventSoClicked, this, &AppManager::onScreenObjectClicked );
             index++;
         }
     }
@@ -179,8 +181,6 @@ void AppManager::layoutScreenObjects()
             // screenObjects.push_back( ScreenObject( x, y, maxColumnWidth_grid, height_so ) );
         }
     }
-
-    
 }
 
 void AppManager::setupChanged( ofxScreenSetup::ScreenSetupArg &arg )
@@ -272,8 +272,8 @@ void AppManager::setAppState( AppState appState )
         setupObjects();
 
         drawer = new Drawer();
-        drawer->setup(); 
-        addChild(drawer);
+        drawer->setup();
+        addChild( drawer );
         break;
     }
     case AppState::ATTRACT:
@@ -327,16 +327,20 @@ void AppManager::nextAppState()
 void AppManager::onKeyPressed( ofKeyEventArgs &arg )
 {
     switch( arg.key ) {
-    case 'n': {
-        nextAppState();
+    case 'd': {
+        bShowDebug = !bShowDebug;
+        break;
+    }
+    case 'h': {
+        ofHideCursor();
         break;
     }
     case 'm': {
         ofShowCursor();
         break;
     }
-    case 'h': {
-        ofHideCursor();
+    case 'n': {
+        nextAppState();
         break;
     }
     case 's': {
@@ -410,4 +414,11 @@ void AppManager::onAtlasesLoaded( bool & )
         so->setupTexture();
 
     setAppState( AppState::ATTRACT );
+}
+
+void AppManager::onScreenObjectClicked( CFC::ScreenObjectData &data )
+{
+    ofLogNotice() << "button " << data.uid << " clicked";
+
+     drawer->passData( data );
 }

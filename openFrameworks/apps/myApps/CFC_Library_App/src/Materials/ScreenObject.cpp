@@ -18,11 +18,12 @@ ScreenObject::~ScreenObject()
 }
 
 
-void ScreenObject::setup( CFCObject *cfcObject )
+void ScreenObject::setup( CFCObject *cfcObject, int uid )
 {
     mCfcObject = cfcObject;
     mPos.x = ofRandom( ofGetWidth() );
     mPos.y = ofRandom( ofGetHeight() );
+    uid = mUid; 
 
     mColor = configs().getMaterialColor(mCfcObject->materialType); 
 
@@ -175,9 +176,12 @@ void ScreenObject::onTouchUp( ofxInterface::TouchEvent &event )
 
 void ScreenObject::onClick( ofxInterface::TouchEvent &event )
 {
-    /*
-    umoData thisData;
-    thisData.umoId = objectId;
-    ofNotifyEvent( eventUmoClicked, thisData, this );
-    */
+    
+    CFC::ScreenObjectData data;
+    data.uid = mUid;
+    data.title = mCfcObject->title; 
+    data.description = mCfcObject->description; 
+    data.texturePath = textureFile; 
+    ofNotifyEvent( eventSoClicked, data, this );
+    
 }

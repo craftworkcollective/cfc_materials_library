@@ -3,13 +3,12 @@
 //--------------------------------------------------------------
 void ofApp::setup()
 {
-
     //! general setup
     ofSetFrameRate( 60 );
     ofSetVerticalSync( true );
     ofEnableAlphaBlending();
-    //ofBackground( 236, 52, 46 );
-    ofBackground(0);
+    // ofBackground( 236, 52, 46 );
+    ofBackground( 0 );
 
     // set up configs
     configs().setup();
@@ -24,7 +23,7 @@ void ofApp::setup()
 
     app = new AppManager();
     app->setup();
-    app->setName( "APP" ); 
+    app->setName( "APP" );
     app->setPosition( ofVec2f( 0.0f, 0.0f ) );
     app->setSize( ofVec2f( configs().getAppSize().x, configs().getAppSize().y ) );
     scene->addChild( app );
@@ -33,7 +32,6 @@ void ofApp::setup()
 //--------------------------------------------------------------
 void ofApp::update()
 {
-
     float dt;
 
     dt = 1.0f / mFrameRate;
@@ -51,7 +49,7 @@ void ofApp::draw()
 {
     scene->render();
 
-    if( bShowDebug ) {
+    if( app->getDebug()  ) {
         scene->renderDebug();
     }
 }
@@ -59,13 +57,12 @@ void ofApp::draw()
 //--------------------------------------------------------------
 void ofApp::keyPressed( int key )
 {
-    if( key == 'd' )
-        bShowDebug != bShowDebug;
 }
 
 //--------------------------------------------------------------
 void ofApp::keyReleased( int key )
 {
+
 }
 
 //--------------------------------------------------------------

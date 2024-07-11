@@ -11,36 +11,52 @@ Drawer::~Drawer()
 void Drawer::setup()
 {
     setName( "DRAWER" );
-    setSize( mSize );
 
     float paddingX = ( configs().getAppSize().x - mSize.x ) / 2;
     float paddingY = ( configs().getAppSize().y - mSize.y ) / 2;
 
     setPosition( paddingX, paddingY );
+    setSize( mSize );
 }
 
 void Drawer::draw()
 {
-    ofSetColor( CFCColors::brandRed );
-    ofDrawRectangle( 0.0f, 0.0f, mSize.x, mSize.y );
+    switch( mState ) {
+    case CFC::DrawerState::NOT_ACTIVE:
+        break;
+    case CFC::DrawerState::FADE_IN:
+    case CFC::DrawerState::ACTIVE:
+    case CFC::DrawerState::FADE_OUT: {
 
-    ofSetColor( 255 );
-    FontManager::one().drawTitle( mTitle );
-    FontManager::one().drawBody( mDescription );
+        ofSetColor( CFCColors::brandRed );
+        ofDrawRectangle( 0.0f, 0.0f, size.x, size.y );
+
+        ofSetColor( 255 );
+        FontManager::one().drawTitle( mTitle );
+        FontManager::one().drawBody( mDescription );
+
+
+        TS_START( "DrawAtlas Drawer" );
+        AtlasManager::get().atlasManager.beginBatchDraw();
+        drawInBatch();
+        AtlasManager::get().atlasManager.endBatchDraw( false );
+        TS_STOP( "DrawAtlas Drawer" );
+
+        break;
+    }
+    default:
+        break;
+    }
 }
 
 void Drawer::drawInBatch()
 {
-    float paddingX = ( configs().getAppSize().x - mSize.x ) / 2;
-    float paddingY = ( configs().getAppSize().y - mSize.y ) / 2;
-
-    /*
-    TextureAtlasDrawer::TextureDimensions td = AtlasManager::get().atlasManager.getTextureDimensions( file );
-    ofRectangle                           r = ofRectangle( offsetX, offsetY, s * td.aspectRatio, s );
-    TextureAtlasDrawer::TexQuad           tq = getParalelogramForRect( r );
-
     texQuad = targetTexQuad;
     TextureAtlasDrawer::TexQuad q = texQuad;
+
+    float padding = 100.0f;
+
+    ofVec2f mPos = ofVec2f( padding, padding );
     q.verts.tl += mPos;
     q.verts.tr += mPos;
     q.verts.br += mPos;
@@ -50,29 +66,82 @@ void Drawer::drawInBatch()
     ofSetColor( 255 );
     AtlasManager::get().atlasManager.drawTextureInBatch( mMaterialImgPath, q, ofColor( ofColor::white, 255.0f ) );
     ofSetColor( 255 );
-    */
 }
 
 void Drawer::update( float dt )
 {
 }
 
-TextureAtlasDrawer::TexQuad Drawer::getParalelogramForRect( const ofRectangle &r )
+void Drawer::setState( CFC::DrawerState state )
+{
+    mState = state;
+
+    switch( mState ) {
+    case CFC::DrawerState::NOT_ACTIVE:
+        break;
+    case CFC::DrawerState::FADE_IN:
+        break;
+    case CFC::DrawerState::ACTIVE:
+        break;
+    case CFC::DrawerState::FADE_OUT:
+        break;
+    default:
+        break;
+    }
+}
+
+
+void Drawer::passData( CFC::ScreenObjectData data )
+{
+    mTitle = data.title;
+    mDescription = data.description;
+    mMaterialImgPath = data.texturePath;
+
+    // set up texture
+    float ar = td.height * td.width;
+    float scaledWidth = size.y / ( ar );
+    float percWidth = ( scaledWidth - size.x ) / scaledWidth;
+
+    calcCrop( 1.0f );
+
+    setState( CFC::DrawerState::FADE_IN );
+
+    /*
+    string  title;
+    string  categoryString;
+    string  description;
+    string  imagePath;
+    string  drawerLabel;
+    string  color;
+    string  uses;
+    string  unexpectedUses;
+    string  logoFilePath;
+    ofVec2f position;
+    */
+}
+
+void Drawer::calcCrop( float widthPerc )
 {
 
-    float slant = r.height;
-    float ar = r.width / r.height;
+    TextureAtlasDrawer::TextureDimensions td = AtlasManager::get().atlasManager.getTextureDimensions( mMaterialImgPath );
+    float                                 realWidth = imgSize.y * td.aspectRatio;
+    // bc screenobjects have a capped width, we need to already crop; this is the max width % we can show for that photo
+    float cropWidthPct = ofClamp( imgSize.x / realWidth, 0, 1 );
 
-    TextureAtlasDrawer::TexQuad quad;
-    quad.verts.tl = ofVec3f( r.x, r.y );
-    quad.verts.tr = ofVec3f( r.x + r.width - slant, r.y );
-    quad.verts.br = ofVec3f( r.x + r.width - 2 * slant, r.y + r.height );
-    quad.verts.bl = ofVec3f( r.x - slant, r.y + r.height );
+    float wPct
+        = ofMap( widthPerc, 0, 1, 0, 0.5 * cropWidthPct, true ); // and here we remap that max width % we can show to what "widthPerc" is
+    float newW = realWidth * wPct;                               // pixels
 
-    quad.texCoords.tl = ofVec2f( ( slant ) / ( r.width ), 0 );
-    quad.texCoords.tr = ofVec2f( 1, 0 );
-    quad.texCoords.br = ofVec2f( ( r.width - ( slant ) ) / ( r.width ), 1 );
-    quad.texCoords.bl = ofVec2f( 0, 1 );
+    // drawPosition - pixels
+    targetTexQuad.verts.tl = ofVec2f( 0, 0); 
+    targetTexQuad.verts.tr = ofVec2f( +newW*2, 0 ); 
+    targetTexQuad.verts.br = ofVec2f( +newW*2, +imgSize.y );
+    targetTexQuad.verts.bl = ofVec2f( 0, +imgSize.y  );
 
-    return quad;
+
+    // texture crop - normalized coords
+    targetTexQuad.texCoords.tl = ofVec2f( 0.5f - wPct, 0 );
+    targetTexQuad.texCoords.tr = ofVec2f( 0.5f + wPct, 0 );
+    targetTexQuad.texCoords.br = ofVec2f( 0.5f + wPct, 1 );
+    targetTexQuad.texCoords.bl = ofVec2f( 0.5f - wPct, 1 );
 }

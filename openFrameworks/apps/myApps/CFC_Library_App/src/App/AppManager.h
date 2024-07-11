@@ -10,11 +10,11 @@
 #include "AtlasManager.h"
 #include "CFCObject.h"
 #include "CFCStructs.h"
+#include "Drawer.h"
+#include "FontManager.h"
 #include "ScreenObject.h"
 #include "ofxNotificationCenter.h"
 #include "ofxScreenSetup.h"
-#include "Drawer.h"
-#include "FontManager.h"
 #define CONFIGS_DIRECTORY "configs"
 
 class AppManager : public ofxInterface::Node {
@@ -39,6 +39,7 @@ class AppManager : public ofxInterface::Node {
     void   setAppState( CFC::AppState appState );
     void   nextAppState();
     string getAppState();
+    bool   getDebug() { return bShowDebug; };
 
 
     // --- KEY EVENTS --- //
@@ -47,17 +48,19 @@ class AppManager : public ofxInterface::Node {
   private:
     // --- STATES --- //
     CFC::AppState mAppState;
+    bool          bShowDebug{ false };
 
     // screen objects
-    vector<CFCObject *>              objects;
-    vector<ScreenObject*>             screenObjects;
-    int                              numScreenObjects;
-    void                             layoutScreenObjects();
+    vector<CFCObject *>    objects;
+    vector<ScreenObject *> screenObjects;
+    int                    numScreenObjects;
+    void                   layoutScreenObjects();
 
     // --- LISTENERS --- //
     void onContentStateFinished( ofxNotificationCenter::Notification &n );
     void onAtlasCreationFinished( bool &arg );
     void onAtlasesLoaded( bool & );
+    void onScreenObjectClicked( CFC::ScreenObjectData &data ); 
 
     //! animatable object
     ofxAnimatableFloat mAnim;
@@ -79,7 +82,7 @@ class AppManager : public ofxInterface::Node {
     ofVec2f maxSiz;
 
     // drawer
-    Drawer *drawer; 
+    Drawer *drawer;
 };
 
 /*

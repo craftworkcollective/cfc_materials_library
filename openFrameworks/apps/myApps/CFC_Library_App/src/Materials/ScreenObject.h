@@ -20,7 +20,7 @@ class ScreenObject : public ofxInterface::Node {
     ~ScreenObject();
 
     // Setup and Update
-    void setup( CFCObject *cfcObject );
+    void setup( CFCObject *cfcObject, int uid);
     void setStartPosition( ofVec2f pos );
     void update( float dt );
     void updateDrift();
@@ -47,8 +47,13 @@ class ScreenObject : public ofxInterface::Node {
     void onTouchUp( ofxInterface::TouchEvent &event );
     void onClick( ofxInterface::TouchEvent &event );
 
+    
+    // events
+    ofEvent<CFC::ScreenObjectData> eventSoClicked;
+
   private:
     // ATTRIBUTES
+    int             mUid{ 0 };
     ofxAnimatableFloat animVal;
     ofVec2f            mPos;
     ofVec2f            startPos;
@@ -73,4 +78,5 @@ class ScreenObject : public ofxInterface::Node {
 
     // touch
     bool mTouched{ false };
+
 };

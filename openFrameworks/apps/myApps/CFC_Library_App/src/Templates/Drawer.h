@@ -22,7 +22,10 @@ class Drawer : public ofxInterface::Node {
     void draw();
     void drawInBatch();
     void update( float dt );
+    void passData( CFC::ScreenObjectData data );
 
+
+    // setters
     void setTitle( string txt ) { mTitle = txt; };
     void setDescription( string txt ) { mDescription = txt; };
     void setCompositeMaterials( string txt ) { mCompositeMaterials = txt; };
@@ -32,8 +35,9 @@ class Drawer : public ofxInterface::Node {
     void setDrawer( string txt ) { mDrawer = txt; };
     void setLogoPath( string path ) { mLogoImgPath = path; };
     void setMaterialImgPath( string path ) { mMaterialImgPath = path; }
+    void setState( CFC::DrawerState state );
 
-    TextureAtlasDrawer::TexQuad getParalelogramForRect( const ofRectangle &r );
+    void Drawer::calcCrop( float widthPerc );
 
   private:
     string mTitle{ "Mock Rib Pocket Stretch Sensor" };
@@ -50,7 +54,17 @@ class Drawer : public ofxInterface::Node {
     string mMaterialImgPath{ "" };
     string mLogoImgPath{ "" };
 
+    ofVec2f imgSize{ ofVec2f( 1188, 1188 ) }; // image
     ofVec2f mSize{ ofVec2f( 3072.0f, 1388.0f ) };
-    ofVec2f imgSize{ ofVec2f( 3072.0f, 1388.0f ) };
     float   padding{ 100.0f };
+
+    CFC::DrawerState mState{ CFC::DrawerState::NOT_ACTIVE };
+
+
+    // texture
+    string                                textureFile;
+    TextureAtlasDrawer::TexQuad           texQuad;
+    TextureAtlasDrawer::TexQuad           targetTexQuad;
+    TextureAtlasDrawer::TextureDimensions td;
+    bool                                  drifting = false;
 };

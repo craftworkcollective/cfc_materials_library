@@ -35,6 +35,8 @@ void DrawerObject::update( float dt )
 
 void DrawerObject::draw()
 {
+    ofSetColor( 255, mAlpha );
+    FontManager::one().drawDOMaterialCompany( mTitle, mCompany, 0.0f );
 
     // draw the touch anchor
     if( UO_touched ) {
@@ -70,8 +72,8 @@ void DrawerObject::onClick( ofxInterface::TouchEvent &event )
 void DrawerObject::calcCrop( float widthPerc )
 {
 
-     TextureAtlasDrawer::TextureDimensions td = AtlasManager::get().atlasManager.getTextureDimensions( textureFile );
-    float realWidth = imgSize.y * td.aspectRatio;
+    TextureAtlasDrawer::TextureDimensions td = AtlasManager::get().atlasManager.getTextureDimensions( textureFile );
+    float                                 realWidth = imgSize.y * td.aspectRatio;
     // bc screenobjects have a capped width, we need to already crop; this is the max width % we can show for that photo
     float cropWidthPct = ofClamp( imgSize.x / realWidth, 0, 1 );
 
@@ -98,7 +100,7 @@ void DrawerObject::drawInBatch( float alpha )
     texQuad = targetTexQuad;
     TextureAtlasDrawer::TexQuad q = texQuad;
 
-    //float padding = 91.0f;
+    // float padding = 91.0f;
 
     ofVec2f mPos = ofVec2f( getPosition().x, getPosition().y );
     q.verts.tl += mPos;

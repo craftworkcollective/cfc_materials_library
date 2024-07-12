@@ -2,10 +2,11 @@
 
 #pragma once
 
+#include "AtlasManager.h"
+#include "FontManager.h";
 #include "TextureAtlasDrawer.h"
 #include "ofMain.h"
 #include "ofxInterface.h"
-#include "AtlasManager.h"
 
 class DrawerObject : public ofxInterface::Node {
   public:
@@ -15,6 +16,7 @@ class DrawerObject : public ofxInterface::Node {
     void setup( ofVec2f rectSize, ofVec2f position );
     void update( float dt );
     void draw();
+    void setAlpha( float alpha ) { mAlpha = alpha; };
     void drawInBatch( float alpha );
 
     // touch
@@ -27,17 +29,22 @@ class DrawerObject : public ofxInterface::Node {
     // texture
     void calcCrop( float widthPerc );
     void setTexturePath( string path ) { textureFile = path; };
+    void setCompany( string company ) { mCompany = company; };
+
+    void setTItle( string title ) { mTitle = title; };
 
   private:
     ofVec2f touchAnchor;
     bool    UO_touched;
 
     // attributes
+    float   mAlpha{ 0.0f };
+    string  mTitle{ "" };
+    string  mCompany{ "" };
     ofColor color;
     ofColor highlightColor;
     ofVec2f size;
     ofVec2f startPosition;
-    string  objectId;
 
     // texture
     ofVec2f                               imgSize{ ofVec2f( 650, 650 ) }; // image

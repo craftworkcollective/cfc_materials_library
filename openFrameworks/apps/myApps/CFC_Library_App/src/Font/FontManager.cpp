@@ -4,7 +4,7 @@ void FontManager::setupFonts()
 {
     reg.setup( "fonts/NunitoSans_10pt-Regular.ttf", lineHeightPercent, texDimension, createMipMaps, intraCharPadding, dpiScale );
     medium.setup( "fonts/NunitoSans_10pt-Medium.ttf", lineHeightPercent, texDimension, createMipMaps, intraCharPadding, dpiScale );
-    bold.setup( "fonts/NunitoSans_10pt-Bold.ttf", lineHeightPercent, texDimension, createMipMaps, intraCharPadding, dpiScale );
+    bold.setup( "fonts/NunitoSans_10pt-Bold.ttf", .9, texDimension, createMipMaps, intraCharPadding, dpiScale );
     semiBold.setup( "fonts/NunitoSans_10pt-SemiBold.ttf", lineHeightPercent, texDimension, createMipMaps, intraCharPadding, dpiScale );
 }
 
@@ -14,9 +14,9 @@ void FontManager::update()
 
 void FontManager::drawTitle( string title )
 {
-
     bold.draw( title, titleSize, titlePos.x, titlePos.y );
 };
+
 
 void FontManager::drawDrawer( string drawer )
 {
@@ -81,16 +81,72 @@ void FontManager::drawBody( string description, string composite, string uses, s
         bold.draw( "Primary Uses", restOfInfo, usesPos.x, usesPos.y );
         usesPos.y += titleSpacing;
 
-       usesRec = reg.drawMultiLineColumn(
+        usesRec = reg.drawMultiLineColumn(
             uses, restOfInfo, usesPos.x, usesPos.y, bounding_box_width, numLines, false, 5, true, &wordsWereCropped, false );
     }
 
     detailsPos.y = usesPos.y + usesRec.getHeight() + spacing;
     if( details.size() > 0 ) {
-       bold.draw( "Additional Details", restOfInfo, detailsPos.x, detailsPos.y );
-       detailsPos.y += titleSpacing;
+        bold.draw( "Additional Details", restOfInfo, detailsPos.x, detailsPos.y );
+        detailsPos.y += titleSpacing;
 
-        detailsRec = reg.drawMultiLineColumn( details, restOfInfo, detailsPos.x, detailsPos.y , bounding_box_width,
-            numLines, false, 5, true, &wordsWereCropped, false );
+        detailsRec = reg.drawMultiLineColumn(
+            details, restOfInfo, detailsPos.x, detailsPos.y, bounding_box_width, numLines, false, 5, true, &wordsWereCropped, false );
     }
+};
+
+void FontManager::drawDrawerCategory( string text )
+{
+    bold.draw( text + " Materials", titleSize, titlePosDrawer.x, titlePosDrawer.y );
+};
+
+void FontManager::drawDrawerMaterial( string text )
+{
+    reg.draw( text, titleSize, titlePosDrawer.x, titlePosDrawer.y );
+};
+
+void FontManager::drawDrawerCompany( string text )
+{
+    reg.draw( text, titleSize, titlePosDrawer.x, titlePosDrawer.y );
+};
+
+
+void FontManager::drawDrawerLabel( string text, float width )
+{
+    reg.draw( text, titleSize, drawerLabelDrawer.x - width, drawerLabelDrawer.y );
+};
+
+float FontManager::getDrawerLabelWidth( string text )
+{
+    return FontManager::one().reg.draw( text, titleSize, 0.0f, 0.0f );
+}
+
+void FontManager::drawDOMaterialCompany( string material, string company, float xpos )
+{
+    int  numLines;
+    bool wordsWereCropped;
+
+    ofVec2f pos = doPos;
+
+    ofRectangle rec = bold.drawMultiLineColumn( material, // string
+        restOfInfo,                                      // size
+        pos.x, pos.y,                                    // position
+        DOsize,                                          // column width
+        numLines,                                        // get back the number of lines
+        false,                                           // true would not draw, just get back the rectangle
+        5,                                               // max number of lines
+        true,                                            // get the final text formatting (by adding \n's) in the supplied string
+        &wordsWereCropped,                               // this is set to true if the box was too small to fit all of the text
+        false );
+
+    ofRectangle rec1 = reg.drawMultiLineColumn( company, // string
+        restOfInfo,                                      // size
+        pos.x, pos.y + rec.getHeight() + 10.0f,                              // position
+        DOsize,                                          // column width
+        numLines,                                        // get back the number of lines
+        false,                                           // true would not draw, just get back the rectangle
+        5,                                               // max number of lines
+        true,                                            // get the final text formatting (by adding \n's) in the supplied string
+        &wordsWereCropped,                               // this is set to true if the box was too small to fit all of the text
+        false );
 };

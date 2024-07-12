@@ -40,7 +40,7 @@ class DrawerWindow : public ofxInterface::Node {
 
     ofVec2f mSize{ ofVec2f( 3072.0f, 1388.0f ) };
     float   padding{ 100.0f };
-
+    float   drawerLabelWidth{ 0.0f };
     // UI
     CloseButton *closeBtn;
     void         onCloseBtnClicked( CFC::ScreenObjectData &data );
@@ -49,10 +49,10 @@ class DrawerWindow : public ofxInterface::Node {
     CFC::DrawerState mState{ CFC::DrawerState::NOT_ACTIVE };
 
     // drawerObjects
-    float xPos = 100.0f; 
-  
+    float xPos = 100.0f;
+
     vector<DrawerObject *> objects;
-    int numActive = 0; 
+    int                    numActive = 0;
 
     // animations
     ofxAnimatableFloat alpha;

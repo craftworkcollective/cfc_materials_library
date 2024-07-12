@@ -48,6 +48,11 @@ void DrawerWindow::update( float dt )
 {
     alpha.update( dt );
     closeBtn->setAlpha( 255.0f * alpha.getCurrentValue() );
+    drawerLabelWidth = FontManager::one().getDrawerLabelWidth( mDrawer );
+
+    for(auto& obj : objects) {
+        obj->setAlpha( alpha.getCurrentValue()*255 );
+    }
 }
 
 
@@ -64,13 +69,20 @@ void DrawerWindow::draw()
         ofSetColor( CFCColors::brandRed, alphaVal );
         ofDrawRectangle( 0.0f, 0.0f, size.x, size.y );
 
+        ofSetColor( 255, alphaVal );
+        FontManager::one().drawDrawerCategory( mCategory );
+        FontManager::one().drawDrawerLabel( mDrawer, drawerLabelWidth );
+
+
         TS_START( "DrawAtlas Drawer" );
         AtlasManager::get().atlasManager.beginBatchDraw();
-        for(int i=0; i < numActive; i++) {
+        for( int i = 0; i < numActive; i++ ) {
             objects[i]->drawInBatch( alphaVal );
         }
         AtlasManager::get().atlasManager.endBatchDraw( false );
         TS_STOP( "DrawAtlas Drawer" );
+
+        
 
 
         break;
@@ -86,12 +98,12 @@ void DrawerWindow::setState( CFC::DrawerState state )
 
     switch( mState ) {
     case CFC::DrawerState::NOT_ACTIVE:
-        closeBtn->setSize( 0.0f, 0.0f ); 
+        closeBtn->setSize( 0.0f, 0.0f );
         setSize( 0.0f, 0.0f );
         break;
     case CFC::DrawerState::FADE_IN:
         setSize( mSize.x, mSize.y );
-        closeBtn->setSize( 50.0f, 50.0f ); 
+        closeBtn->setSize( 50.0f, 50.0f );
         alpha.animateFromTo( 0, 1 );
         break;
     case CFC::DrawerState::ACTIVE:
@@ -133,10 +145,12 @@ void DrawerWindow::passData( CFC::DrawerData data )
         if( i < objects.size() ) {
             objects[i]->setTexturePath( data.imgPaths[i] );
             objects[i]->calcCrop( 1.0 );
+            objects[i]->setCompany( data.companies[i] );
+            objects[i]->setTItle( data.titles[i] );
         }
     }
 
-    numActive = data.imgPaths.size(); 
+    numActive = data.imgPaths.size();
 
     /*
     * NEED TO DO

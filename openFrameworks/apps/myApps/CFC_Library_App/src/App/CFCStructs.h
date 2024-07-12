@@ -38,6 +38,8 @@ struct DrawerData {
     string drawerLabel;
     vector<int> uids; 
     vector<string> imgPaths; 
+    vector<string> companies;
+    vector<string> titles;
 };
 
 } // namespace CFC

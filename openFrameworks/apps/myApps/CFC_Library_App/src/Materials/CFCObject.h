@@ -15,7 +15,6 @@ class CFCObject {
     CFCObject(){};
     ~CFCObject(){};
 
-    string uid{ "" };
     string title{ "" };
     string categoryString{ "" };
     string description{ "" };
@@ -23,9 +22,9 @@ class CFCObject {
     string drawerLabel{ "" };
     string color{ "" };
     string uses{ "" };
-    string unexpectedUses{ "" };
     string logoFilePath{ "" };
     string details { ""}; 
+    string company{ "" };
 
     CFC::MaterialTypes materialType;
 

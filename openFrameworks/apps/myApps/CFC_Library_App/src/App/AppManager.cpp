@@ -98,7 +98,6 @@ void AppManager::setupObjects()
                         auto &obj = objects[index];
                         index++;
 
-                        obj->uid = material.value( "UID", "" );
                         obj->title = material.value( "Title", "" );
                         obj->categoryString = material.value( "MaterialCategory", "" );
                         obj->description = material.value( "Description", "" );
@@ -106,8 +105,9 @@ void AppManager::setupObjects()
                         obj->drawerLabel = ofToUpper( material.value( "DrawerLabel", "" ) );
                         obj->color = material.value( "MaterialColor", "" );
                         obj->uses = material.value( "Uses", "" );
-                        obj->unexpectedUses = material.value( "UnexpectedUses", "" );
                         obj->logoFilePath = material.value( "LogoFileName", "" );
+
+                        obj->company = material.value( "CompanyName", "" );
                         obj->details = material.value( "AdditionalDetails", "" );
 
                         obj->assignCategory();
@@ -285,7 +285,7 @@ void AppManager::drawAtlas()
 
 void AppManager::setAppState( AppState appState )
 {
-    AppState previous = mAppState;  
+    AppState previous = mAppState;
     mAppState = appState;
 
     switch( mAppState ) {
@@ -312,9 +312,9 @@ void AppManager::setAppState( AppState appState )
         break;
     }
     case AppState::MATERIAL: {
-    
-        if( previous == AppState::DRAWER)
-            drawerWindow->setState(CFC::DrawerState::FADE_OUT);
+
+        if( previous == AppState::DRAWER )
+            drawerWindow->setState( CFC::DrawerState::FADE_OUT );
 
         materialWindow->passData( mData );
         break;
@@ -402,17 +402,19 @@ void AppManager::onKeyPressed( ofKeyEventArgs &arg )
         if( objectsByDrawer.count( data.drawerLabel ) > 0 ) {
 
             for( int i = 0; i < objectsByDrawer[data.drawerLabel].size(); i++ ) {
-                int index = objectsByDrawer[data.drawerLabel][i]; 
-                data.uids.push_back(index);
-                data.imgPaths.push_back( "images\\" + objects[index]->imagePath ); 
+                int index = objectsByDrawer[data.drawerLabel][i];
+                data.uids.push_back( index );
+                data.imgPaths.push_back( "images\\" + objects[index]->imagePath );
+                data.companies.push_back( objects[index]->company );
+                data.titles.push_back( objects[index]->title );
             }
         }
         else {
             ofLogNotice() << "Key '" << data.drawerLabel << "' does not exist.";
         }
 
-        mDrawerData = data; 
-        setAppState(CFC::AppState::DRAWER); 
+        mDrawerData = data;
+        setAppState( CFC::AppState::DRAWER );
         break;
     }
     default:

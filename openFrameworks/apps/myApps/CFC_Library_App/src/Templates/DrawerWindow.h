@@ -33,6 +33,9 @@ class DrawerWindow : public ofxInterface::Node {
     void setDrawer( string txt ) { mDrawer = txt; };
     void setState( CFC::DrawerState state );
 
+    // getters
+    vector<DrawerObject *> objects;
+
   private:
     string mCategory{ "" };
     string mDrawer{ "" };
@@ -50,8 +53,6 @@ class DrawerWindow : public ofxInterface::Node {
 
     // drawerObjects
     float xPos = 100.0f;
-
-    vector<DrawerObject *> objects;
     int                    numActive = 0;
 
     // animations

@@ -14,7 +14,7 @@ ScreenObject::~ScreenObject()
     ofRemoveListener( eventTouchDown, this, &ScreenObject::onTouchDown );
     ofRemoveListener( eventTouchUp, this, &ScreenObject::onTouchUp );
     ofRemoveListener( eventClick, this, &ScreenObject::onClick );
-    //ofRemoveListener( animVal.animFinished, this, &ScreenObject::onAnimValFinished );
+    // ofRemoveListener( animVal.animFinished, this, &ScreenObject::onAnimValFinished );
 }
 
 
@@ -23,17 +23,15 @@ void ScreenObject::setup( CFCObject *cfcObject, int uid )
     mCfcObject = cfcObject;
     mPos.x = ofRandom( ofGetWidth() );
     mPos.y = ofRandom( ofGetHeight() );
-    uid = mUid; 
+    uid = mUid;
 
-    mColor = configs().getMaterialColor(mCfcObject->materialType); 
+    mColor = configs().getMaterialColor( mCfcObject->materialType );
 
-       
+
     // register touch events
     ofAddListener( eventTouchDown, this, &ScreenObject::onTouchDown );
     ofAddListener( eventTouchUp, this, &ScreenObject::onTouchUp );
     ofAddListener( eventClick, this, &ScreenObject::onClick );
-
-   
 }
 
 
@@ -43,11 +41,11 @@ void ScreenObject::setStartPosition( ofVec2f pos )
 }
 
 
- void ScreenObject::setMaxSize( ofVec2f size )
+void ScreenObject::setMaxSize( ofVec2f size )
 {
     maxSize = size;
-    mTargetSize = size; 
-    
+    mTargetSize = size;
+
     setSize( maxSize.x, maxSize.y );
 };
 
@@ -96,9 +94,9 @@ void ScreenObject::calcCrop( float widthPerc )
 void ScreenObject::update( float dt )
 {
     updateDrift();
-    mPos = startPos +  drift;
-    setPosition(mPos - maxSize/2); 
-    //updateVisibility();
+    mPos = startPos + drift;
+    setPosition( mPos - maxSize / 2 );
+    // updateVisibility();
 }
 
 void ScreenObject::updateDrift()
@@ -108,19 +106,25 @@ void ScreenObject::updateDrift()
     drift.y = 0;
     drift.x += 1.0f;
 
-    //configs().getAppSize().x + canvasBuffer / 2
-    float renderX = configs().getAppSize().x + configs().getCanvasBuffer() ;
+    // configs().getAppSize().x + canvasBuffer / 2
+    float renderX = configs().getAppSize().x + configs().getCanvasBuffer();
     float columnWidth = renderX / configs().getNumCols();
-    float xOrigin =  - configs().getCanvasBuffer() / 2;
-    float xPosMax = configs().getAppSize().x + configs().getCanvasBuffer()/2;
+    float xOrigin = -configs().getCanvasBuffer() / 2;
+    float xPosMax = configs().getAppSize().x + configs().getCanvasBuffer() / 2;
 
     if( mPos.x > xPosMax ) {
-        // NEED TO DO: RESET
         startPos = ofVec2f( xOrigin, startPos.y );
         drift = ofVec2f( 0, 0 );
     }
 
-   
+    if( mPos.x < -size.x )
+        mOnScreen = false;
+    else
+        mOnScreen = true;
+
+    if( mPos.x > ofGetWidth() )
+        mReplaceData = true;
+
 }
 
 
@@ -132,7 +136,7 @@ void ScreenObject::drawDebug()
         ofSetColor( 100, 0, 0, 100 );
         ofFill();
         ofDrawRectangle( 0, 0, maxSize.x, maxSize.y );
-        ofNoFill(); 
+        ofNoFill();
     }
 }
 
@@ -154,8 +158,8 @@ void ScreenObject::drawInBatch()
 
         ofSetColor( 255 );
         AtlasManager::get().atlasManager.drawTextureInBatch( textureFile, q, ofColor( ofColor::white, mAlpha ) );
-        //AtlasManager::get().atlasManager.drawTextureInBatch( textureFile, q, ofColor( mColor, mAlpha * .3 ) );
-        //AtlasManager::get().atlasManager.drawTextureInBatch( textureFile, q, ofColor( ofColor::white, mAlpha ) );
+        // AtlasManager::get().atlasManager.drawTextureInBatch( textureFile, q, ofColor( mColor, mAlpha * .3 ) );
+        // AtlasManager::get().atlasManager.drawTextureInBatch( textureFile, q, ofColor( ofColor::white, mAlpha ) );
         ofSetColor( 255 );
     }
 }
@@ -178,17 +182,16 @@ void ScreenObject::onTouchUp( ofxInterface::TouchEvent &event )
 
 void ScreenObject::onClick( ofxInterface::TouchEvent &event )
 {
-    
+
     CFC::ScreenObjectData data;
-    data.uid = mUid;
-    data.title = mCfcObject->title; 
-    data.description = mCfcObject->description; 
-    data.texturePath = textureFile; 
-    data.drawerLabel = mCfcObject->drawerLabel; 
+    data.title = mCfcObject->title;
+    data.index = mCfcObject->indexUID;
+    data.description = mCfcObject->description;
+    data.texturePath = textureFile;
+    data.drawerLabel = mCfcObject->drawerLabel;
     data.categoryString = mCfcObject->categoryString;
-    data.uses = mCfcObject->uses; 
-    data.details = mCfcObject->details; 
+    data.uses = mCfcObject->uses;
+    data.details = mCfcObject->details;
 
     ofNotifyEvent( eventSoClicked, data, this );
-    
 }

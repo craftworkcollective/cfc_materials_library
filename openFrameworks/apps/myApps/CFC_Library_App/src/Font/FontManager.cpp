@@ -97,7 +97,7 @@ void FontManager::drawBody( string description, string composite, string uses, s
 
 void FontManager::drawDrawerCategory( string text )
 {
-    bold.draw( text + " Materials", titleSize, titlePosDrawer.x, titlePosDrawer.y );
+    bold.draw( text , titleSize, titlePosDrawer.x, titlePosDrawer.y );
 };
 
 void FontManager::drawDrawerMaterial( string text )

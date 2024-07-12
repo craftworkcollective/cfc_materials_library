@@ -7,6 +7,7 @@
 #include "TextureAtlasDrawer.h"
 #include "ofMain.h"
 #include "ofxInterface.h"
+#include "CFCStructs.h"
 
 class DrawerObject : public ofxInterface::Node {
   public:
@@ -30,8 +31,11 @@ class DrawerObject : public ofxInterface::Node {
     void calcCrop( float widthPerc );
     void setTexturePath( string path ) { textureFile = path; };
     void setCompany( string company ) { mCompany = company; };
-
+    void setSoIndex( int index ) { soIndex  = index; }; 
     void setTItle( string title ) { mTitle = title; };
+
+    // events
+    ofEvent<CFC::ScreenObjectData> eventDoClicked;
 
   private:
     ofVec2f touchAnchor;
@@ -41,6 +45,7 @@ class DrawerObject : public ofxInterface::Node {
     float   mAlpha{ 0.0f };
     string  mTitle{ "" };
     string  mCompany{ "" };
+    int     soIndex {0};
     ofColor color;
     ofColor highlightColor;
     ofVec2f size;

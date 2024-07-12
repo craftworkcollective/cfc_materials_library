@@ -96,7 +96,9 @@ void AppManager::setupObjects()
 
                         objects.push_back( new CFCObject() );
                         auto &obj = objects[index];
+                        obj->indexUID = index;
                         index++;
+
 
                         obj->title = material.value( "Title", "" );
                         obj->categoryString = material.value( "MaterialCategory", "" );
@@ -175,7 +177,7 @@ void AppManager::layoutScreenObjects()
         for( int col = 0; col < configs().getNumCols(); ++col ) {
             screenObjects.push_back( new ScreenObject() );
             auto &obj = screenObjects[index];
-            int   wrappedIndex = index % objects.size();
+            wrappedIndex = index % objects.size();
             obj->setup( objects[wrappedIndex], index );
             obj->setMaxSize( ofVec2f( maxColumnWidth_grid, height_so ) );
             obj->setName( ofToString( index ) );
@@ -225,13 +227,21 @@ void AppManager::update( float dt )
     case AppState::ATTRACT: {
         for( auto &so : screenObjects ) {
             so->update( dt );
+
+            if( so->getReplaceData() && !so->getOnScreen() ) {
+                if( wrappedIndex < objects.size() - 2 )
+                    wrappedIndex++;
+                else
+                    wrappedIndex = 0;
+
+                so->setData( objects[wrappedIndex] ); 
+                so->setReplaceData(false); 
+            }
         }
         break;
     }
     case AppState::DRAWER:
-        break;
     case AppState::MATERIAL:
-        break;
     default:
         break;
     }
@@ -299,6 +309,11 @@ void AppManager::setAppState( AppState appState )
 
         drawerWindow = new DrawerWindow();
         drawerWindow->setup();
+
+        for( int i = 0; i < drawerWindow->objects.size(); i++ ) {
+            ofAddListener( drawerWindow->objects[i]->eventDoClicked, this, &AppManager::onDrawerObjectClicked );
+        }
+
         addChild( drawerWindow );
         break;
     }
@@ -479,7 +494,24 @@ void AppManager::onAtlasesLoaded( bool & )
 
 void AppManager::onScreenObjectClicked( CFC::ScreenObjectData &data )
 {
-    ofLogNotice() << "button " << data.uid << " clicked";
+    ofLogNotice() << "button " << data.title << " clicked";
     mData = data;
     setAppState( CFC::AppState::MATERIAL );
+}
+
+void AppManager::onDrawerObjectClicked( CFC::ScreenObjectData &data )
+{
+    ofLogNotice() << "Drawer Object Clicked";
+    if( data.index < objects.size() - 1 ) {
+        data.title = objects[data.index]->title;
+        data.description = objects[data.index]->description;
+        data.texturePath = "images\\" + objects[data.index]->imagePath;
+        data.drawerLabel = objects[data.index]->drawerLabel;
+        data.categoryString = objects[data.index]->categoryString;
+        data.uses = objects[data.index]->uses;
+        data.details = objects[data.index]->details;
+
+        mData = data;
+        setAppState( CFC::AppState::MATERIAL );
+    }
 }

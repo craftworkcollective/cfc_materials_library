@@ -48,10 +48,10 @@ void DrawerWindow::update( float dt )
 {
     alpha.update( dt );
     closeBtn->setAlpha( 255.0f * alpha.getCurrentValue() );
-    drawerLabelWidth = FontManager::one().getDrawerLabelWidth( mDrawer );
+  //  drawerLabelWidth = FontManager::one().getDrawerLabelWidth( mDrawer );
 
-    for(auto& obj : objects) {
-        obj->setAlpha( alpha.getCurrentValue()*255 );
+    for( auto &obj : objects ) {
+        obj->setAlpha( alpha.getCurrentValue() * 255 );
     }
 }
 
@@ -70,8 +70,8 @@ void DrawerWindow::draw()
         ofDrawRectangle( 0.0f, 0.0f, size.x, size.y );
 
         ofSetColor( 255, alphaVal );
-        FontManager::one().drawDrawerCategory( mCategory );
-        FontManager::one().drawDrawerLabel( mDrawer, drawerLabelWidth );
+        FontManager::one().drawDrawerCategory( mCategory + " Materials in " + mDrawer );
+       // FontManager::one().drawDrawerLabel( mDrawer, drawerLabelWidth );
 
 
         TS_START( "DrawAtlas Drawer" );
@@ -81,8 +81,6 @@ void DrawerWindow::draw()
         }
         AtlasManager::get().atlasManager.endBatchDraw( false );
         TS_STOP( "DrawAtlas Drawer" );
-
-        
 
 
         break;
@@ -147,6 +145,7 @@ void DrawerWindow::passData( CFC::DrawerData data )
             objects[i]->calcCrop( 1.0 );
             objects[i]->setCompany( data.companies[i] );
             objects[i]->setTItle( data.titles[i] );
+            objects[i]->setSoIndex( data.uids[i] );
         }
     }
 

@@ -1,8 +1,8 @@
 #pragma once
 
-#include "ofMain.h"
-#include "CFCStructs.h"
 #include "CFCColors.h"
+#include "CFCStructs.h"
+#include "ofMain.h"
 
 struct Settings {
     virtual ~Settings() = default;
@@ -19,8 +19,8 @@ class AppSettings final {
     }
     ~AppSettings() = default;
 
-    void setup();
-    ofColor getMaterialColor( CFC::MaterialTypes type ); 
+    void    setup();
+    ofColor getMaterialColor( CFC::MaterialTypes type );
 
     // --- APP SETTINGS --- //
     bool getLogToFile() const { return mLogToFile; }
@@ -42,11 +42,11 @@ class AppSettings final {
     bool getAppDebug() { return appDebug; }
     void toggleAppDebug() { appDebug = !appDebug; }
 
-    int getNumRows() { return numRows; };
-    int getNumCols() { return numCols; };
+    int   getNumRows() { return numRows; };
+    int   getNumCols() { return numCols; };
     float getCanvasBuffer() { return canvasBuffer; };
-    int   getOutsideGridPad() {return outsideGridPad; };
-    int   getGridSpacing() {return gridSpacing; };
+    int   getOutsideGridPad() { return outsideGridPad; };
+    int   getGridSpacing() { return gridSpacing; };
 
 
   private:
@@ -64,6 +64,7 @@ class AppSettings final {
     string ImagePath;
     string mTransitionWipe;
     bool   createAtlases{ false };
+    bool   liveQrScanner{ false };
 
     // --- FLAGS --- //
     bool debug_json{ true };
@@ -74,8 +75,8 @@ class AppSettings final {
     string mAppSettingsFile = "settings/AppSettings.json";
 
     // internal
-    int numRows{ 5 };
-    int numCols{ 15 };
+    int   numRows{ 6 };
+    int   numCols{ 15 };
     float canvasBuffer{ 2000.0f };
     int   outsideGridPad{ 50 };
     int   gridSpacing{ 50 };

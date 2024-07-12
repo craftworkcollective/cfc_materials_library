@@ -69,12 +69,12 @@ class FontManager {
     float margin{ 100.0f };
     float spacing{ 50.0f };
     float xPos{ 1354.0f };
-    float yPos{ 100 + padding };
+    float yPos{ 85 + padding };
     float xPosImg{ 150.0f };
 
     ofVec2f titlePos{ ofVec2f( xPos, yPos ) };
     ofVec2f drawerPos{ ofVec2f( xPosImg, yPos ) };
-    ofVec2f materialCatPos{ ofVec2f( xPosImg, 1188 ) };
+    ofVec2f materialCatPos{ ofVec2f( xPosImg, 1240 ) };
     ofVec2f desPos{ ofVec2f( xPos, titlePos.y + yDistPadding + spacing ) };
 
     // drawer window

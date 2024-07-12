@@ -25,6 +25,7 @@ void AppSettings::setup()
                     appDebug = app.value( "app_debug", false );
                     mAppSize.x = app.value( "app_width", 1920 );
                     mAppSize.y = app.value( "app_height", 500 );
+                    liveQrScanner = app.value( "liveQrScanner", false );
                 }
                 else
                     ofLogWarning( "AppSettings" ) << "No app settings found.";
@@ -65,5 +66,5 @@ ofColor AppSettings::getMaterialColor( CFC::MaterialTypes type )
         break;
     }
 
-    return ofColor::white; 
+    return ofColor::white;
 }

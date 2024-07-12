@@ -36,8 +36,13 @@ class ScreenObject : public ofxInterface::Node {
     void    setColor( ofColor _color ) { mColor = _color; };
     void    setOnScreen( bool onScreen ) { mOnScreen = onScreen; };
     void    setMaxSize( ofVec2f size );
+    void    setReplaceData( bool replace ) { mReplaceData = replace; };
+    void    setData( CFCObject *cfcObject ){ mCfcObject = cfcObject; }; 
+
+    // getters
     ofColor getColor() { return mColor; };
     bool    getOnScreen() { return mOnScreen; };
+    bool    getReplaceData() {return mReplaceData; }; 
     string  getTextureFile() { return textureFile; };
     ofVec2f getTempPos() { return mPos; }
 
@@ -64,6 +69,7 @@ class ScreenObject : public ofxInterface::Node {
     ofColor            mColor{ ofColor::white };
     float              mAlpha{ 255.0f };
     bool               mOnScreen{ true };
+    bool               mReplaceData {false}; 
     bool               mDrifting{ false };
 
     // Material Data

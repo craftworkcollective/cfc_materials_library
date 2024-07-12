@@ -19,7 +19,7 @@ enum class ContentType { NUM_CONTENT_TYPES };
 
 
 struct ScreenObjectData {
-    int     uid;
+    int     index;
     string  title;
     string  categoryString;
     string  description;
@@ -40,6 +40,7 @@ struct DrawerData {
     vector<string> imgPaths; 
     vector<string> companies;
     vector<string> titles;
+   
 };
 
 } // namespace CFC

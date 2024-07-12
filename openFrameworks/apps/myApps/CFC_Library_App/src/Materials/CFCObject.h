@@ -15,6 +15,7 @@ class CFCObject {
     CFCObject(){};
     ~CFCObject(){};
 
+    int    indexUID {0}; 
     string title{ "" };
     string categoryString{ "" };
     string description{ "" };

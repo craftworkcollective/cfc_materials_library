@@ -56,7 +56,7 @@ class AppManager : public ofxInterface::Node {
     vector<ScreenObject *> screenObjects;
     int                    numScreenObjects;
     void                   layoutScreenObjects();
-
+    int                           wrappedIndex {0}; 
     map<std::string, vector<int>> objectsByDrawer;
 
     // --- LISTENERS --- //
@@ -64,6 +64,7 @@ class AppManager : public ofxInterface::Node {
     void onAtlasCreationFinished( bool &arg );
     void onAtlasesLoaded( bool & );
     void onScreenObjectClicked( CFC::ScreenObjectData &data );
+    void onDrawerObjectClicked( CFC::ScreenObjectData &data );
 
     //! animatable object
     ofxAnimatableFloat mAnim;

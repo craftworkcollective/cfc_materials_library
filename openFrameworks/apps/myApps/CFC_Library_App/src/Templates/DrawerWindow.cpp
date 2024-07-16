@@ -48,7 +48,7 @@ void DrawerWindow::update( float dt )
 {
     alpha.update( dt );
     closeBtn->setAlpha( 255.0f * alpha.getCurrentValue() );
-  //  drawerLabelWidth = FontManager::one().getDrawerLabelWidth( mDrawer );
+    //  drawerLabelWidth = FontManager::one().getDrawerLabelWidth( mDrawer );
 
     for( auto &obj : objects ) {
         obj->setAlpha( alpha.getCurrentValue() * 255 );
@@ -71,7 +71,7 @@ void DrawerWindow::draw()
 
         ofSetColor( 255, alphaVal );
         FontManager::one().drawDrawerCategory( mCategory + " Materials in " + mDrawer );
-       // FontManager::one().drawDrawerLabel( mDrawer, drawerLabelWidth );
+        // FontManager::one().drawDrawerLabel( mDrawer, drawerLabelWidth );
 
 
         TS_START( "DrawAtlas Drawer" );
@@ -98,9 +98,17 @@ void DrawerWindow::setState( CFC::DrawerState state )
     case CFC::DrawerState::NOT_ACTIVE:
         closeBtn->setSize( 0.0f, 0.0f );
         setSize( 0.0f, 0.0f );
+
+        for( auto &obj : objects ) {
+            obj->setSize( 0.0f, 0.0f );
+        }
         break;
     case CFC::DrawerState::FADE_IN:
         setSize( mSize.x, mSize.y );
+
+        for( auto &obj : objects ) {
+            obj->setSize(  650, 650 );
+        }
         closeBtn->setSize( 50.0f, 50.0f );
         alpha.animateFromTo( 0, 1 );
         break;

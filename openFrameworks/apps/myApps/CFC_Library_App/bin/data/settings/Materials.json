@@ -11,6 +11,7 @@
             "TopDown": "", 
             "MaterialCategory": "Common ", 
             "Materials": "", 
+            "Grid": "", 
             "Uses": "White oak lumber is used in woodworking for furtniture, sculpture, and carving. ", 
             "LogoFileName": "https://drive.google.com/file/d/1rnBjpgQSYg-bK6HGmKgiulHs2Y1QsQXb/view?usp=drive_link"
         }, 
@@ -25,6 +26,7 @@
             "TopDown": "redoak_topdown.jpg", 
             "MaterialCategory": "Common ", 
             "Materials": "", 
+            "Grid": "RedOak.png", 
             "Uses": "Red Oak lumber is used in woodworking for furtniture, sculpture, and carving. ", 
             "LogoFileName": "https://drive.google.com/file/d/1rnBjpgQSYg-bK6HGmKgiulHs2Y1QsQXb/view?usp=drive_link"
         }, 
@@ -39,6 +41,7 @@
             "TopDown": "wormymaple_topdown.jpg", 
             "MaterialCategory": "Common ", 
             "Materials": "", 
+            "Grid": "Maplewoodcut.png", 
             "Uses": "Maple lumber is used in woodworking for furtniture, sculpture, and carving. ", 
             "LogoFileName": "https://drive.google.com/file/d/1rnBjpgQSYg-bK6HGmKgiulHs2Y1QsQXb/view?usp=drive_link"
         }, 
@@ -53,6 +56,7 @@
             "TopDown": "walnut_topdown.jpg", 
             "MaterialCategory": "Common ", 
             "Materials": "", 
+            "Grid": "walnut_topdown.png", 
             "Uses": "Walnut lumber is used in woodworking for furtniture making, obejct design, sculpture, and carving.", 
             "LogoFileName": "https://drive.google.com/file/d/1rnBjpgQSYg-bK6HGmKgiulHs2Y1QsQXb/view?usp=drive_link"
         }, 
@@ -67,6 +71,7 @@
             "TopDown": "", 
             "MaterialCategory": "Common ", 
             "Materials": "", 
+            "Grid": "", 
             "Uses": "Sycamore lumber is used in woodworking for furtniture making and sculpture. It is specially good for carving.", 
             "LogoFileName": "https://drive.google.com/file/d/1rnBjpgQSYg-bK6HGmKgiulHs2Y1QsQXb/view?usp=drive_link"
         }, 
@@ -81,6 +86,7 @@
             "TopDown": "cherry_topdown.jpg", 
             "MaterialCategory": "Common ", 
             "Materials": "", 
+            "Grid": "Cherry.png", 
             "Uses": "Cherry lumber is used in woodworking for furtniture making and sculpture. It is specially good for carving, due to it durability and workability. ", 
             "LogoFileName": "https://drive.google.com/file/d/1rnBjpgQSYg-bK6HGmKgiulHs2Y1QsQXb/view?usp=drive_link"
         }, 
@@ -95,6 +101,7 @@
             "TopDown": "hickory_topdown.jpg", 
             "MaterialCategory": "Common ", 
             "Materials": "", 
+            "Grid": "Hickory.png", 
             "Uses": "Hickory lumber is used in woodworking for furtniture making, object design, and sculpture. It is specially good for carving due to it's strengyh and durability.", 
             "LogoFileName": "https://drive.google.com/file/d/1rnBjpgQSYg-bK6HGmKgiulHs2Y1QsQXb/view?usp=drive_link"
         }, 
@@ -109,6 +116,7 @@
             "TopDown": "ash_topdown.jpg", 
             "MaterialCategory": "Common ", 
             "Materials": "", 
+            "Grid": "Ash_angled.png", 
             "Uses": "Ash lumber is used in woodworking for furtniture, object design, sculpture and carving due to it's strenght and ilasticity.", 
             "LogoFileName": "https://drive.google.com/file/d/1rnBjpgQSYg-bK6HGmKgiulHs2Y1QsQXb/view?usp=drive_link"
         }, 
@@ -123,6 +131,7 @@
             "TopDown": "chestnut_topdown.jpg", 
             "MaterialCategory": "Common ", 
             "Materials": "", 
+            "Grid": "Chestnut.png", 
             "Uses": "Chestnut lumber is used in woodworking for furtniture,  sculpture, and carving.", 
             "LogoFileName": "https://drive.google.com/file/d/1rnBjpgQSYg-bK6HGmKgiulHs2Y1QsQXb/view?usp=drive_link"
         }, 
@@ -137,6 +146,7 @@
             "TopDown": "yellowpine_topdown.jpg", 
             "MaterialCategory": "Common ", 
             "Materials": "", 
+            "Grid": "Yellowpine.png", 
             "Uses": "Yellow Pine lumber is used in woodworking for furniture, object design, and sculputure due to it's workability.", 
             "LogoFileName": "https://drive.google.com/file/d/1rnBjpgQSYg-bK6HGmKgiulHs2Y1QsQXb/view?usp=drive_link"
         }, 
@@ -151,6 +161,7 @@
             "TopDown": "eastforl_topdown.jpg", 
             "MaterialCategory": "Common ", 
             "Materials": "99% North Carolina clays/feldspars", 
+            "Grid": "EastFork.png", 
             "Uses": "East Fork Red is great for wheel throwing, hand building and slab work.", 
             "LogoFileName": "https://drive.google.com/file/d/1arAk_M9f-Lmypuwm6eDhcHQdNTvqRl65/view?usp=drive_link"
         }, 
@@ -165,6 +176,7 @@
             "TopDown": "newcatawba_topdown.jpg", 
             "MaterialCategory": "Common ", 
             "Materials": "99% North Carolina clays/feldspars", 
+            "Grid": "Newcatawba.png", 
             "Uses": "New Catawba 10 has very unique properties that make it wonderful to work with on the potter’s wheel, and it is also great for hand building and slab work. It is very well suited for glazed pottery, as seen in many historical Catawba Valley pots, as well as in gas, wood or salt kilns.", 
             "LogoFileName": "https://drive.google.com/file/d/1arAk_M9f-Lmypuwm6eDhcHQdNTvqRl65/view?usp=drive_link"
         }, 
@@ -179,6 +191,7 @@
             "TopDown": "okeewemee_topdown.jpg", 
             "MaterialCategory": "Common ", 
             "Materials": "100% Wild dug red North Carolina clay", 
+            "Grid": "Okeewemee.png", 
             "Uses": "Okeewemee 10 is used for wheel throwing, handwork and slab work.", 
             "LogoFileName": "https://drive.google.com/file/d/1arAk_M9f-Lmypuwm6eDhcHQdNTvqRl65/view?usp=drive_link"
         }, 
@@ -193,6 +206,7 @@
             "TopDown": "darkstar_topdpwn.jpg", 
             "MaterialCategory": "Common ", 
             "Materials": "Dark Star 10 clay body is processed through a 16 mesh screen to preserve more of the rocks and sand found in the wild natural clay. ", 
+            "Grid": "DarkStar.png", 
             "Uses": "Dark Star 10 is used for wheel, handwork and slabwork, firing out to a rich dark brown/red in a reduction atmosphere. It is fairly refractory and can withstand a hot and long firing. ", 
             "LogoFileName": "https://drive.google.com/file/d/1arAk_M9f-Lmypuwm6eDhcHQdNTvqRl65/view?usp=drive_link"
         }, 
@@ -207,6 +221,7 @@
             "TopDown": "", 
             "MaterialCategory": "Common ", 
             "Materials": "100% Wild dug red North Carolina clay", 
+            "Grid": "", 
             "Uses": "Okeewemee 10 is used for wheel throwing, handwork and slab work.", 
             "LogoFileName": "https://drive.google.com/file/d/1arAk_M9f-Lmypuwm6eDhcHQdNTvqRl65/view?usp=drive_link"
         }, 
@@ -221,6 +236,7 @@
             "TopDown": "", 
             "MaterialCategory": "Common ", 
             "Materials": "99% North Carolina clays/feldspars", 
+            "Grid": "", 
             "Uses": "New Catawba 10 has very unique properties that make it wonderful to work with on the potter’s wheel, and it is also great for hand building and slab work. It is very well suited for glazed pottery, as seen in many historical Catawba Valley pots, as well as in gas, wood or salt kilns.", 
             "LogoFileName": "https://drive.google.com/file/d/1arAk_M9f-Lmypuwm6eDhcHQdNTvqRl65/view?usp=drive_link"
         }, 
@@ -235,6 +251,7 @@
             "TopDown": "", 
             "MaterialCategory": "Common ", 
             "Materials": "Dark Star 10 clay body is processed through a 16 mesh screen to preserve more of the rocks and sand found in the wild natural clay. ", 
+            "Grid": "", 
             "Uses": "Dark Star 10 is used for wheel, handwork and slabwork, firing out to a rich dark brown/red in a reduction atmosphere. It is fairly refractory and can withstand a hot and long firing. ", 
             "LogoFileName": "https://drive.google.com/file/d/1arAk_M9f-Lmypuwm6eDhcHQdNTvqRl65/view?usp=drive_link"
         }, 
@@ -249,6 +266,7 @@
             "TopDown": "", 
             "MaterialCategory": "Common ", 
             "Materials": "99% North Carolina clays/feldspars", 
+            "Grid": "", 
             "Uses": "East Fork Red is great for wheel throwing, hand building and slab work.", 
             "LogoFileName": "https://drive.google.com/file/d/1arAk_M9f-Lmypuwm6eDhcHQdNTvqRl65/view?usp=drive_link"
         }, 
@@ -263,6 +281,7 @@
             "TopDown": "wildporcelin_topdown.jpg", 
             "MaterialCategory": "Common ", 
             "Materials": "A mixture of clay, kaolin, silica, quartz, feldspar, and other materials. Kaolin is the key component in porcelain, giving it its tight", 
+            "Grid": "Wildporcelin.png", 
             "Uses": "Wild Porcelin clay is used for wheel, throwing, hand building and slab work. ", 
             "LogoFileName": "https://drive.google.com/file/d/1arAk_M9f-Lmypuwm6eDhcHQdNTvqRl65/view?usp=drive_link"
         }, 
@@ -277,6 +296,7 @@
             "TopDown": "", 
             "MaterialCategory": "Common ", 
             "Materials": "", 
+            "Grid": "", 
             "Uses": "Pemium glass batch for artists worldwide. Formulated for superior workability and excellent clarity. ", 
             "LogoFileName": "https://drive.google.com/file/d/1cf2MrfCOkz0NKWdNWZ2gCVclZ7JBX1Zj/view?usp=drive_link"
         }, 
@@ -291,6 +311,7 @@
             "TopDown": "", 
             "MaterialCategory": "Common ", 
             "Materials": "", 
+            "Grid": "", 
             "Uses": "For centuries, the Eastern Band of Cherokee and their ancestors have utilized native rivercane for a variety of purposes such as weaponry, basketry, pottery and chair making, house construction, food, medicines, and more. ", 
             "LogoFileName": ""
         }, 
@@ -305,6 +326,7 @@
             "TopDown": "", 
             "MaterialCategory": "Common ", 
             "Materials": "", 
+            "Grid": "", 
             "Uses": "Rivercane Unfished Splits show the process of splitting rivercane into strips, often done for weaving rivercane baskets and matts.", 
             "LogoFileName": ""
         }, 
@@ -319,6 +341,7 @@
             "TopDown": "", 
             "MaterialCategory": "Common ", 
             "Materials": "", 
+            "Grid": "", 
             "Uses": "Rivercane Splits are often used for weaving rivercane baskets and matts. ", 
             "LogoFileName": ""
         }, 
@@ -333,6 +356,7 @@
             "TopDown": "", 
             "MaterialCategory": "Common ", 
             "Materials": "", 
+            "Grid": "", 
             "Uses": "Butternut Dyed Rivercane Splits are often used for weaving rivercane baskets and matts. ", 
             "LogoFileName": ""
         }, 
@@ -347,6 +371,7 @@
             "TopDown": "", 
             "MaterialCategory": "Common ", 
             "Materials": "", 
+            "Grid": "", 
             "Uses": "Butternut Bark is often used to create dyes for basket weaving and textiles, resulting in brown, red-brown, or orange-red colored objects.", 
             "LogoFileName": ""
         }, 
@@ -361,6 +386,7 @@
             "TopDown": "", 
             "MaterialCategory": "Common ", 
             "Materials": "", 
+            "Grid": "", 
             "Uses": "Butternut is often used in woodworking, in particular to carve objects. ", 
             "LogoFileName": ""
         }, 
@@ -375,6 +401,7 @@
             "TopDown": "", 
             "MaterialCategory": "Common ", 
             "Materials": "", 
+            "Grid": "", 
             "Uses": "Undyed White Oak Splits are often used for  for weaving baskets and mats.", 
             "LogoFileName": ""
         }, 
@@ -389,6 +416,7 @@
             "TopDown": "", 
             "MaterialCategory": "Common ", 
             "Materials": "", 
+            "Grid": "", 
             "Uses": "", 
             "LogoFileName": ""
         }, 
@@ -403,6 +431,7 @@
             "TopDown": "", 
             "MaterialCategory": "Common ", 
             "Materials": "", 
+            "Grid": "", 
             "Uses": "", 
             "LogoFileName": ""
         }, 
@@ -417,6 +446,7 @@
             "TopDown": "", 
             "MaterialCategory": "Common ", 
             "Materials": "", 
+            "Grid": "", 
             "Uses": "", 
             "LogoFileName": ""
         }, 
@@ -431,6 +461,7 @@
             "TopDown": "", 
             "MaterialCategory": "Common ", 
             "Materials": "", 
+            "Grid": "", 
             "Uses": "", 
             "LogoFileName": ""
         }, 
@@ -445,6 +476,7 @@
             "TopDown": "", 
             "MaterialCategory": "Common ", 
             "Materials": "", 
+            "Grid": "", 
             "Uses": "", 
             "LogoFileName": ""
         }, 
@@ -459,6 +491,7 @@
             "TopDown": "", 
             "MaterialCategory": "Common ", 
             "Materials": "", 
+            "Grid": "", 
             "Uses": "", 
             "LogoFileName": ""
         }, 
@@ -473,6 +506,7 @@
             "TopDown": "", 
             "MaterialCategory": "Common ", 
             "Materials": "", 
+            "Grid": "", 
             "Uses": "", 
             "LogoFileName": ""
         }, 
@@ -487,6 +521,7 @@
             "TopDown": "", 
             "MaterialCategory": "Common ", 
             "Materials": "", 
+            "Grid": "", 
             "Uses": "", 
             "LogoFileName": ""
         }, 
@@ -501,6 +536,7 @@
             "TopDown": "", 
             "MaterialCategory": "Common ", 
             "Materials": "", 
+            "Grid": "", 
             "Uses": "", 
             "LogoFileName": ""
         }, 
@@ -515,6 +551,7 @@
             "TopDown": "", 
             "MaterialCategory": "Common ", 
             "Materials": "", 
+            "Grid": "", 
             "Uses": "", 
             "LogoFileName": ""
         }, 
@@ -529,6 +566,7 @@
             "TopDown": "returntexpolyester_topdown.jpg", 
             "MaterialCategory": "Common ", 
             "Materials": "100% Reclaimed ReturnTex™ Fibers Sourced from Western, North Carolina, USA", 
+            "Grid": "ReturntexPolyester.png", 
             "Uses": "RTXFIB-NCIB Fiber Fill is typically used for insulation, fillers, and fabrics made from fibers that are cut or gathered together and bonded using chemical adhesion, mechanical or heat treatment, or a combination of these methods.", 
             "LogoFileName": "https://drive.google.com/file/d/1k7qXtir6VoLGsaJ3gxzQQjs0NbgKxG6Y/view?usp=drive_link"
         }, 
@@ -543,6 +581,7 @@
             "TopDown": "returntexcotton_topdown.jpg", 
             "MaterialCategory": "Common ", 
             "Materials": "100% Reclaimed ReturnTex™ Fibers Sourced from Western, North Carolina, USA", 
+            "Grid": "ReturntexCotton.png", 
             "Uses": "RTXFIB-NCIB Fiber Fill is typically used for insulation, fillers, and fabrics made from fibers that are cut or gathered together and bonded using chemical adhesion, mechanical or heat treatment, or a combination of these methods.", 
             "LogoFileName": "https://drive.google.com/file/d/1k7qXtir6VoLGsaJ3gxzQQjs0NbgKxG6Y/view?usp=drive_link"
         }, 
@@ -557,6 +596,7 @@
             "TopDown": "copperthread_topdown.jpg", 
             "MaterialCategory": "", 
             "Materials": "Polyester, Copper", 
+            "Grid": "CopperThread.png", 
             "Uses": "Conductive threads are typically produced for applications such as anti-static properties, electromagnetic shielding, smart textiles, wearable technology, data transmission, and heating functions. These threads are designed with fine, flattened wires coiled around them to make them conductive. ", 
             "LogoFileName": "karl_grimm_logo.png"
         }, 
@@ -571,6 +611,7 @@
             "TopDown": "silverthread_topdown.jpg", 
             "MaterialCategory": "", 
             "Materials": "Polyester, Silver ", 
+            "Grid": "SilverThread.png", 
             "Uses": "Conductive threads are typically produced for applications such as anti-static properties, electromagnetic shielding, smart textiles, wearable technology, data transmission, and heating functions. These threads are designed with fine, flattened wires coiled around them to make them conductive. ", 
             "LogoFileName": "karl_grimm_logo.png"
         }, 
@@ -585,6 +626,7 @@
             "TopDown": "castpolyurethane_topdown.jpg", 
             "MaterialCategory": "Novel ", 
             "Materials": "", 
+            "Grid": "castpolyurethane_topdown.png", 
             "Uses": "Checkerspot® Cast PU is used for winter and water sport hard goods, climbing holds, automotive and other RIM components, electrical encapsulation.", 
             "LogoFileName": ""
         }, 
@@ -599,6 +641,7 @@
             "TopDown": "polyurethanefoam_topdown.jpg", 
             "MaterialCategory": "Novel ", 
             "Materials": "", 
+            "Grid": "PolyurethaneFoam.png", 
             "Uses": "Checkerspot® Rigid Polyurethane (PU) Foam is used for outdoor recreation hard goods (alpine and backcountry skis  and snowboards, water skis, paddles, hydrofoils) and core material for composites in automotive, construction industries.", 
             "LogoFileName": ""
         }, 
@@ -613,6 +656,7 @@
             "TopDown": "plafilament_topdown.jpg", 
             "MaterialCategory": "Manufactured", 
             "Materials": "", 
+            "Grid": "PLAFilament.png", 
             "Uses": "PLA (Polylactic Acid) Filament  is used for films and coatings for food packaging, plastic cold cups, 3D printer filament, biomedical implants, water repellent upholstry and textiles.", 
             "LogoFileName": ""
         }, 
@@ -627,6 +671,7 @@
             "TopDown": "acrylic_topdown.jpg", 
             "MaterialCategory": "Manufactured", 
             "Materials": "", 
+            "Grid": "Acrylic.png", 
             "Uses": "Cast Acrylic Sheet is used for windows, displays, enclosures, shelving, signage, sneezeguards, lighting, and furniture.", 
             "LogoFileName": ""
         }, 
@@ -641,6 +686,7 @@
             "TopDown": "hotglue_topdown.jpg", 
             "MaterialCategory": "Common", 
             "Materials": "", 
+            "Grid": "HotGlue.png", 
             "Uses": "Hot glue is commonly used in bookbinding and is suitable for binding materials such as wood, plastic, and metal.", 
             "LogoFileName": ""
         }, 
@@ -655,6 +701,7 @@
             "TopDown": "", 
             "MaterialCategory": "Novel ", 
             "Materials": "", 
+            "Grid": "", 
             "Uses": "Kelsun fits directly into existing globalized textile infrastructure, and has applications in fashion, furniture, and beyond. Kelsun has the ability to be blended with other fibers, and is shown in a cotton blend, woven and knit into textile swatches.", 
             "LogoFileName": "https://drive.google.com/drive/folders/1IcdQE6iJkS8HtVfRmqpVdE12WRbgQ45x?usp=drive_link"
         }, 
@@ -669,6 +716,7 @@
             "TopDown": "", 
             "MaterialCategory": "Novel ", 
             "Materials": "", 
+            "Grid": "", 
             "Uses": "Kelsun fits directly into existing globalized textile infrastructure, and has applications in fashion, furniture, and beyond. Kelsun has the ability to be blended with other fibers, and is shown in a cotton blend, woven and knit into textile swatches.", 
             "LogoFileName": "https://drive.google.com/drive/folders/1IcdQE6iJkS8HtVfRmqpVdE12WRbgQ45x?usp=drive_link"
         }, 
@@ -683,6 +731,7 @@
             "TopDown": "bananatex_topdown_group.jpg", 
             "MaterialCategory": "Novel ", 
             "Materials": "", 
+            "Grid": "BananatexGroup.png", 
             "Uses": "Bananatex®  fiber is used for textile and garment production, and upholstery. ", 
             "LogoFileName": "Bananatex_logo.png"
         }, 
@@ -697,6 +746,7 @@
             "TopDown": "seaweedpackaging_topdown.jpg", 
             "MaterialCategory": "Novel ", 
             "Materials": "Seaweed derived bioplastic film and recycled paper board.", 
+            "Grid": "SeaweedPackaging.png", 
             "Uses": "Seaweed-based consumer packaging is used for a variety of applications, including packaging for consumer goods and compostable bags.", 
             "LogoFileName": "SwayxEcoenclose_logo.png"
         }, 
@@ -708,9 +758,10 @@
             "Description": "Flax is a type of bast fiber,  extracted from the inner bark of the flax plant's stem. This flax sample was grown and harvested at Warren Wilson College located in Swananoa, North Carolina. It displays an over-retted treatment, resulting in coarser and darker-colored fibers.", 
             "Title": "Flax Fiber ", 
             "MaterialColor": "Light, off white ", 
-            "TopDown": "flax_topdown.jpg", 
+            "TopDown": "`flax_topdown.jpg", 
             "MaterialCategory": "Common ", 
             "Materials": "", 
+            "Grid": "Flax.png", 
             "Uses": "Flax fiber is used to produce linen, often used to make garments, bedding, lace, twine, and rope.", 
             "LogoFileName": ""
         }, 
@@ -725,6 +776,7 @@
             "TopDown": "coopworthwool_topdown.jpg", 
             "MaterialCategory": "Common ", 
             "Materials": "", 
+            "Grid": "CoopworthWool.png", 
             "Uses": "Wool is often used for textile and grament production.", 
             "LogoFileName": ""
         }, 
@@ -739,6 +791,7 @@
             "TopDown": "bamboo_topdown.jpg", 
             "MaterialCategory": "Common ", 
             "Materials": "", 
+            "Grid": "Bamboo.png", 
             "Uses": "Bamboo Viscose is often used for garment and household textiles production  like sheets, blankets, towels, hand towels, and more.", 
             "LogoFileName": ""
         }, 
@@ -753,6 +806,7 @@
             "TopDown": "bombyxsilk_topdown.jpg", 
             "MaterialCategory": "Common", 
             "Materials": "", 
+            "Grid": "BombySilk.png", 
             "Uses": "Bombyx silk is a durable, shiny, and breathable fabric that can be woven, braided, or twisted into rope. It is often used for felting, hand spinning, and making silk paper.", 
             "LogoFileName": ""
         }, 
@@ -767,6 +821,7 @@
             "TopDown": "tussahsilk_topdown.jpg", 
             "MaterialCategory": "Common", 
             "Materials": "", 
+            "Grid": "tussahsilk.png", 
             "Uses": "Tussah silk is easy to spin, which results in yarns that are very soft and great for comfort and performance. Garments made from tussah silk have the main functions of regulating body temperature, wicking moisture, and ensuring a good fit.", 
             "LogoFileName": ""
         }, 
@@ -781,6 +836,7 @@
             "TopDown": "redleafcotton_topdown.jpg", 
             "MaterialCategory": "Common", 
             "Materials": "", 
+            "Grid": "RedleafCotton.png", 
             "Uses": "Red Leaf Cotton is often used for fabric, cloth and other garment and household textile production.", 
             "LogoFileName": ""
         }, 
@@ -795,6 +851,7 @@
             "TopDown": "southcarolina_topdown.jpg", 
             "MaterialCategory": "Common", 
             "Materials": "", 
+            "Grid": "SouthCarolina.png", 
             "Uses": "Cotton is often used for fabric, cloth and other garment and household textile production.", 
             "LogoFileName": ""
         }, 
@@ -809,6 +866,7 @@
             "TopDown": "nettle_topdown.jpg", 
             "MaterialCategory": "Common", 
             "Materials": "", 
+            "Grid": "Nettle.png", 
             "Uses": "Nettle is often used to make sailcloth, rope, clothing, and other textile products. ", 
             "LogoFileName": ""
         }, 
@@ -823,6 +881,7 @@
             "TopDown": "kudzu_topdown.jpg", 
             "MaterialCategory": "Common", 
             "Materials": "", 
+            "Grid": "Kudzu.png", 
             "Uses": "Kudzu is commonly used for making clothing, textiles, paper pulp, baskets, and crafts such as spinning and crocheting, alongside silk and ramie.", 
             "LogoFileName": ""
         }, 
@@ -837,6 +896,7 @@
             "TopDown": "tulippoplarbastfibers_topdown.jpg", 
             "MaterialCategory": "Common", 
             "Materials": "", 
+            "Grid": "TulipPoplarBastfibers.png", 
             "Uses": "Tulip Poplar is often used to make pulp for papermaking.", 
             "LogoFileName": ""
         }, 
@@ -851,6 +911,7 @@
             "TopDown": "fermentedkudzu_topdown.jpg", 
             "MaterialCategory": "Common", 
             "Materials": "", 
+            "Grid": "FermentedKudzu.png", 
             "Uses": "Kudzu Vine is often used to make pulp for papermaking.", 
             "LogoFileName": ""
         }, 
@@ -865,6 +926,7 @@
             "TopDown": "okrabastfiber_topdown.jpg", 
             "MaterialCategory": "Common", 
             "Materials": "", 
+            "Grid": "Okrabastfiber.png", 
             "Uses": "Okra is often used to make pulp for papermaking.", 
             "LogoFileName": ""
         }, 
@@ -879,6 +941,7 @@
             "TopDown": "siberianiris_topdown.jpg", 
             "MaterialCategory": "Common", 
             "Materials": "", 
+            "Grid": "Siberianiris.png", 
             "Uses": "Siberian iris (Iris siberica) Leaves are often used to make pulp for papermaking.", 
             "LogoFileName": ""
         }, 
@@ -893,6 +956,7 @@
             "TopDown": "bananafiber_topdown.jpg", 
             "MaterialCategory": "Common", 
             "Materials": "", 
+            "Grid": "Bananafiber.png", 
             "Uses": "Fiber banana (Musa Basjoo) Pseudo-Stems is often used to make pulp for papermaking. ", 
             "LogoFileName": ""
         }, 
@@ -907,6 +971,7 @@
             "TopDown": "", 
             "MaterialCategory": "Common", 
             "Materials": "", 
+            "Grid": "", 
             "Uses": "Abaca is often used to make pulp for papermaking. ", 
             "LogoFileName": ""
         }, 
@@ -921,6 +986,7 @@
             "TopDown": "cotton_topdown.jpg", 
             "MaterialCategory": "Common", 
             "Materials": "", 
+            "Grid": "Cotton.png", 
             "Uses": "Cotton Linter is often used to make pulp for papermaking. It is also used to make coarse yarns and many cellulose products. ", 
             "LogoFileName": ""
         }, 
@@ -935,6 +1001,7 @@
             "TopDown": "copper_topdown.jpg", 
             "MaterialCategory": "Manufactured", 
             "Materials": "", 
+            "Grid": "Copper.png", 
             "Uses": "Copper is often used in jewelry making and other metalsmithing practices.  ", 
             "LogoFileName": ""
         }, 
@@ -949,6 +1016,7 @@
             "TopDown": "steel_topdown.jpg", 
             "MaterialCategory": "Manufactured", 
             "Materials": "", 
+            "Grid": "Steel.png", 
             "Uses": "Steel is often used in metalsmithing and blacksmithing.", 
             "LogoFileName": ""
         }, 
@@ -963,6 +1031,7 @@
             "TopDown": "mirror_topdown.jpg", 
             "MaterialCategory": "Common", 
             "Materials": "", 
+            "Grid": "Mirror.png", 
             "Uses": "Glass Mirror can be cut like glass and is often used  to apply reflective and mosaic surfaces. ", 
             "LogoFileName": ""
         }, 
@@ -977,6 +1046,7 @@
             "TopDown": "torchedbrass_topdown.jpg", 
             "MaterialCategory": "Common", 
             "Materials": "", 
+            "Grid": "Torchedbrass.png", 
             "Uses": "Brass is often used in metalsmithing and blacksmithing.", 
             "LogoFileName": "https://drive.google.com/drive/folders/11lt0vep5M1o8g2tk2bvYVR3PiXcPsoPq?usp=drive_link"
         }, 
@@ -991,6 +1061,7 @@
             "TopDown": "torchedcopper_topdown.jpg", 
             "MaterialCategory": "Common", 
             "Materials": "", 
+            "Grid": "Torchedcopper.png", 
             "Uses": "Copper is often used in jewelry making and other metalsmithing practices  ", 
             "LogoFileName": "https://drive.google.com/drive/folders/11lt0vep5M1o8g2tk2bvYVR3PiXcPsoPq?usp=drive_link"
         }, 
@@ -1005,6 +1076,7 @@
             "TopDown": "", 
             "MaterialCategory": "Common", 
             "Materials": "Enamel powder is created by smelting a mixture of raw materials like silica sand, feldspar, borax, soda ash, and sodium fluoride in a furnace, followed by grinding into a powder.", 
+            "Grid": "", 
             "Uses": "Powdered glass enamel is commonly used in metalsmithing, sculpture, and ceramics to apply a colored glossy coating and design to objects. It is also utilized in industrial production for appliances, cookware, signage, and bathtubs.", 
             "LogoFileName": "https://drive.google.com/drive/folders/11lt0vep5M1o8g2tk2bvYVR3PiXcPsoPq?usp=drive_link"
         }, 
@@ -1019,6 +1091,7 @@
             "TopDown": "", 
             "MaterialCategory": "Common", 
             "Materials": "Enamel powder is created by smelting a mixture of raw materials like silica sand, feldspar, borax, soda ash, and sodium fluoride in a furnace, followed by grinding into a powder.", 
+            "Grid": "", 
             "Uses": "Powdered glass enamel is commonly used in metalsmithing, sculpture, and ceramics to apply a colored glossy coating and design to objects. It is also utilized in industrial production for appliances, cookware, signage, and bathtubs.", 
             "LogoFileName": "https://drive.google.com/drive/folders/11lt0vep5M1o8g2tk2bvYVR3PiXcPsoPq?usp=drive_link"
         }, 
@@ -1033,6 +1106,7 @@
             "TopDown": "", 
             "MaterialCategory": "Common", 
             "Materials": "Enamel powder is created by smelting a mixture of raw materials like silica sand, feldspar, borax, soda ash, and sodium fluoride in a furnace, followed by grinding into a powder.", 
+            "Grid": "", 
             "Uses": "Powdered glass enamel is commonly used in metalsmithing, sculpture, and ceramics to apply a colored glossy coating and design to objects. It is also utilized in industrial production for appliances, cookware, signage, and bathtubs.", 
             "LogoFileName": "https://drive.google.com/drive/folders/11lt0vep5M1o8g2tk2bvYVR3PiXcPsoPq?usp=drive_link"
         }, 
@@ -1047,6 +1121,7 @@
             "TopDown": "", 
             "MaterialCategory": "Common", 
             "Materials": "Enamel powder is created by smelting a mixture of raw materials like silica sand, feldspar, borax, soda ash, and sodium fluoride in a furnace, followed by grinding into a powder.", 
+            "Grid": "", 
             "Uses": "Powdered glass enamel is commonly used in metalsmithing, sculpture, and ceramics to apply a colored glossy coating and design to objects. It is also utilized in industrial production for appliances, cookware, signage, and bathtubs.", 
             "LogoFileName": "https://drive.google.com/drive/folders/11lt0vep5M1o8g2tk2bvYVR3PiXcPsoPq?usp=drive_link"
         }, 
@@ -1061,6 +1136,7 @@
             "TopDown": "", 
             "MaterialCategory": "Common", 
             "Materials": "Enamel powder is created by smelting a mixture of raw materials like silica sand, feldspar, borax, soda ash, and sodium fluoride in a furnace, followed by grinding into a powder.", 
+            "Grid": "", 
             "Uses": "Powdered glass enamel is commonly used in metalsmithing, sculpture, and ceramics to apply a colored glossy coating and design to objects. It is also utilized in industrial production for appliances, cookware, signage, and bathtubs.", 
             "LogoFileName": "https://drive.google.com/drive/folders/11lt0vep5M1o8g2tk2bvYVR3PiXcPsoPq?usp=drive_link"
         }, 
@@ -1075,8 +1151,24 @@
             "TopDown": "", 
             "MaterialCategory": "Common", 
             "Materials": "Enamel powder is created by smelting a mixture of raw materials like silica sand, feldspar, borax, soda ash, and sodium fluoride in a furnace, followed by grinding into a powder.", 
+            "Grid": "", 
             "Uses": "Powdered glass enamel is commonly used in metalsmithing, sculpture, and ceramics to apply a colored glossy coating and design to objects. It is also utilized in industrial production for appliances, cookware, signage, and bathtubs.", 
             "LogoFileName": "https://drive.google.com/drive/folders/11lt0vep5M1o8g2tk2bvYVR3PiXcPsoPq?usp=drive_link"
+        }, 
+        {
+            "CompanyAbout": "Torched aims to bolster community and inclusivity while promoting craft as a career. People who are motivated will have the opportunity to learn a trade they can use to support themselves. Building community is a huge part of this", 
+            "Angled": "counterenamel_angled.JPG", 
+            "CompanyName": "Tibjash Metals LLC, DBA Torched", 
+            "DrawerLabel": "", 
+            "Description": "Standard lead free counter enamel", 
+            "Title": "Counter Enamel ", 
+            "MaterialColor": "Blue  ", 
+            "TopDown": "counterenamel_topdown.jpg", 
+            "MaterialCategory": "Common", 
+            "Materials": "Copper, Gold, Silver, Low Carbon Steel, Window Glass, Stained Glass, Bulls-eye, and Spectrum Glass, Effetre (Moretti), 400 Series Stainless Steel and Potter (A.K.A Ceramics)", 
+            "Grid": "Counterenamel.png", 
+            "Uses": "", 
+            "LogoFileName": "https://drive.google.com/drive/folders/11lt0vep5M1o8g2tk2bvYVR3PiXcPsoPq?usp=drive_link&pli=1"
         }, 
         {
             "CompanyAbout": "Adafruit, established in 2005, is dedicated to providing a premier online platform for learning electronics and offering high-quality products for makers of all ages and skill levels. The company offers a wide range of tools, equipment, and electronics, each carefully selected, tested, and approved before being added to the store. Adafruit is proud to be a 100% woman-owned manufacturing company", 
@@ -1089,6 +1181,7 @@
             "TopDown": "fiberoptic_topdown_active2.jpg", 
             "MaterialCategory": "Common ", 
             "Materials": "high-purity glass (silica), plastic", 
+            "Grid": "Fiberoptic.png", 
             "Uses": "Side-emitting fiber optics are commonly used in illumination applications for decorative lighting and signage, as well as in medical settings for precise and flexible illumination during minimally invasive procedures.", 
             "LogoFileName": "adafruit_logo.png"
         }, 
@@ -1103,6 +1196,7 @@
             "TopDown": "animatedlinen_topdown.jpg", 
             "MaterialCategory": "Meta Material ", 
             "Materials": "Warp: Bleached cotton, Nm 50/2 at 32 ends per cm. Weft: pale yellow high-twist linen, Nm 21/3, zzz/Z at 25 degree twist angle, approxiamlety 7 picks per cm ", 
+            "Grid": "Animatedlinen.png", 
             "Uses": "", 
             "LogoFileName": "N/A"
         }, 
@@ -1117,6 +1211,7 @@
             "TopDown": "corespunyarn_topdown.jpg", 
             "MaterialCategory": "Meta Material ", 
             "Materials": "Statex silver-coated nylon and merino wool", 
+            "Grid": "Corespunyarn.png", 
             "Uses": "Conductive Core-spun Yarn is incorporated in electronic textiles and soft cirucuits, use in knitting, crochet, and weaving.", 
             "LogoFileName": "https://drive.google.com/drive/folders/1VwGrd2VU7aCa-9ZV9k7h8S4RNBSAXa8d?usp=drive_link"
         }, 
@@ -1131,6 +1226,7 @@
             "TopDown": "biofoamstring_topdown.jpg", 
             "MaterialCategory": "Novel Sustainable ", 
             "Materials": "Biodegradable biofoam (soap, gelatine, water, glycerine)", 
+            "Grid": "Biofoamstring.png", 
             "Uses": "Extruded Biofaom is used for crochet, knitting, integrated into cltohing for temporary alterations", 
             "LogoFileName": "https://drive.google.com/drive/folders/1VwGrd2VU7aCa-9ZV9k7h8S4RNBSAXa8d?usp=drive_link"
         }, 
@@ -1145,6 +1241,7 @@
             "TopDown": "biofoammold_topdown_group.jpg", 
             "MaterialCategory": "Novel Sustainable ", 
             "Materials": "Biodegradable biofoam (soap, gelatine, water, glycerine)", 
+            "Grid": "Biofoammold.png", 
             "Uses": "Molded Biofoam is a single-use foam pieces (packaging,) acts as cloth planels that can be sewn together.", 
             "LogoFileName": "https://drive.google.com/drive/folders/1VwGrd2VU7aCa-9ZV9k7h8S4RNBSAXa8d?usp=drive_link"
         }, 
@@ -1159,6 +1256,7 @@
             "TopDown": "wireconductingthread_topdown.jpg", 
             "MaterialCategory": "Meta Material ", 
             "Materials": "Statex silver-coated nylon thread and and merino wool", 
+            "Grid": "Wireconductingthread.png", 
             "Uses": "White Supercoil Conductive Yarn With Exposed Leads are incorporated in electronic textiles and soft cirucuits, use in knitting, crochet, and weaving.", 
             "LogoFileName": "https://drive.google.com/drive/folders/1VwGrd2VU7aCa-9ZV9k7h8S4RNBSAXa8d?usp=drive_link"
         }, 
@@ -1173,6 +1271,7 @@
             "TopDown": "", 
             "MaterialCategory": "Meta Material ", 
             "Materials": "Statex silver-coated nylon thread and and merino wool", 
+            "Grid": "", 
             "Uses": "Red Supercoil Conductive Yarn With Exposed Leads are incorporated n electronic textiles and soft cirucuits, use in knitting, crochet, and weaving", 
             "LogoFileName": "https://drive.google.com/drive/folders/1VwGrd2VU7aCa-9ZV9k7h8S4RNBSAXa8d?usp=drive_link"
         }, 
@@ -1187,6 +1286,7 @@
             "TopDown": "", 
             "MaterialCategory": "Meta Material ", 
             "Materials": "Silicone-encased wire and merino wool", 
+            "Grid": "", 
             "Uses": "Supercoil Silicone Wire Yarn is incorporated in electronic textiles and soft cirucuits, use in knitting, crochet, and weaving", 
             "LogoFileName": "https://drive.google.com/drive/folders/1VwGrd2VU7aCa-9ZV9k7h8S4RNBSAXa8d?usp=drive_link"
         }, 
@@ -1201,6 +1301,7 @@
             "TopDown": "gelatinbiofibers_topdown.jpg", 
             "MaterialCategory": "Novel Sustainable ", 
             "Materials": "Biodegradable gelatin fibers (animal-based gelatin, water, and isopropanol)", 
+            "Grid": "Gelatinbiofibers.png", 
             "Uses": "Incorporated on the weft of single-use woven sensons (pressure or moisture) to enable dissasembly of conductive and non-conduve materiales in the sensors at the end-of-life ", 
             "LogoFileName": "https://drive.google.com/drive/folders/1VwGrd2VU7aCa-9ZV9k7h8S4RNBSAXa8d?usp=drive_link"
         }, 
@@ -1215,6 +1316,7 @@
             "TopDown": "", 
             "MaterialCategory": "Novel Sustainable ", 
             "Materials": "Made from hemp that is grown within 100 miles of the HempWood® factory in Murray, Kentucky. ", 
+            "Grid": "", 
             "Uses": "HempWood® product applications include- benches, shelves, cutting boards, trim, window frames, dressers, tables, and more.", 
             "LogoFileName": "https://drive.google.com/drive/folders/1Xht7eOhtBZuPfFir9HNOL6zJ9LL11_mA?usp=drive_link"
         }, 
@@ -1229,6 +1331,7 @@
             "TopDown": "", 
             "MaterialCategory": "Novel Sustainable ", 
             "Materials": "Made from hemp that is grown within 100 miles of the HempWood® factory in Murray, Kentucky. ", 
+            "Grid": "", 
             "Uses": "HempWood® product applications include- benches, shelves, cutting boards, trim, window frames, dressers, tables, and more.", 
             "LogoFileName": "https://drive.google.com/drive/folders/1Xht7eOhtBZuPfFir9HNOL6zJ9LL11_mA?usp=drive_link"
         }, 
@@ -1243,6 +1346,7 @@
             "TopDown": "", 
             "MaterialCategory": "Novel Sustainable ", 
             "Materials": "Made from hemp that is grown within 100 miles of the HempWood® factory in Murray, Kentucky. ", 
+            "Grid": "", 
             "Uses": "HempWood® product applications include- benches, shelves, cutting boards, trim, window frames, dressers, tables, and more.", 
             "LogoFileName": "https://drive.google.com/drive/folders/1Xht7eOhtBZuPfFir9HNOL6zJ9LL11_mA?usp=drive_link"
         }, 
@@ -1257,6 +1361,7 @@
             "TopDown": "", 
             "MaterialCategory": "Novel Sustainable ", 
             "Materials": "Made from hemp that is grown within 100 miles of the HempWood® factory in Murray, Kentucky. ", 
+            "Grid": "", 
             "Uses": "HempWood® product applications include- benches, shelves, cutting boards, trim, window frames, dressers, tables, and more.", 
             "LogoFileName": "https://drive.google.com/drive/folders/1Xht7eOhtBZuPfFir9HNOL6zJ9LL11_mA?usp=drive_link"
         }, 
@@ -1271,6 +1376,7 @@
             "TopDown": "", 
             "MaterialCategory": "Novel Sustainable ", 
             "Materials": "Made from hemp that is grown within 100 miles of the HempWood® factory in Murray, Kentucky. ", 
+            "Grid": "", 
             "Uses": "HempWood® product applications include- benches, shelves, cutting boards, trim, window frames, dressers, tables, and more.", 
             "LogoFileName": "https://drive.google.com/drive/folders/1Xht7eOhtBZuPfFir9HNOL6zJ9LL11_mA?usp=drive_link"
         }, 
@@ -1285,6 +1391,7 @@
             "TopDown": "", 
             "MaterialCategory": "Novel Sustainable ", 
             "Materials": "Taupe HempWood® is pressed with soy-based adhesives, made from hemp that is grown within 100 miles of the HempWood® factory in Murray, Kentucky. ", 
+            "Grid": "", 
             "Uses": "Taupe HempWood® flooring provides ease of application for contractor use and allows for customization on site. ", 
             "LogoFileName": "https://drive.google.com/drive/folders/1Xht7eOhtBZuPfFir9HNOL6zJ9LL11_mA?usp=drive_link"
         }, 
@@ -1299,6 +1406,7 @@
             "TopDown": "", 
             "MaterialCategory": "Novel Sustainable ", 
             "Materials": "The 3-layer panels are constructed from crosslaminated solid HempWood®. ", 
+            "Grid": "", 
             "Uses": "HempWood® panels are perfect for cabinetry, shelving, and furniture.", 
             "LogoFileName": "https://drive.google.com/drive/folders/1Xht7eOhtBZuPfFir9HNOL6zJ9LL11_mA?usp=drive_link"
         }, 
@@ -1313,6 +1421,7 @@
             "TopDown": "hempitecture_topdown.jpg", 
             "MaterialCategory": "Novel Sustainable ", 
             "Materials": "Biobased insulation manufactured from industrial hemp and natural fibers.", 
+            "Grid": "Hempitecture.png", 
             "Uses": "Hemp is a carbon-capturing, soil-regenerating crop that requires no pesticides, no fertilizers, little water to farm and restores rural agriculture at scale. Hempwool can be used for exterior and interior cavity thermo-acoustic insulation.", 
             "LogoFileName": ""
         }, 
@@ -1327,6 +1436,7 @@
             "TopDown": "", 
             "MaterialCategory": "Novel Sustainable ", 
             "Materials": "", 
+            "Grid": "", 
             "Uses": "Hemp is a carbon-capturing, soil-regenerating crop that requires no pesticides, no fertilizers, little water to farm and restores rural agriculture at scale.", 
             "LogoFileName": ""
         }, 
@@ -1341,6 +1451,7 @@
             "TopDown": "", 
             "MaterialCategory": "Novel Sustainable ", 
             "Materials": "", 
+            "Grid": "", 
             "Uses": "Hemp is a carbon-capturing, soil-regenerating crop that requires no pesticides, no fertilizers, little water to farm and restores rural agriculture at scale. The Fiberpad can be applied over a subfloor or substrate before the installation of carpet. ", 
             "LogoFileName": ""
         }, 
@@ -1355,6 +1466,7 @@
             "TopDown": "", 
             "MaterialCategory": "Novel Sustainable ", 
             "Materials": "Bio-based and renewable ink made from algae-deroved pigment.", 
+            "Grid": "", 
             "Uses": "Standard Screen ALGAE INK is used in many applications such as offset, screen, and flexographic printing projects to achieve a high-performance, black color for different products including packaging, apparel and footwear.", 
             "LogoFileName": "https://drive.google.com/drive/folders/1diapH0kKxOizyGs4oLQwyVmfkqZ_fXCT?usp=drive_link"
         }, 
@@ -1369,6 +1481,7 @@
             "TopDown": "", 
             "MaterialCategory": "Novel Sustainable ", 
             "Materials": "100% recycled products using an exclusive waste-to-energy process, \"Natural\" is made with neutral-colored paper, the color you see is purely a result of the resin.", 
+            "Grid": "", 
             "Uses": "Richlite is a popular choice for interior and exterior architectural surfaces, such as wall paneling, countertops, and cabinetry. It's also ideal for exterior cladding and rainscreens.", 
             "LogoFileName": ""
         }, 
@@ -1383,6 +1496,7 @@
             "TopDown": "", 
             "MaterialCategory": "Common ", 
             "Materials": "100% wild dug western North Caorlina Clay ", 
+            "Grid": "", 
             "Uses": "Wild clay is often used for pottery and sculpture. ", 
             "LogoFileName": ""
         }, 
@@ -1397,6 +1511,7 @@
             "TopDown": "", 
             "MaterialCategory": "Common ", 
             "Materials": "100% wild dug western North Caorlina Clay ", 
+            "Grid": "", 
             "Uses": "Wild clay is often used for pottery and sculpture. ", 
             "LogoFileName": ""
         }, 
@@ -1411,6 +1526,7 @@
             "TopDown": "", 
             "MaterialCategory": "Common ", 
             "Materials": "100% wild dug western North Caorlina Clay ", 
+            "Grid": "", 
             "Uses": "Wild clay is often used for pottery and sculpture. ", 
             "LogoFileName": ""
         }, 
@@ -1425,6 +1541,7 @@
             "TopDown": "ceramic3dprint_topdown.jpg", 
             "MaterialCategory": "Meta ", 
             "Materials": "", 
+            "Grid": "ceramic3dprint_topdown.png", 
             "Uses": "", 
             "LogoFileName": ""
         }, 
@@ -1439,6 +1556,7 @@
             "TopDown": "", 
             "MaterialCategory": "Common ", 
             "Materials": " soda ash, limestone, and sand", 
+            "Grid": "", 
             "Uses": "Batch is used for making glass and in glassblowing. ", 
             "LogoFileName": "https://drive.google.com/drive/folders/1r3K48JCbbsBbg10DeWu5hcTqczRTCc4h?usp=drive_link"
         }, 
@@ -1453,6 +1571,7 @@
             "TopDown": "", 
             "MaterialCategory": "Common ", 
             "Materials": "silica, fluorspar, soda ash, borax, feldspar, zircon, aluminum oxide, lithium carbonate, magnesium carbonate, and titanium oxide", 
+            "Grid": "", 
             "Uses": "Frit is often used by furnace working glassblowers and lampworkers use frit regularly as a means of adding color to their work.", 
             "LogoFileName": "https://drive.google.com/drive/folders/1r3K48JCbbsBbg10DeWu5hcTqczRTCc4h?usp=drive_link"
         }, 
@@ -1467,6 +1586,7 @@
             "TopDown": "", 
             "MaterialCategory": "Common ", 
             "Materials": "", 
+            "Grid": "", 
             "Uses": "Glass stringers are thin filaments of glass that can be used to create unique designs and patterns in glass blowing.", 
             "LogoFileName": "https://drive.google.com/drive/folders/1r3K48JCbbsBbg10DeWu5hcTqczRTCc4h?usp=drive_link"
         }, 
@@ -1481,6 +1601,7 @@
             "TopDown": "", 
             "MaterialCategory": "Common ", 
             "Materials": "", 
+            "Grid": "", 
             "Uses": "Kevlar thread has incredibly high resistance to moisture, aging, abrasion, weather, and high temperatures", 
             "LogoFileName": "https://drive.google.com/drive/folders/1r3K48JCbbsBbg10DeWu5hcTqczRTCc4h?usp=drive_link"
         }, 
@@ -1495,6 +1616,7 @@
             "TopDown": "", 
             "MaterialCategory": "Common ", 
             "Materials": "", 
+            "Grid": "", 
             "Uses": "Steel is used in ther creation of tools and blow pipes as well as equipment ", 
             "LogoFileName": "https://drive.google.com/drive/folders/1r3K48JCbbsBbg10DeWu5hcTqczRTCc4h?usp=drive_link"
         }, 
@@ -1509,6 +1631,7 @@
             "TopDown": "", 
             "MaterialCategory": "Common ", 
             "Materials": "", 
+            "Grid": "", 
             "Uses": "Kiln shelves, also known as refractory tiles or plates, are a fundamental component of most kiln and furnace structures.", 
             "LogoFileName": "https://drive.google.com/drive/folders/1r3K48JCbbsBbg10DeWu5hcTqczRTCc4h?usp=drive_link"
         }, 
@@ -1523,6 +1646,7 @@
             "TopDown": "", 
             "MaterialCategory": "Common ", 
             "Materials": "", 
+            "Grid": "", 
             "Uses": "Fruit woods are often used when shaping tools for glass blowing. ", 
             "LogoFileName": "https://drive.google.com/drive/folders/1r3K48JCbbsBbg10DeWu5hcTqczRTCc4h?usp=drive_link"
         }, 
@@ -1537,6 +1661,7 @@
             "TopDown": "", 
             "MaterialCategory": "Common ", 
             "Materials": "", 
+            "Grid": "", 
             "Uses": "Millefiori glass is a type of decorative handmade glass that originated in Murano Venice, Italy. The millefiori pattern is created by cutting and fritting ", 
             "LogoFileName": "https://drive.google.com/drive/folders/1r3K48JCbbsBbg10DeWu5hcTqczRTCc4h?usp=drive_link"
         }, 
@@ -1551,6 +1676,7 @@
             "TopDown": "uncagedinnovationsbioleather _topdown_group.jpg", 
             "MaterialCategory": "Novel Sustainable ", 
             "Materials": "", 
+            "Grid": "", 
             "Uses": "Uncaged Innovations BioLeather is used for garment and textile production automotive and home goods industries.", 
             "LogoFileName": "https://drive.google.com/file/d/1NgwcAsGfBMy4n9fqt19gK7P_lDn3A_ww/view?usp=drive_link"
         }, 
@@ -1565,6 +1691,7 @@
             "TopDown": "", 
             "MaterialCategory": "Novel Sustainable ", 
             "Materials": "Regenerative cotton dyed with mulbery leaves ", 
+            "Grid": "", 
             "Uses": "Regenerative Cotton Fabric Swatch is used for grament production and is sold to fashion brands and textile mills.", 
             "LogoFileName": "https://drive.google.com/file/d/100V1o7imrfeWod1SOKeZSdNBefxUZukz/view?usp=drive_link"
         }, 
@@ -1579,6 +1706,7 @@
             "TopDown": "", 
             "MaterialCategory": "Novel Sustainable ", 
             "Materials": "Regenerative cotton dyed with mulbery leaves ", 
+            "Grid": "", 
             "Uses": "PM35 Jersey Swatch is used for garment production and is sold to fashion brands and textile mills.", 
             "LogoFileName": "https://drive.google.com/file/d/100V1o7imrfeWod1SOKeZSdNBefxUZukz/view?usp=drive_link"
         }, 
@@ -1593,6 +1721,7 @@
             "TopDown": "", 
             "MaterialCategory": "Novel Sustainable ", 
             "Materials": "Regenerative cotton dyed with mulbery leaves ", 
+            "Grid": "", 
             "Uses": "PM38 Interlock Swatch is used for garment production and is sold to fashion brands and textile mills.", 
             "LogoFileName": "https://drive.google.com/file/d/100V1o7imrfeWod1SOKeZSdNBefxUZukz/view?usp=drive_link"
         }, 
@@ -1607,6 +1736,7 @@
             "TopDown": "materrafleece_topdown.jpg", 
             "MaterialCategory": "Novel Sustainable ", 
             "Materials": "Regenerative cotton dyed with mulbery leaves ", 
+            "Grid": "Materrafleece.png", 
             "Uses": "PM41 American Fleece Swatch is used for garment production and is sold to fashion brands and textile mills.", 
             "LogoFileName": "https://drive.google.com/file/d/100V1o7imrfeWod1SOKeZSdNBefxUZukz/view?usp=drive_link"
         }, 
@@ -1621,6 +1751,7 @@
             "TopDown": "", 
             "MaterialCategory": "Novel Sustainable ", 
             "Materials": "Regenerative cotton dyed with mulbery leaves ", 
+            "Grid": "", 
             "Uses": "PM36 Diagnal Fleece Swatch is used for garment production and is sold to fashion brands and textile mills.", 
             "LogoFileName": "https://drive.google.com/file/d/100V1o7imrfeWod1SOKeZSdNBefxUZukz/view?usp=drive_link"
         }, 
@@ -1635,6 +1766,7 @@
             "TopDown": "materrarib_topdown.jpg", 
             "MaterialCategory": "Novel Sustainable ", 
             "Materials": "Regenerative cotton dyed with mulbery leaves ", 
+            "Grid": "Materrarib.png", 
             "Uses": "PM40 Rib Swatch is used for garment production and is sold to fashion brands and textile mills.", 
             "LogoFileName": "https://drive.google.com/file/d/100V1o7imrfeWod1SOKeZSdNBefxUZukz/view?usp=drive_link"
         }, 
@@ -1649,6 +1781,7 @@
             "TopDown": "", 
             "MaterialCategory": "Novel Sustainable ", 
             "Materials": "Regenerative cotton dyed with mulbery leaves ", 
+            "Grid": "", 
             "Uses": "PM41 Rib 2x1 Swatch is used for garment production and is sold to fashion brands and textile mills.", 
             "LogoFileName": "https://drive.google.com/file/d/100V1o7imrfeWod1SOKeZSdNBefxUZukz/view?usp=drive_link"
         }, 
@@ -1663,6 +1796,7 @@
             "TopDown": "", 
             "MaterialCategory": "Common ", 
             "Materials": "silica, fluorspar, soda ash, borax, feldspar, zircon, aluminum oxide, lithium carbonate, magnesium carbonate, and titanium oxide", 
+            "Grid": "", 
             "Uses": "Frit is often used by furnace working glassblowers and lampworkers use frit regularly as a means of adding color to their work.", 
             "LogoFileName": ""
         }, 
@@ -1677,6 +1811,7 @@
             "TopDown": "", 
             "MaterialCategory": "Common ", 
             "Materials": "silica, fluorspar, soda ash, borax, feldspar, zircon, aluminum oxide, lithium carbonate, magnesium carbonate, and titanium oxide", 
+            "Grid": "", 
             "Uses": "Frit is often used by furnace working glassblowers and lampworkers use frit regularly as a means of adding color to their work.", 
             "LogoFileName": ""
         }, 
@@ -1691,6 +1826,7 @@
             "TopDown": "", 
             "MaterialCategory": "Common ", 
             "Materials": "silica, fluorspar, soda ash, borax, feldspar, zircon, aluminum oxide, lithium carbonate, magnesium carbonate, and titanium oxide", 
+            "Grid": "", 
             "Uses": "Frit is often used by furnace working glassblowers and lampworkers use frit regularly as a means of adding color to their work.", 
             "LogoFileName": ""
         }, 
@@ -1705,6 +1841,7 @@
             "TopDown": "", 
             "MaterialCategory": "Common ", 
             "Materials": "Recycled glass", 
+            "Grid": "", 
             "Uses": "Cullet can replace materials such as silica, limestone, and soda ash used in glass blowing and is often used to create new glass and fiberglass. ", 
             "LogoFileName": ""
         }, 
@@ -1719,6 +1856,7 @@
             "TopDown": "stretchsensor_topdown.jpg", 
             "MaterialCategory": "", 
             "Materials": "Conductive Yarn, Non-Conductive Yarn", 
+            "Grid": "stretchsensor_topdown.png", 
             "Uses": "Mock Rib Pocket Stretch Sensor is used for e-textiles & wearables", 
             "LogoFileName": "craftwork_logo.png"
         }, 
@@ -1733,6 +1871,7 @@
             "TopDown": "empafiberoptic_topdown.jpg", 
             "MaterialCategory": "", 
             "Materials": "PMMA (plexi-glass), fluorescent dye,  glycerol", 
+            "Grid": "empafiberoptic_topdown.png", 
             "Uses": "Fiber optic cables are commonly used for transmitting data over long distances.\n", 
             "LogoFileName": "empa_logo.png"
         }, 
@@ -1747,6 +1886,7 @@
             "TopDown": "", 
             "MaterialCategory": "Common ", 
             "Materials": "", 
+            "Grid": "", 
             "Uses": "OM4 Ball Clay is used acorss the Americas in industrial and studio ceramics. ", 
             "LogoFileName": ""
         }, 
@@ -1761,6 +1901,7 @@
             "TopDown": "", 
             "MaterialCategory": "Common ", 
             "Materials": "", 
+            "Grid": "", 
             "Uses": "OM4 Ball Clay is used acorss the Americas in industrial and studio ceramics. ", 
             "LogoFileName": "NOT_AVAILABLE "
         }, 
@@ -1775,6 +1916,7 @@
             "TopDown": "", 
             "MaterialCategory": "Common ", 
             "Materials": "boron/silicate", 
+            "Grid": "", 
             "Uses": "Gerstley Borate is a very common materials in ceramic glazes, contiang both flux (melting ) naf glass formaing minerals.", 
             "LogoFileName": "NOT_AVAILABLE "
         }, 
@@ -1789,6 +1931,7 @@
             "TopDown": "", 
             "MaterialCategory": "Common ", 
             "Materials": "boron/silicate", 
+            "Grid": "", 
             "Uses": "Gerstley Borate is a very common materials in ceramic glazes, contiang both flux (melting ) naf glass formaing minerals.", 
             "LogoFileName": "NOT_AVAILABLE "
         }, 
@@ -1803,6 +1946,7 @@
             "TopDown": "", 
             "MaterialCategory": "Common ", 
             "Materials": " highly refined Barium Carbonate", 
+            "Grid": "", 
             "Uses": "Barium Carbonate highly refined Barium Carbonate used in studio cermics.", 
             "LogoFileName": "NOT_AVAILABLE "
         }, 
@@ -1817,6 +1961,7 @@
             "TopDown": "", 
             "MaterialCategory": "Common ", 
             "Materials": " highly refined Barium Carbonate", 
+            "Grid": "", 
             "Uses": "Barium Carbonate highly refined Barium Carbonate used in studio cermics.", 
             "LogoFileName": "NOT_AVAILABLE "
         }, 
@@ -1831,6 +1976,7 @@
             "TopDown": "", 
             "MaterialCategory": "Common ", 
             "Materials": "Barium Carbonate and Gerstley Borate", 
+            "Grid": "", 
             "Uses": "Barium Carbonate highly refined Barium Carbonate used in studio cermics.", 
             "LogoFileName": "NOT_AVAILABLE "
         }

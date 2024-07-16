@@ -64,6 +64,7 @@ void AppManager::setupObjects()
     string         path = "images";
     ofDirectory    dir( path );
     dir.allowExt( "jpg" );
+    dir.allowExt( "png" );
     dir.listDir();
 
     // go through and print out all the paths
@@ -90,7 +91,8 @@ void AppManager::setupObjects()
                     const auto &material = materials[i];
 
                     // Create a new unique_ptr and set its fields
-                    string imgPath = "images\\" + material.value( "TopDown", "" );
+                    //string imgPath = "images\\" + material.value( "TopDown", "" );
+                    string imgPath = "images\\" + material.value( "Grid", "" );
                     if( std::find( imgList.begin(), imgList.end(), imgPath ) != imgList.end() ) {
 
 
@@ -103,7 +105,8 @@ void AppManager::setupObjects()
                         obj->title = material.value( "Title", "" );
                         obj->categoryString = material.value( "MaterialCategory", "" );
                         obj->description = material.value( "Description", "" );
-                        obj->imagePath = material.value( "TopDown", "" );
+                        //obj->imagePath = material.value( "TopDown", "" );
+                        obj->imagePath = material.value( "Grid", "" );
                         obj->drawerLabel = ofToUpper( material.value( "DrawerLabel", "" ) );
                         obj->color = material.value( "MaterialColor", "" );
                         obj->uses = material.value( "Uses", "" );

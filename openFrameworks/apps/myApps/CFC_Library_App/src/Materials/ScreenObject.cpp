@@ -132,17 +132,18 @@ void ScreenObject::drawDebug()
 {
     Node::drawDebug();
 
-    if( mTouched ) {
-        ofSetColor( 100, 0, 0, 100 );
-        ofFill();
-        ofDrawRectangle( 0, 0, maxSize.x, maxSize.y );
-        ofNoFill();
-    }
+    
 }
 
 
 void ScreenObject::draw()
 {
+    if( mTouched ) {
+        ofSetColor( 100, 100, 100, 100 );
+        ofFill();
+        ofDrawRectangle( 0, 0, maxSize.x, maxSize.y );
+        ofNoFill();
+    }
 }
 
 

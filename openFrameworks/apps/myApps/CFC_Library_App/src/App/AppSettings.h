@@ -40,6 +40,7 @@ class AppSettings final {
     // --- FLGS --- //
     bool getDebugJson() const { return debug_json; }
     bool getAppDebug() { return appDebug; }
+    bool getLiveQrCodeScanner() { return liveQrScanner; }
     void toggleAppDebug() { appDebug = !appDebug; }
 
     int   getNumRows() { return numRows; };

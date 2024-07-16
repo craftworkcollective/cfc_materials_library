@@ -43,8 +43,9 @@ class AppManager : public ofxInterface::Node {
     bool   getDebug() { return bShowDebug; };
 
 
-    // --- KEY EVENTS --- //
+    // ---  EVENTS --- //
     void onKeyPressed( ofKeyEventArgs &arg );
+    void onQrCodeScanned( string txt );
 
   private:
     // --- STATES --- //
@@ -90,6 +91,10 @@ class AppManager : public ofxInterface::Node {
     MaterialWindow       *materialWindow;
     CFC::ScreenObjectData mData;
     CFC::DrawerData       mDrawerData;
+
+    // qr code
+    string activeQr = "";
+    string newQr = "";
 };
 
 /*

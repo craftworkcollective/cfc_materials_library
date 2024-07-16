@@ -91,9 +91,11 @@ void AppManager::setupObjects()
                     const auto &material = materials[i];
 
                     // Create a new unique_ptr and set its fields
-                    //string imgPath = "images\\" + material.value( "TopDown", "" );
-                    string imgPath = "images\\" + material.value( "Grid", "" );
-                    if( std::find( imgList.begin(), imgList.end(), imgPath ) != imgList.end() ) {
+                    // string imgPath = "images\\" + material.value( "TopDown", "" );
+                    string imgPathGrid = "images\\" + material.value( "Grid", "" );
+                    string topImgPath = "images\\" + material.value( "TopDown", "" );
+                    if( std::find( imgList.begin(), imgList.end(), imgPathGrid ) != imgList.end()
+                        && std::find( imgList.begin(), imgList.end(), topImgPath ) != imgList.end() ) {
 
 
                         objects.push_back( new CFCObject() );
@@ -105,8 +107,8 @@ void AppManager::setupObjects()
                         obj->title = material.value( "Title", "" );
                         obj->categoryString = material.value( "MaterialCategory", "" );
                         obj->description = material.value( "Description", "" );
-                        //obj->imagePath = material.value( "TopDown", "" );
-                        obj->imagePath = material.value( "Grid", "" );
+                        obj->imagePathTop = material.value( "TopDown", "" );
+                        obj->imagePathGrid = material.value( "Grid", "" );
                         obj->drawerLabel = ofToUpper( material.value( "DrawerLabel", "" ) );
                         obj->color = material.value( "MaterialColor", "" );
                         obj->uses = material.value( "Uses", "" );
@@ -119,7 +121,7 @@ void AppManager::setupObjects()
                     }
                     else {
                         string title = material.value( "Title", "" );
-                        ofLogError() << imgPath << " does not exists " << title;
+                        ofLogError() << topImgPath << " does not exists " << title;
                     }
                 }
             }
@@ -237,8 +239,8 @@ void AppManager::update( float dt )
                 else
                     wrappedIndex = 0;
 
-                so->setData( objects[wrappedIndex] ); 
-                so->setReplaceData(false); 
+                so->setData( objects[wrappedIndex] );
+                so->setReplaceData( false );
             }
         }
         break;
@@ -381,63 +383,74 @@ void AppManager::nextAppState()
 
 void AppManager::onKeyPressed( ofKeyEventArgs &arg )
 {
-    switch( arg.key ) {
-    case 'd': {
-        bShowDebug = !bShowDebug;
-        break;
-    }
-    case 'h': {
-        ofHideCursor();
-        break;
-    }
-    case 'm': {
-        ofShowCursor();
-        break;
-    }
-    case 'n': {
-        nextAppState();
-        break;
-    }
-    case 's': {
-        ss.cycleToNextScreenMode();
-        break;
-    }
-    case 'x': {
-        img.grabScreen( 0, 0, ofGetWidth(), ofGetHeight() );
-        img.save( ofGetTimestampString() + "screenshot.png" );
-        break;
-    }
-    case 'f': {
-        ofToggleFullscreen();
-        break;
-    }
-    case 'q': {
-
-        CFC::DrawerData data;
-        data.categoryString = "Common";
-        data.drawerLabel = "A5";
-
-        if( objectsByDrawer.count( data.drawerLabel ) > 0 ) {
-
-            for( int i = 0; i < objectsByDrawer[data.drawerLabel].size(); i++ ) {
-                int index = objectsByDrawer[data.drawerLabel][i];
-                data.uids.push_back( index );
-                data.imgPaths.push_back( "images\\" + objects[index]->imagePath );
-                data.companies.push_back( objects[index]->company );
-                data.titles.push_back( objects[index]->title );
-            }
+    if( configs().getLiveQrCodeScanner() ) {
+        if( arg.key != 'z' && arg.key != 13 ) {
+            newQr.push_back( char( arg.key ) );
         }
-        else {
-            ofLogNotice() << "Key '" << data.drawerLabel << "' does not exist.";
-        }
+        else if( arg.key == 'z' ) {
+            activeQr = newQr;
+            newQr = "";
 
-        mDrawerData = data;
-        setAppState( CFC::AppState::DRAWER );
-        break;
+            onQrCodeScanned( ofToUpper( activeQr ) );
+        }
     }
-    default:
-        break;
+
+    if( !configs().getLiveQrCodeScanner() ) {
+
+        switch( arg.key ) {
+        case 'd': 
+            bShowDebug = !bShowDebug;
+            break;
+        case 'h': 
+            ofHideCursor();
+            break;
+        case 'm': 
+            ofShowCursor();
+            break;
+        case 'n': 
+            nextAppState();
+            break;
+        case 's': 
+            ss.cycleToNextScreenMode();
+            break;
+        case 'x': 
+            img.grabScreen( 0, 0, ofGetWidth(), ofGetHeight() );
+            img.save( ofGetTimestampString() + "screenshot.png" );
+            break;
+        case 'f': 
+            ofToggleFullscreen();
+            break;
+        case 'q': 
+            onQrCodeScanned( "A5" );
+            break;
+        default:
+            break;
+        }
     }
+}
+
+void AppManager::onQrCodeScanned( string txt )
+{
+    CFC::DrawerData data;
+    data.drawerLabel = txt;
+
+    if( objectsByDrawer.count( data.drawerLabel ) > 0 ) {
+
+        for( int i = 0; i < objectsByDrawer[data.drawerLabel].size(); i++ ) {
+            int index = objectsByDrawer[data.drawerLabel][i];
+            data.categoryString = objects[index]->categoryString;
+            data.uids.push_back( index );
+            data.imgPaths.push_back( "images\\" + objects[index]->imagePathGrid );
+            data.companies.push_back( objects[index]->company );
+            data.titles.push_back( objects[index]->title );
+        }
+    }
+    else {
+        ofLogNotice() << "Key '" << data.drawerLabel << "' does not exist.";
+    }
+
+    mDrawerData = data;
+    setAppState( CFC::AppState::DRAWER );
 }
 
 void AppManager::onAnimFinished( ofxAnimatable::AnimationEvent &args )
@@ -508,7 +521,7 @@ void AppManager::onDrawerObjectClicked( CFC::ScreenObjectData &data )
     if( data.index < objects.size() - 1 ) {
         data.title = objects[data.index]->title;
         data.description = objects[data.index]->description;
-        data.texturePath = "images\\" + objects[data.index]->imagePath;
+        data.texturePath = "images\\" + objects[data.index]->imagePathTop;
         data.drawerLabel = objects[data.index]->drawerLabel;
         data.categoryString = objects[data.index]->categoryString;
         data.uses = objects[data.index]->uses;

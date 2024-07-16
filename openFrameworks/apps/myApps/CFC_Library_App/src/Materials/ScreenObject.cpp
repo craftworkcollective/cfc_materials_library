@@ -52,7 +52,7 @@ void ScreenObject::setMaxSize( ofVec2f size )
 void ScreenObject::setupTexture()
 {
 
-    textureFile = "images\\" + mCfcObject->imagePath;
+    textureFile = "images\\" + mCfcObject->imagePathGrid;
 
     float ar = td.height * td.width;
     float scaledWidth = size.y / ( ar );
@@ -188,7 +188,7 @@ void ScreenObject::onClick( ofxInterface::TouchEvent &event )
     data.title = mCfcObject->title;
     data.index = mCfcObject->indexUID;
     data.description = mCfcObject->description;
-    data.texturePath = textureFile;
+    data.texturePath = "images\\" + mCfcObject->imagePathTop;
     data.drawerLabel = mCfcObject->drawerLabel;
     data.categoryString = mCfcObject->categoryString;
     data.uses = mCfcObject->uses;

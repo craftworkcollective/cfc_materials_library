@@ -19,7 +19,8 @@ class CFCObject {
     string title{ "" };
     string categoryString{ "" };
     string description{ "" };
-    string imagePath{ "" };
+    string imagePathGrid{ "" };
+    string imagePathTop{ "" };
     string drawerLabel{ "" };
     string color{ "" };
     string uses{ "" };

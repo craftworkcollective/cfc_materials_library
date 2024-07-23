@@ -151,6 +151,7 @@
     <ClCompile Include="..\..\..\addons\ofxTuio\src\ofxTuioCursor.cpp" />
     <ClCompile Include="..\..\..\addons\ofxTuio\src\ofxTuioObject.cpp" />
     <ClCompile Include="..\..\..\addons\ofxTuio\src\ofxTuioPoint.cpp" />
+    <ClCompile Include="src\Templates\BackButton.cpp" />
     <ClCompile Include="src\Templates\CloseButton.cpp" />
     <ClCompile Include="src\Templates\DrawerObject.cpp" />
     <ClCompile Include="src\Templates\DrawerWindow.cpp" />
@@ -224,6 +225,7 @@
     <ClInclude Include="..\..\..\addons\ofxTuio\src\ofxTuioCursor.h" />
     <ClInclude Include="..\..\..\addons\ofxTuio\src\ofxTuioObject.h" />
     <ClInclude Include="..\..\..\addons\ofxTuio\src\ofxTuioPoint.h" />
+    <ClInclude Include="src\Templates\BackButton.h" />
     <ClInclude Include="src\Templates\CloseButton.h" />
     <ClInclude Include="src\Templates\DrawerObject.h" />
     <ClInclude Include="src\Templates\DrawerWindow.h" />

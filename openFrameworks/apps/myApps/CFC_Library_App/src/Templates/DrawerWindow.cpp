@@ -25,6 +25,7 @@ void DrawerWindow::setup()
     addChild( closeBtn );
     ofAddListener( closeBtn->eventCloseClicked, this, &DrawerWindow::onCloseBtnClicked );
 
+
     // setup animations
 
     alpha.reset( 0.0f );
@@ -90,6 +91,14 @@ void DrawerWindow::draw()
     }
 }
 
+void DrawerWindow::setCategory( string txt )
+{
+    if( !txt.empty() && txt.back() == ' ' ) {
+        txt.pop_back();
+    }
+    mCategory = txt;
+};
+
 void DrawerWindow::setState( CFC::DrawerState state )
 {
     mState = state;
@@ -107,7 +116,7 @@ void DrawerWindow::setState( CFC::DrawerState state )
         setSize( mSize.x, mSize.y );
 
         for( auto &obj : objects ) {
-            obj->setSize(  650, 650 );
+            obj->setSize( 650, 650 );
         }
         closeBtn->setSize( 50.0f, 50.0f );
         alpha.animateFromTo( 0, 1 );
@@ -132,9 +141,12 @@ void DrawerWindow::onAnimValFinished( ofxAnimatable::AnimationEvent &event )
         break;
     case CFC::DrawerState::ACTIVE:
         break;
-    case CFC::DrawerState::FADE_OUT:
+    case CFC::DrawerState::FADE_OUT: {
+        CFC::ScreenObjectData tempData;
+        ofNotifyEvent( fadeOutFinished, tempData, this );
         setState( CFC::DrawerState::NOT_ACTIVE );
         break;
+    }
     default:
         break;
     }

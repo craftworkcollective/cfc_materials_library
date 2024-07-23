@@ -20,7 +20,27 @@ void FontManager::drawTitle( string title )
 
 void FontManager::drawDrawer( string drawer )
 {
-    bold.draw( ofToUpper( drawer ), titleSize, drawerPos.x, drawerPos.y );
+    int  numLines;
+    bool wordsWereCropped;
+
+    ofRectangle rec = reg.drawMultiLineColumn( ofToUpper( drawer ), // string
+        titleSize,                                                  // size
+        drawerPos.x, drawerPos.y,                                   // position
+        bounding_box_width,                                         // column width
+        numLines,                                                   // get back the number of lines
+        false,                                                      // true would not draw, just get back the rectangle
+        1,                                                          // max number of lines
+        true,                                                       // get the final text formatting (by adding \n's) in the supplied string
+        &wordsWereCropped,                                          // this is set to true if the box was too small to fit all of the text
+        false );
+
+
+    float paddingX = 40.0f;
+    float paddingY = 40.0f;
+    ofNoFill();
+    ofDrawRectangle( drawerPos.x - paddingX/2, drawerPos.y - rec.getHeight() - paddingY/2, rec.getWidth() + paddingX, rec.getHeight() + paddingY);
+    ofFill();
+    // bold.draw( ofToUpper( drawer ), titleSize, drawerPos.x, drawerPos.y );
 }
 
 void FontManager::drawMaterialCategory( string txt )
@@ -97,7 +117,7 @@ void FontManager::drawBody( string description, string composite, string uses, s
 
 void FontManager::drawDrawerCategory( string text )
 {
-    bold.draw( text , titleSize, titlePosDrawer.x, titlePosDrawer.y );
+    bold.draw( text, titleSize, titlePosDrawer.x, titlePosDrawer.y );
 };
 
 void FontManager::drawDrawerMaterial( string text )
@@ -129,19 +149,19 @@ void FontManager::drawDOMaterialCompany( string material, string company, float 
     ofVec2f pos = doPos;
 
     ofRectangle rec = bold.drawMultiLineColumn( material, // string
-        restOfInfo,                                      // size
-        pos.x, pos.y,                                    // position
-        DOsize,                                          // column width
-        numLines,                                        // get back the number of lines
-        false,                                           // true would not draw, just get back the rectangle
-        5,                                               // max number of lines
-        true,                                            // get the final text formatting (by adding \n's) in the supplied string
-        &wordsWereCropped,                               // this is set to true if the box was too small to fit all of the text
+        restOfInfo,                                       // size
+        pos.x, pos.y,                                     // position
+        DOsize,                                           // column width
+        numLines,                                         // get back the number of lines
+        false,                                            // true would not draw, just get back the rectangle
+        5,                                                // max number of lines
+        true,                                             // get the final text formatting (by adding \n's) in the supplied string
+        &wordsWereCropped,                                // this is set to true if the box was too small to fit all of the text
         false );
 
     ofRectangle rec1 = reg.drawMultiLineColumn( company, // string
         restOfInfo,                                      // size
-        pos.x, pos.y + rec.getHeight() + 10.0f,                              // position
+        pos.x, pos.y + rec.getHeight() + 10.0f,          // position
         DOsize,                                          // column width
         numLines,                                        // get back the number of lines
         false,                                           // true would not draw, just get back the rectangle

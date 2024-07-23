@@ -312,6 +312,9 @@ void AppManager::setAppState( AppState appState )
         materialWindow->setup();
         addChild( materialWindow );
 
+        ofAddListener( materialWindow->fadeOutFinished, this, &AppManager::onFadeOutFinished );
+        ofAddListener( materialWindow->eventBackBtn, this, &AppManager::onOpenDrawer );
+
         drawerWindow = new DrawerWindow();
         drawerWindow->setup();
 
@@ -319,16 +322,20 @@ void AppManager::setAppState( AppState appState )
             ofAddListener( drawerWindow->objects[i]->eventDoClicked, this, &AppManager::onDrawerObjectClicked );
         }
 
+        ofAddListener( drawerWindow->fadeOutFinished, this, &AppManager::onFadeOutFinished );
         addChild( drawerWindow );
         break;
     }
     case AppState::ATTRACT:
+        mDrawerData.drawerLabel = "";
+        mData.title = "";
         break;
     case AppState::DRAWER: {
         if( previous == AppState::MATERIAL )
             materialWindow->setState( CFC::DrawerState::FADE_OUT );
 
         drawerWindow->passData( mDrawerData );
+        mData.title = "";
         break;
     }
     case AppState::MATERIAL: {
@@ -337,6 +344,7 @@ void AppManager::setAppState( AppState appState )
             drawerWindow->setState( CFC::DrawerState::FADE_OUT );
 
         materialWindow->passData( mData );
+        mDrawerData.drawerLabel = "";
         break;
     }
     default:
@@ -513,9 +521,12 @@ void AppManager::onScreenObjectClicked( CFC::ScreenObjectData &data )
     ofLogNotice() << "button " << data.title << " clicked";
 
 
-    if( mAppState == CFC::AppState::DRAWER ) {
+    if( drawerWindow->getState() == CFC::DrawerState::FADE_OUT || materialWindow->getState() == CFC::DrawerState::FADE_OUT ) {
+        return;
+    }
+    else if( mAppState == CFC::AppState::DRAWER ) {
         drawerWindow->setState( CFC::DrawerState::FADE_OUT );
-        setAppState(CFC::AppState::ATTRACT);
+        setAppState( CFC::AppState::ATTRACT );
     }
     else if( mAppState == CFC::AppState::MATERIAL ) {
         materialWindow->setState( CFC::DrawerState::FADE_OUT );
@@ -541,5 +552,25 @@ void AppManager::onDrawerObjectClicked( CFC::ScreenObjectData &data )
 
         mData = data;
         setAppState( CFC::AppState::MATERIAL );
+    }
+}
+
+
+void AppManager::onFadeOutFinished( CFC::ScreenObjectData &data )
+{
+    if( mAppState == CFC::AppState::MATERIAL && mData.title == "" ) {
+        setAppState( CFC::AppState::ATTRACT );
+    }
+    else if( mAppState == CFC::AppState::DRAWER && mDrawerData.drawerLabel == "" ) {
+        setAppState( CFC::AppState::ATTRACT );
+    }
+}
+
+void AppManager::onOpenDrawer( CFC::ScreenObjectData &data )
+{
+
+    if( mAppState == CFC::AppState::MATERIAL ) {
+        materialWindow->setState( CFC::DrawerState::NOT_ACTIVE );
+        onQrCodeScanned( ofToUpper( data.drawerLabel ) );
     }
 }

@@ -73,7 +73,7 @@ class FontManager {
     float xPosImg{ 150.0f };
 
     ofVec2f titlePos{ ofVec2f( xPos, yPos ) };
-    ofVec2f drawerPos{ ofVec2f( xPosImg, yPos ) };
+    ofVec2f drawerPos{ ofVec2f( xPosImg + 20.0f, yPos + 30.0f ) };
     ofVec2f materialCatPos{ ofVec2f( xPosImg, 1240 ) };
     ofVec2f desPos{ ofVec2f( xPos, titlePos.y + yDistPadding + spacing ) };
 

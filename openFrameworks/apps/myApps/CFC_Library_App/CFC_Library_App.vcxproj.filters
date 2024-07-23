@@ -163,6 +163,9 @@
     <ClCompile Include="src\Templates\DrawerObject.cpp">
       <Filter>src\Templates</Filter>
     </ClCompile>
+    <ClCompile Include="src\Templates\BackButton.cpp">
+      <Filter>src\Templates</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="src">
@@ -492,6 +495,9 @@
       <Filter>src\Templates</Filter>
     </ClInclude>
     <ClInclude Include="src\Templates\DrawerObject.h">
+      <Filter>src\Templates</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Templates\BackButton.h">
       <Filter>src\Templates</Filter>
     </ClInclude>
   </ItemGroup>

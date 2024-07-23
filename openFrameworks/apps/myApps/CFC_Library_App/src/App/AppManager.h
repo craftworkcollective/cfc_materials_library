@@ -66,6 +66,8 @@ class AppManager : public ofxInterface::Node {
     void onAtlasesLoaded( bool & );
     void onScreenObjectClicked( CFC::ScreenObjectData &data );
     void onDrawerObjectClicked( CFC::ScreenObjectData &data );
+    void onFadeOutFinished( CFC::ScreenObjectData &data );
+    void onOpenDrawer( CFC::ScreenObjectData &data );
 
     //! animatable object
     ofxAnimatableFloat mAnim;

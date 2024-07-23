@@ -25,8 +25,15 @@ void MaterialWindow::setup()
     addChild( closeBtn );
     ofAddListener( closeBtn->eventCloseClicked, this, &MaterialWindow::onCloseBtnClicked );
 
-    // setup animations
 
+    // set up back btn
+    backBtn = new BackButton();
+    btnSize = 200.0f;
+    backBtn->setup( ofVec2f( btnSize, btnSize ), ofVec2f( 100.0f, 100.0f) );
+    addChild( backBtn );
+    ofAddListener( backBtn->eventBackBtn, this, &MaterialWindow::onBackBtn );
+
+    // setup animations
     alpha.reset( 0.0f );
     alpha.setCurve( SINH );
     alpha.setRepeatType( PLAY_ONCE );
@@ -101,7 +108,7 @@ void MaterialWindow::draw()
 
         ofSetColor( configs().getMaterialColor( mType ), alphaVal );
         float radius = 50.0f;
-        ofDrawCircle( imgSize.x - 10, imgSize.y + 10 , radius );
+        ofDrawCircle( imgSize.x - 10, imgSize.y + 10, radius );
 
         break;
     }
@@ -163,9 +170,13 @@ void MaterialWindow::onAnimValFinished( ofxAnimatable::AnimationEvent &event )
         break;
     case CFC::DrawerState::ACTIVE:
         break;
-    case CFC::DrawerState::FADE_OUT:
+    case CFC::DrawerState::FADE_OUT: {
+
+        CFC::ScreenObjectData tempData;
+        ofNotifyEvent( fadeOutFinished, tempData, this );
         setState( CFC::DrawerState::NOT_ACTIVE );
         break;
+    }
     default:
         break;
     }
@@ -232,4 +243,10 @@ void MaterialWindow::calcCrop( float widthPerc )
 void MaterialWindow::onCloseBtnClicked( CFC::ScreenObjectData &data )
 {
     setState( CFC::DrawerState::FADE_OUT );
+}
+
+void MaterialWindow::onBackBtn( CFC::ScreenObjectData &data )
+{
+    data.drawerLabel = mDrawer; 
+    ofNotifyEvent( eventBackBtn, data, this );
 }

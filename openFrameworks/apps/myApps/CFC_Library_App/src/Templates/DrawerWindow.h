@@ -14,6 +14,7 @@
 #include "ofxAnimatableFloat.h"
 #include "ofxInterface.h"
 #include "ofxTimeMeasurements.h"
+#include "BackButton.h"
 
 class DrawerWindow : public ofxInterface::Node {
   public:
@@ -29,12 +30,18 @@ class DrawerWindow : public ofxInterface::Node {
 
 
     // setters
-    void setCategory( string txt ) { mCategory = txt; };
+    void setCategory( string txt );
     void setDrawer( string txt ) { mDrawer = txt; };
     void setState( CFC::DrawerState state );
 
     // getters
     vector<DrawerObject *> objects;
+
+    CFC::DrawerState getState() { return mState; };
+
+
+    // events
+    ofEvent<CFC::ScreenObjectData> fadeOutFinished;
 
   private:
     string mCategory{ "" };
@@ -44,6 +51,7 @@ class DrawerWindow : public ofxInterface::Node {
     ofVec2f mSize{ ofVec2f( 3072.0f, 1388.0f ) };
     float   padding{ 100.0f };
     float   drawerLabelWidth{ 0.0f };
+
     // UI
     CloseButton *closeBtn;
     void         onCloseBtnClicked( CFC::ScreenObjectData &data );
@@ -53,7 +61,7 @@ class DrawerWindow : public ofxInterface::Node {
 
     // drawerObjects
     float xPos = 100.0f;
-    int                    numActive = 0;
+    int   numActive = 0;
 
     // animations
     ofxAnimatableFloat alpha;

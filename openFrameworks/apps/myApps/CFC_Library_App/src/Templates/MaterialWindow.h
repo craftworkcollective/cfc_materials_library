@@ -32,7 +32,7 @@ class MaterialWindow : public ofxInterface::Node {
     void setDescription( string txt ) { mDescription = txt; };
     void setCompositeMaterials( string txt ) { mCompositeMaterials = txt; };
     void setPrimaryUses( string txt ) { mPrimaryUses = txt; };
-    void setCategory( string txt ) { mCategory = txt; };
+    void setCategory( string txt );
     void setDrawer( string txt ) { mDrawer = txt; };
     void setLogoPath( string path ) { mLogoImgPath = path; };
     void setMaterialImgPath( string path ) { mMaterialImgPath = path; }
@@ -55,6 +55,7 @@ class MaterialWindow : public ofxInterface::Node {
     string mMaterialImgPath{ "" };
     string mLogoImgPath{ "" };
     string mDetails{ "" };
+    CFC::MaterialTypes mType; 
 
     ofVec2f imgSize{ ofVec2f( 1188, 1188 ) }; // image
     ofVec2f mSize{ ofVec2f( 3072.0f, 1388.0f ) };
@@ -79,4 +80,6 @@ class MaterialWindow : public ofxInterface::Node {
     ofxAnimatableFloat alpha;
     float              duration = 0.5;
     void               onAnimValFinished( ofxAnimatable::AnimationEvent &event );
+
+
 };

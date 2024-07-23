@@ -398,29 +398,29 @@ void AppManager::onKeyPressed( ofKeyEventArgs &arg )
     if( !configs().getLiveQrCodeScanner() ) {
 
         switch( arg.key ) {
-        case 'd': 
+        case 'd':
             bShowDebug = !bShowDebug;
             break;
-        case 'h': 
+        case 'h':
             ofHideCursor();
             break;
-        case 'm': 
+        case 'm':
             ofShowCursor();
             break;
-        case 'n': 
+        case 'n':
             nextAppState();
             break;
-        case 's': 
+        case 's':
             ss.cycleToNextScreenMode();
             break;
-        case 'x': 
+        case 'x':
             img.grabScreen( 0, 0, ofGetWidth(), ofGetHeight() );
             img.save( ofGetTimestampString() + "screenshot.png" );
             break;
-        case 'f': 
+        case 'f':
             ofToggleFullscreen();
             break;
-        case 'q': 
+        case 'q':
             onQrCodeScanned( "A5" );
             break;
         default:
@@ -511,8 +511,20 @@ void AppManager::onAtlasesLoaded( bool & )
 void AppManager::onScreenObjectClicked( CFC::ScreenObjectData &data )
 {
     ofLogNotice() << "button " << data.title << " clicked";
-    mData = data;
-    setAppState( CFC::AppState::MATERIAL );
+
+
+    if( mAppState == CFC::AppState::DRAWER ) {
+        drawerWindow->setState( CFC::DrawerState::FADE_OUT );
+        setAppState(CFC::AppState::ATTRACT);
+    }
+    else if( mAppState == CFC::AppState::MATERIAL ) {
+        materialWindow->setState( CFC::DrawerState::FADE_OUT );
+        setAppState( CFC::AppState::ATTRACT );
+    }
+    else {
+        mData = data;
+        setAppState( CFC::AppState::MATERIAL );
+    }
 }
 
 void AppManager::onDrawerObjectClicked( CFC::ScreenObjectData &data )

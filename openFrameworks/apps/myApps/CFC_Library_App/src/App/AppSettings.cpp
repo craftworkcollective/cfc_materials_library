@@ -57,11 +57,11 @@ ofColor AppSettings::getMaterialColor( CFC::MaterialTypes type )
     case CFC::MaterialTypes::MANUFACTURED:
         return CFCColors::cfcYellow;
     case CFC::MaterialTypes::META:
-        return CFCColors::cfcOrange;
-    case CFC::MaterialTypes::COMMON:
         return CFCColors::cfcRed;
+    case CFC::MaterialTypes::COMMON:
+        return CFCColors::cfcPink;
     case CFC::MaterialTypes::NOVEL:
-        return CFCColors::cfcMaroon;
+        return CFCColors::cfcBlue;
     default:
         break;
     }

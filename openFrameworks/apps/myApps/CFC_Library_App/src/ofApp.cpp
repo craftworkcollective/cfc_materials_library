@@ -7,6 +7,8 @@ void ofApp::setup()
     ofSetFrameRate( 60 );
     ofSetVerticalSync( true );
     ofEnableAlphaBlending();
+    ofEnableSmoothing();
+    ofSetCircleResolution(100);
     // ofBackground( 236, 52, 46 );
     ofBackground( 0 );
 

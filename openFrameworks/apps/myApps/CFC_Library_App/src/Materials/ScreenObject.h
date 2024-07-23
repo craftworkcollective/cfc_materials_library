@@ -37,7 +37,7 @@ class ScreenObject : public ofxInterface::Node {
     void    setOnScreen( bool onScreen ) { mOnScreen = onScreen; };
     void    setMaxSize( ofVec2f size );
     void    setReplaceData( bool replace ) { mReplaceData = replace; };
-    void    setData( CFCObject *cfcObject ){ mCfcObject = cfcObject; }; 
+    void    setData( CFCObject *cfcObject );
 
     // getters
     ofColor getColor() { return mColor; };

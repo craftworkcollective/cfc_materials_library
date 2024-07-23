@@ -43,11 +43,13 @@ void CloseButton::draw(){
     ofSetColor( color, mAlpha );
     img.draw(0, 0, size.x, size.y); 
     
+    /*
     //draw the touch anchor
     if(CB_touched){
         ofSetColor( highlightColor, mAlpha );
         ofDrawEllipse(touchAnchor, 10, 10);
     }
+    */
 }
 
 void CloseButton::onTouchDown(ofxInterface::TouchEvent &event){

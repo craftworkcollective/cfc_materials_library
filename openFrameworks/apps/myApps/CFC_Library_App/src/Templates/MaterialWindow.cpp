@@ -36,6 +36,32 @@ void MaterialWindow::setup()
 
     setState( CFC::DrawerState::NOT_ACTIVE );
 }
+void MaterialWindow::setCategory( string txt )
+{
+    if( !txt.empty() && txt.back() == ' ' ) {
+        txt.pop_back();
+    }
+
+    mCategory = txt;
+
+
+    if( ofToUpper( mCategory ) == ofToUpper( "Common" ) ) {
+        mType = CFC::MaterialTypes::COMMON;
+    }
+    else if( ofToUpper( mCategory ) == ofToUpper( "Novel Sustainable" ) || ofToUpper( mCategory ) == ofToUpper( "Novel" ) ) {
+        mType = CFC::MaterialTypes::NOVEL;
+    }
+    else if( ofToUpper( mCategory ) == ofToUpper( "Manufactured" ) ) {
+        mType = CFC::MaterialTypes::MANUFACTURED;
+    }
+    else if( ofToUpper( mCategory ) == ofToUpper( "Meta" ) ) {
+        mType = CFC::MaterialTypes::META;
+    }
+    else {
+        ofLogError() << txt << " is not a type! Defaulting to common";
+        mType = CFC::MaterialTypes::COMMON;
+    }
+}
 
 void MaterialWindow::update( float dt )
 {
@@ -73,6 +99,10 @@ void MaterialWindow::draw()
         FontManager::one().drawDrawer( mDrawer );
         FontManager::one().drawMaterialCategory( mCategory );
 
+        ofSetColor( configs().getMaterialColor( mType ), alphaVal );
+        float radius = 50.0f;
+        ofDrawCircle( imgSize.x - 10, imgSize.y + 10 , radius );
+
         break;
     }
     default:
@@ -106,11 +136,11 @@ void MaterialWindow::setState( CFC::DrawerState state )
     switch( mState ) {
     case CFC::DrawerState::NOT_ACTIVE:
         setSize( 0.0f, 0.0f );
-        closeBtn->setSize(0.0f, 0.0f); 
+        closeBtn->setSize( 0.0f, 0.0f );
         break;
     case CFC::DrawerState::FADE_IN:
         setSize( mSize.x, mSize.y );
-        closeBtn->setSize( 50.0f, 50.0f ); 
+        closeBtn->setSize( 50.0f, 50.0f );
         alpha.animateFromTo( 0, 1 );
         break;
     case CFC::DrawerState::ACTIVE:
@@ -148,7 +178,7 @@ void MaterialWindow::passData( CFC::ScreenObjectData data )
     mDescription = data.description;
     mMaterialImgPath = data.texturePath;
     mDrawer = data.drawerLabel;
-    mCategory = data.categoryString;
+    setCategory( data.categoryString );
     mDetails = data.details;
     mPrimaryUses = data.uses;
     mDetails = data.details;

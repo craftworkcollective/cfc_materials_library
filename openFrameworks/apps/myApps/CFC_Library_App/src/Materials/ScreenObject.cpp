@@ -61,6 +61,12 @@ void ScreenObject::setupTexture()
     calcCrop( 1.0f );
 }
 
+void ScreenObject::setData( CFCObject *cfcObject )
+{
+    mCfcObject = cfcObject;
+    setupTexture();
+}; 
+
 void ScreenObject::calcCrop( float widthPerc )
 {
 
@@ -132,18 +138,24 @@ void ScreenObject::drawDebug()
 {
     Node::drawDebug();
 
+    ofSetColor( ofColor::yellow );
+    ofDrawBitmapString( mCfcObject->title, 0, -10 );
     
 }
 
 
 void ScreenObject::draw()
 {
+    /*
     if( mTouched ) {
         ofSetColor( 100, 100, 100, 100 );
         ofFill();
         ofDrawRectangle( 0, 0, maxSize.x, maxSize.y );
         ofNoFill();
     }
+    */
+
+    
 }
 
 

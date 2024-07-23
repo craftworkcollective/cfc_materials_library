@@ -38,11 +38,13 @@ void DrawerObject::draw()
     ofSetColor( 255, mAlpha );
     FontManager::one().drawDOMaterialCompany( mTitle, mCompany, 0.0f );
 
+    /*
     // draw the touch anchor
     if( UO_touched ) {
         ofSetColor( highlightColor );
         ofDrawEllipse( touchAnchor, 10, 10 );
     }
+    */
 }
 
 void DrawerObject::onTouchDown( ofxInterface::TouchEvent &event )

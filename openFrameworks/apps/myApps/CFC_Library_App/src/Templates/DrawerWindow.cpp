@@ -77,7 +77,7 @@ void DrawerWindow::draw()
 
         TS_START( "DrawAtlas Drawer" );
         AtlasManager::get().atlasManager.beginBatchDraw();
-        for( int i = 0; i < numActive; i++ ) {
+        for( int i = 0; i < objects.size(); i++ ) {
             objects[i]->drawInBatch( alphaVal );
         }
         AtlasManager::get().atlasManager.endBatchDraw( false );

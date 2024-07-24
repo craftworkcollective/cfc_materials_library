@@ -54,6 +54,7 @@ void AppManager::setup()
     // Reset window size
     ofSetWindowShape( configs().getAppSize().x, configs().getAppSize().y );
 
+    TIME_SAMPLE_DISABLE(); 
     setAppState( AppState::LOADING );
 }
 

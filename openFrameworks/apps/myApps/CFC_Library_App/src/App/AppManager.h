@@ -16,6 +16,7 @@
 #include "ScreenObject.h"
 #include "ofxNotificationCenter.h"
 #include "ofxScreenSetup.h"
+#include "ofxTimeMeasurements.h"
 #define CONFIGS_DIRECTORY "configs"
 
 class AppManager : public ofxInterface::Node {

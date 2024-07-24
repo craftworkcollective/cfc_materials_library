@@ -300,7 +300,7 @@ void AppManager::drawAtlas()
 
 void AppManager::setAppState( AppState appState )
 {
-    AppState previous = mAppState;
+    mPreviousAppState = mAppState;
     mAppState = appState;
 
     switch( mAppState ) {
@@ -331,7 +331,7 @@ void AppManager::setAppState( AppState appState )
         mData.title = "";
         break;
     case AppState::DRAWER: {
-        if( previous == AppState::MATERIAL )
+        if( mPreviousAppState == AppState::MATERIAL )
             materialWindow->setState( CFC::DrawerState::FADE_OUT );
 
         drawerWindow->passData( mDrawerData );
@@ -340,7 +340,7 @@ void AppManager::setAppState( AppState appState )
     }
     case AppState::MATERIAL: {
 
-        if( previous == AppState::DRAWER )
+        if( mPreviousAppState == AppState::DRAWER )
             drawerWindow->setState( CFC::DrawerState::FADE_OUT );
 
         materialWindow->passData( mData );
@@ -558,10 +558,18 @@ void AppManager::onDrawerObjectClicked( CFC::ScreenObjectData &data )
 
 void AppManager::onFadeOutFinished( CFC::ScreenObjectData &data )
 {
-    if( mAppState == CFC::AppState::MATERIAL && mData.title == "" ) {
+    if( mAppState == CFC::AppState::MATERIAL && mPreviousAppState == CFC::AppState::ATTRACT ) {
         setAppState( CFC::AppState::ATTRACT );
     }
-    else if( mAppState == CFC::AppState::DRAWER && mDrawerData.drawerLabel == "" ) {
+    else if( mAppState == CFC::AppState::DRAWER && mPreviousAppState == CFC::AppState::ATTRACT ) {
+        setAppState( CFC::AppState::ATTRACT );
+    }
+    else if( mAppState == CFC::AppState::DRAWER && drawerWindow->getState() == CFC::DrawerState::FADE_OUT
+        && materialWindow->getState() == CFC::DrawerState::NOT_ACTIVE ) {
+        setAppState( CFC::AppState::ATTRACT );
+    }
+    else if( mAppState == CFC::AppState::MATERIAL && materialWindow->getState() == CFC::DrawerState::FADE_OUT
+        && drawerWindow->getState() == CFC::DrawerState::NOT_ACTIVE ) {
         setAppState( CFC::AppState::ATTRACT );
     }
 }
@@ -569,7 +577,7 @@ void AppManager::onFadeOutFinished( CFC::ScreenObjectData &data )
 void AppManager::onOpenDrawer( CFC::ScreenObjectData &data )
 {
 
-    if( mAppState == CFC::AppState::MATERIAL ) {
+    if( mAppState == CFC::AppState::MATERIAL && objectsByDrawer.count( data.drawerLabel ) ) {
         materialWindow->setState( CFC::DrawerState::NOT_ACTIVE );
         onQrCodeScanned( ofToUpper( data.drawerLabel ) );
     }

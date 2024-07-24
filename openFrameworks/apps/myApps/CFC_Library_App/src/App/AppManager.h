@@ -50,6 +50,7 @@ class AppManager : public ofxInterface::Node {
   private:
     // --- STATES --- //
     CFC::AppState mAppState;
+    CFC::AppState mPreviousAppState;
     bool          bShowDebug{ false };
 
     // screen objects

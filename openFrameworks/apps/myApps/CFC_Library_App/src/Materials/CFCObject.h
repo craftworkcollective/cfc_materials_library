@@ -15,7 +15,7 @@ class CFCObject {
     CFCObject(){};
     ~CFCObject(){};
 
-    int    indexUID {0}; 
+    int    indexUID{ 0 };
     string title{ "" };
     string categoryString{ "" };
     string description{ "" };
@@ -25,20 +25,33 @@ class CFCObject {
     string color{ "" };
     string uses{ "" };
     string logoFilePath{ "" };
-    string details { ""}; 
+    string details{ "" };
     string company{ "" };
 
     CFC::MaterialTypes materialType;
 
     void assignCategory()
     {
-        if( categoryString == "manufactured" )
-            materialType = CFC::MaterialTypes::MANUFACTURED;
-        else if( categoryString == "meta" )
-            materialType = CFC::MaterialTypes::META;
-        else if( categoryString == "common" )
+
+        if( !categoryString.empty() && categoryString.back() == ' ' ) {
+            categoryString.pop_back();
+        }
+
+        if( ofToUpper( categoryString ) == ofToUpper( "Common" ) ) {
             materialType = CFC::MaterialTypes::COMMON;
-        else if( categoryString == "novel" )
+        }
+        else if( ofToUpper( categoryString ) == ofToUpper( "Novel Sustainable" ) || ofToUpper( categoryString ) == ofToUpper( "Novel" ) ) {
             materialType = CFC::MaterialTypes::NOVEL;
+        }
+        else if( ofToUpper( categoryString ) == ofToUpper( "Manufactured" ) ) {
+            materialType = CFC::MaterialTypes::MANUFACTURED;
+        }
+        else if( ofToUpper( categoryString ) == ofToUpper( "Meta" ) ) {
+            materialType = CFC::MaterialTypes::META;
+        }
+        else {
+            ofLogError() << categoryString << " is not a type! Defaulting to common";
+            materialType = CFC::MaterialTypes::COMMON;
+        }
     }
 };

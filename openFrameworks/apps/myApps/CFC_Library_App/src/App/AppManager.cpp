@@ -330,6 +330,10 @@ void AppManager::setAppState( AppState appState )
     case AppState::ATTRACT:
         mDrawerData.drawerLabel = "";
         mData.title = "";
+
+         for( auto &obj : screenObjects ) {
+            obj->setMDrift( true );
+        }
         break;
     case AppState::DRAWER: {
         if( mPreviousAppState == AppState::MATERIAL )
@@ -337,6 +341,10 @@ void AppManager::setAppState( AppState appState )
 
         drawerWindow->passData( mDrawerData );
         mData.title = "";
+
+        for(auto&obj : screenObjects) {
+            obj->setMDrift(false); 
+        }
         break;
     }
     case AppState::MATERIAL: {
@@ -346,6 +354,11 @@ void AppManager::setAppState( AppState appState )
 
         materialWindow->passData( mData );
         mDrawerData.drawerLabel = "";
+
+         for( auto &obj : screenObjects ) {
+            obj->setMDrift( false );
+        }
+
         break;
     }
     default:

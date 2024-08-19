@@ -28,6 +28,7 @@ class ScreenObject : public ofxInterface::Node {
     void drawDebug();
     void calcCrop( float widthPerc );
 
+
     // Texture Thumbnail
     void drawInBatch();
     void setupTexture();
@@ -38,6 +39,7 @@ class ScreenObject : public ofxInterface::Node {
     void    setMaxSize( ofVec2f size );
     void    setReplaceData( bool replace ) { mReplaceData = replace; };
     void    setData( CFCObject *cfcObject );
+    void    setMDrift( bool drift ) { mDrifting = drift; }
 
     // getters
     ofColor getColor() { return mColor; };

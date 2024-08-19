@@ -32,6 +32,8 @@ void ScreenObject::setup( CFCObject *cfcObject, int uid )
     ofAddListener( eventTouchDown, this, &ScreenObject::onTouchDown );
     ofAddListener( eventTouchUp, this, &ScreenObject::onTouchUp );
     ofAddListener( eventClick, this, &ScreenObject::onClick );
+
+    mDrifting = true;
 }
 
 
@@ -65,7 +67,7 @@ void ScreenObject::setData( CFCObject *cfcObject )
 {
     mCfcObject = cfcObject;
     setupTexture();
-}; 
+};
 
 void ScreenObject::calcCrop( float widthPerc )
 {
@@ -99,15 +101,17 @@ void ScreenObject::calcCrop( float widthPerc )
 
 void ScreenObject::update( float dt )
 {
-    updateDrift();
-    mPos = startPos + drift;
-    setPosition( mPos - maxSize / 2 );
+    if( mDrifting ) {
+        updateDrift();
+        mPos = startPos + drift;
+        setPosition( mPos - maxSize / 2 );
+    }
     // updateVisibility();
 }
 
 void ScreenObject::updateDrift()
 {
-    mDrifting = true;
+
 
     drift.y = 0;
     drift.x += 1.0f;
@@ -130,7 +134,6 @@ void ScreenObject::updateDrift()
 
     if( mPos.x > ofGetWidth() )
         mReplaceData = true;
-
 }
 
 
@@ -140,7 +143,6 @@ void ScreenObject::drawDebug()
 
     ofSetColor( ofColor::yellow );
     ofDrawBitmapString( mCfcObject->title, 0, -10 );
-    
 }
 
 
@@ -154,8 +156,6 @@ void ScreenObject::draw()
         ofNoFill();
     }
     */
-
-    
 }
 
 

@@ -112,9 +112,9 @@ void ScreenObject::update( float dt )
 void ScreenObject::updateDrift()
 {
 
-
+    float speed = 0.5f; 
     drift.y = 0;
-    drift.x += 1.0f;
+    drift.x += speed;
 
     // configs().getAppSize().x + canvasBuffer / 2
     float renderX = configs().getAppSize().x + configs().getCanvasBuffer();

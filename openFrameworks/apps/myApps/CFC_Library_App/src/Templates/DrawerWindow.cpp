@@ -155,10 +155,22 @@ void DrawerWindow::onAnimValFinished( ofxAnimatable::AnimationEvent &event )
 
 void DrawerWindow::passData( CFC::DrawerData data )
 {
-
+    
     mDrawer = data.drawerLabel;
     mCategory = data.categoryString;
 
+    // clear images
+    for( int i = 0; i < 4; i++ ) {
+        if( i < objects.size() ) {
+            objects[i]->setTexturePath( "" );
+            objects[i]->calcCrop( 1.0 );
+            objects[i]->setCompany( "" );
+            objects[i]->setTItle( "" );
+            objects[i]->setSoIndex(0 );
+        }
+    }
+
+    //load new images
     for( int i = 0; i < data.imgPaths.size(); i++ ) {
         if( i < objects.size() ) {
             objects[i]->setTexturePath( data.imgPaths[i] );

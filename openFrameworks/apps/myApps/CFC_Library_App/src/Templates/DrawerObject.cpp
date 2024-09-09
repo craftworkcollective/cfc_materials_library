@@ -64,10 +64,13 @@ void DrawerObject::onTouchUp( ofxInterface::TouchEvent &event )
 
 void DrawerObject::onClick( ofxInterface::TouchEvent &event )
 {
-    CFC::ScreenObjectData data;
-    data.index = soIndex;
+    if( mTitle.size() ) {
+        CFC::ScreenObjectData data;
+        data.index = soIndex;
 
-    ofNotifyEvent( eventDoClicked, data, this );
+        ofNotifyEvent( eventDoClicked, data, this );
+    }
+
 }
 
 void DrawerObject::calcCrop( float widthPerc )

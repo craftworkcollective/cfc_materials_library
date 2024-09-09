@@ -54,7 +54,7 @@ void AppManager::setup()
     // Reset window size
     ofSetWindowShape( configs().getAppSize().x, configs().getAppSize().y );
 
-    TIME_SAMPLE_DISABLE(); 
+    TIME_SAMPLE_DISABLE();
     setAppState( AppState::LOADING );
 }
 
@@ -140,6 +140,40 @@ void AppManager::setupObjects()
     // shuffle vector
     auto rng = std::default_random_engine{};
     std::shuffle( std::begin( objects ), std::end( objects ), rng );
+
+    // create drawers for each label
+    /*
+    - [ ]  A1-A12
+    - [ ]  B1 - B12
+    - [ ]  C1-C6
+    - [ ]  D1-D6
+    - [ ]  E1-E16
+    - [ ]  F1-F16
+    */
+    for( int i = 1; i < 13; i++ ) {
+        string key = "A" + ofToString( i );
+        objectsByDrawer[key] = vector<int>{};
+
+        key = "B" + ofToString( i );
+        objectsByDrawer[key] = vector<int>{};
+    }
+
+    for( int i = 1; i < 7; i++ ) {
+        string key = "C" + ofToString( i );
+        objectsByDrawer[key] = vector<int>{};
+
+        key = "D" + ofToString( i );
+        objectsByDrawer[key] = vector<int>{};
+    }
+
+    for( int i = 1; i < 17; i++ ) {
+        string key = "E" + ofToString( i );
+        objectsByDrawer[key] = vector<int>{};
+
+        key = "F" + ofToString( i );
+        objectsByDrawer[key] = vector<int>{};
+    }
+
 
     // organize screen objects into dictionary
     for( int i = 0; i < objects.size(); i++ ) {
@@ -331,7 +365,7 @@ void AppManager::setAppState( AppState appState )
         mDrawerData.drawerLabel = "";
         mData.title = "";
 
-         for( auto &obj : screenObjects ) {
+        for( auto &obj : screenObjects ) {
             obj->setMDrift( true );
         }
         break;
@@ -342,8 +376,8 @@ void AppManager::setAppState( AppState appState )
         drawerWindow->passData( mDrawerData );
         mData.title = "";
 
-        for(auto&obj : screenObjects) {
-            obj->setMDrift(false); 
+        for( auto &obj : screenObjects ) {
+            obj->setMDrift( false );
         }
         break;
     }
@@ -355,7 +389,7 @@ void AppManager::setAppState( AppState appState )
         materialWindow->passData( mData );
         mDrawerData.drawerLabel = "";
 
-         for( auto &obj : screenObjects ) {
+        for( auto &obj : screenObjects ) {
             obj->setMDrift( false );
         }
 

@@ -94,9 +94,14 @@ void FontManager::drawBody( string description, string composite, string uses, s
         compPos.y += titleSpacing;
         compRec = reg.drawMultiLineColumn(
             composite, restOfInfo, compPos.x, compPos.y, bounding_box_width, numLines, false, 5, true, &wordsWereCropped, false );
+        usesPos.y = compPos.y + compRec.getHeight() + spacing;
+    }
+    else 
+    {
+        usesPos.y = compPos.y;
     }
 
-    usesPos.y = compPos.y + compRec.getHeight() + spacing;
+
     if( uses.size() > 0 ) {
         bold.draw( "Primary Uses", restOfInfo, usesPos.x, usesPos.y );
         usesPos.y += titleSpacing;

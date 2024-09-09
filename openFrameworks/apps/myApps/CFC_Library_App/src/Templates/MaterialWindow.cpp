@@ -93,8 +93,8 @@ void MaterialWindow::draw()
         ofSetColor( 255, alphaVal );
         FontManager::one().drawTitle( mTitle );
         //( string description, string composite, string uses, string details)
-        FontManager::one().drawBody( mDescription, mCompositeMaterials, mPrimaryUses, mDetails );
-
+        //FontManager::one().drawBody( mDescription, mCompositeMaterials, mPrimaryUses, mDetails );
+        FontManager::one().drawBody( mDescription, "", mPrimaryUses, mDetails );
 
         TS_START( "DrawAtlas Drawer" );
         AtlasManager::get().atlasManager.beginBatchDraw();

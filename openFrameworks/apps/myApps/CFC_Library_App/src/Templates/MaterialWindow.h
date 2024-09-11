@@ -89,6 +89,7 @@ class MaterialWindow : public ofxInterface::Node {
     TextureAtlasDrawer::TexQuad           targetTexQuadLogo;
     TextureAtlasDrawer::TextureDimensions tdLogo;
     ofVec2f                               logoSize{ ofVec2f( 300, 300 ) }; // image
+    ofVec2f finalLogoSize; 
 
     // animations
     ofxAnimatableFloat alpha;

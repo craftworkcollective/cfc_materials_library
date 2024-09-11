@@ -133,7 +133,7 @@ void MaterialWindow::drawInBatch( float alpha )
     texQuadLogo = targetTexQuadLogo;
     TextureAtlasDrawer::TexQuad qLogo = texQuadLogo;
 
-    ofVec2f logoPos = ofVec2f( mSize.x - logoSize.x - padding, mSize.y - logoSize.y - padding);
+    ofVec2f logoPos = ofVec2f( mSize.x - finalLogoSize.x - padding, mSize.y - finalLogoSize.y - padding );
     qLogo.verts.tl += logoPos;
     qLogo.verts.tr += logoPos;
     qLogo.verts.br += logoPos;
@@ -141,7 +141,7 @@ void MaterialWindow::drawInBatch( float alpha )
 
 
     ofSetColor( 255 );
-    //AtlasManager::get().atlasManager.drawTextureInBatch( mMaterialImgPath, q, ofColor( ofColor::white, alpha ) );
+    AtlasManager::get().atlasManager.drawTextureInBatch( mMaterialImgPath, q, ofColor( ofColor::white, alpha ) );
     if( mLogoImgPath.size())
      AtlasManager::get().atlasManager.drawTextureInBatch( mLogoImgPath, qLogo, ofColor( ofColor::white, alpha ) );
     ofSetColor( 255 );
@@ -259,6 +259,9 @@ void MaterialWindow::calcCrop( float widthPerc )
         float wPct = ofMap(
             widthPerc, 0, 1, 0, 0.5 * cropWidthPct, true ); // and here we remap that max width % we can show to what "widthPerc" is
         float newW = realWidth * wPct;                      // pixels
+
+        finalLogoSize.x = newW*2; 
+        finalLogoSize.y = logoSize.y; 
 
         // drawPosition - pixels
         targetTexQuadLogo.verts.tl = ofVec2f( 0, 0 );

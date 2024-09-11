@@ -116,7 +116,7 @@ void AppManager::setupObjects()
                         obj->logoFilePath = material.value( "Logo", "" );
 
                         obj->company = material.value( "CompanyName", "" );
-                        obj->details = material.value( "AdditionalDetails", "" );
+                        obj->details = material.value( "CompanyAbout", "" );
 
                         obj->assignCategory();
                     }

@@ -209,6 +209,7 @@ void ScreenObject::onClick( ofxInterface::TouchEvent &event )
     data.categoryString = mCfcObject->categoryString;
     data.uses = mCfcObject->uses;
     data.details = mCfcObject->details;
+    data.company = mCfcObject->company; 
 
     ofNotifyEvent( eventSoClicked, data, this );
 }

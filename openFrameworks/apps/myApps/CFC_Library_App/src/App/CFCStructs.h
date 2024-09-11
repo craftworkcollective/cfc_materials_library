@@ -29,6 +29,7 @@ struct ScreenObjectData {
     string  uses;
     string  materials;
     string  logoFilePath;
+    string company; 
     string details; 
     ofVec2f position;
 };

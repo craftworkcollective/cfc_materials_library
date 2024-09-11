@@ -65,7 +65,7 @@ string FontManager::capitalizeFirstLetter( const std::string &input )
 }
 
 
-void FontManager::drawBody( string description, string composite, string uses, string details )
+void FontManager::drawBody( string description, string composite, string uses, string details, string company )
 {
 
     int  numLines;
@@ -112,7 +112,7 @@ void FontManager::drawBody( string description, string composite, string uses, s
 
     detailsPos.y = usesPos.y + usesRec.getHeight() + spacing;
     if( details.size() > 0 ) {
-        bold.draw( "Additional Details", restOfInfo, detailsPos.x, detailsPos.y );
+        bold.draw( company, restOfInfo, detailsPos.x, detailsPos.y );
         detailsPos.y += titleSpacing;
 
         detailsRec = reg.drawMultiLineColumn(

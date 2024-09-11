@@ -40,7 +40,7 @@ class FontManager {
 
     // material window
     void   drawTitle( string title );
-    void   drawBody( string description, string composite, string uses, string details );
+    void   drawBody( string description, string composite, string uses, string details, string company );
     void   drawDrawer( string drawer );
     void   drawMaterialCategory( string txt );
     string capitalizeFirstLetter( const std::string &input );

@@ -61,6 +61,7 @@ class MaterialWindow : public ofxInterface::Node {
     string             mMaterialImgPath{ "" };
     string             mLogoImgPath{ "" };
     string             mDetails{ "" };
+    string             mCompany{ "" };
     CFC::MaterialTypes mType;
 
     ofVec2f imgSize{ ofVec2f( 1188, 1188 ) }; // image
@@ -89,7 +90,7 @@ class MaterialWindow : public ofxInterface::Node {
     TextureAtlasDrawer::TexQuad           targetTexQuadLogo;
     TextureAtlasDrawer::TextureDimensions tdLogo;
     ofVec2f                               logoSize{ ofVec2f( 300, 300 ) }; // image
-    ofVec2f finalLogoSize; 
+    ofVec2f                               finalLogoSize;
 
     // animations
     ofxAnimatableFloat alpha;

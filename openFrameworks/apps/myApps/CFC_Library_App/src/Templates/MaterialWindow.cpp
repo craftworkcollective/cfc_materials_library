@@ -94,7 +94,7 @@ void MaterialWindow::draw()
         FontManager::one().drawTitle( mTitle );
         //( string description, string composite, string uses, string details)
         // FontManager::one().drawBody( mDescription, mCompositeMaterials, mPrimaryUses, mDetails );
-        FontManager::one().drawBody( mDescription, "", mPrimaryUses, mDetails );
+        FontManager::one().drawBody( mDescription, "", mPrimaryUses, mDetails, mCompany );
 
         TS_START( "DrawAtlas Drawer" );
         AtlasManager::get().atlasManager.beginBatchDraw();
@@ -142,8 +142,8 @@ void MaterialWindow::drawInBatch( float alpha )
 
     ofSetColor( 255 );
     AtlasManager::get().atlasManager.drawTextureInBatch( mMaterialImgPath, q, ofColor( ofColor::white, alpha ) );
-    if( mLogoImgPath.size())
-     AtlasManager::get().atlasManager.drawTextureInBatch( mLogoImgPath, qLogo, ofColor( ofColor::white, alpha ) );
+    if( mLogoImgPath.size() )
+        AtlasManager::get().atlasManager.drawTextureInBatch( mLogoImgPath, qLogo, ofColor( ofColor::white, alpha ) );
     ofSetColor( 255 );
 }
 
@@ -199,12 +199,13 @@ void MaterialWindow::passData( CFC::ScreenObjectData data )
     mTitle = data.title;
     mDescription = data.description;
     mMaterialImgPath = data.texturePath;
-    mLogoImgPath = data.logoFilePath; 
+    mLogoImgPath = data.logoFilePath;
     mDrawer = data.drawerLabel;
     setCategory( data.categoryString );
     mDetails = data.details;
     mPrimaryUses = data.uses;
     mDetails = data.details;
+    mCompany = data.company;
 
     // set up texture
     float ar = td.height * td.width;
@@ -250,9 +251,24 @@ void MaterialWindow::calcCrop( float widthPerc )
     targetTexQuad.texCoords.br = ofVec2f( 0.5f + wPct, 1 );
     targetTexQuad.texCoords.bl = ofVec2f( 0.5f - wPct, 1 );
 
-    if(mLogoImgPath.size()) {
+    if( mLogoImgPath.size() ) {
         TextureAtlasDrawer::TextureDimensions td = AtlasManager::get().atlasManager.getTextureDimensions( mLogoImgPath );
-        float                                 realWidth = logoSize.y * td.aspectRatio;
+        float                                 realWidth =  td.width;
+        float                                 realHeight =  td.height;
+
+        if( realWidth > realHeight ) {
+            finalLogoSize.x = logoSize.x;
+            finalLogoSize.y = logoSize.x / td.aspectRatio;
+        }
+        else if( realWidth == realHeight ) {
+            finalLogoSize = logoSize;
+        }
+        else 
+        {
+            finalLogoSize.y = logoSize.y;
+            finalLogoSize.x = logoSize.y / td.aspectRatio;
+        }
+        /*
         // bc screenobjects have a capped width, we need to already crop; this is the max width % we can show for that photo
         float cropWidthPct = ofClamp( logoSize.x / realWidth, 0, 1 );
 
@@ -260,23 +276,29 @@ void MaterialWindow::calcCrop( float widthPerc )
             widthPerc, 0, 1, 0, 0.5 * cropWidthPct, true ); // and here we remap that max width % we can show to what "widthPerc" is
         float newW = realWidth * wPct;                      // pixels
 
-        finalLogoSize.x = newW*2; 
-        finalLogoSize.y = logoSize.y; 
+        finalLogoSize.x = newW*2;
+        finalLogoSize.y = logoSize.y;
 
         // drawPosition - pixels
         targetTexQuadLogo.verts.tl = ofVec2f( 0, 0 );
         targetTexQuadLogo.verts.tr = ofVec2f( +newW * 2, 0 );
         targetTexQuadLogo.verts.br = ofVec2f( +newW * 2, +logoSize.y );
         targetTexQuadLogo.verts.bl = ofVec2f( 0, +logoSize.y );
+        */
 
+        float wPct = 1.0f;
+        targetTexQuadLogo.verts.tl = ofVec2f( 0, 0 );
+        targetTexQuadLogo.verts.tr = ofVec2f( finalLogoSize.x, 0 );
+        targetTexQuadLogo.verts.br = ofVec2f( finalLogoSize.x, +finalLogoSize.y );
+        targetTexQuadLogo.verts.bl = ofVec2f( 0, +finalLogoSize.y );
 
         // texture crop - normalized coords
-        targetTexQuadLogo.texCoords.tl = ofVec2f( 0.5f - wPct, 0 );
-        targetTexQuadLogo.texCoords.tr = ofVec2f( 0.5f + wPct, 0 );
-        targetTexQuadLogo.texCoords.br = ofVec2f( 0.5f + wPct, 1 );
-        targetTexQuadLogo.texCoords.bl = ofVec2f( 0.5f - wPct, 1 );
-    }
 
+        targetTexQuadLogo.texCoords.tl = ofVec2f( 0, 0 );
+        targetTexQuadLogo.texCoords.tr = ofVec2f( 1, 0 );
+        targetTexQuadLogo.texCoords.br = ofVec2f( 1, 1 );
+        targetTexQuadLogo.texCoords.bl = ofVec2f( 0, 1 );
+    }
 }
 
 

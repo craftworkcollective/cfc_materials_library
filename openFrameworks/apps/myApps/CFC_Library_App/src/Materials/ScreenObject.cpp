@@ -201,6 +201,10 @@ void ScreenObject::onClick( ofxInterface::TouchEvent &event )
     data.index = mCfcObject->indexUID;
     data.description = mCfcObject->description;
     data.texturePath = "images\\" + mCfcObject->imagePathTop;
+
+    if( mCfcObject->logoFilePath.size() )
+        data.logoFilePath = "images\\" + mCfcObject->logoFilePath;
+
     data.drawerLabel = mCfcObject->drawerLabel;
     data.categoryString = mCfcObject->categoryString;
     data.uses = mCfcObject->uses;

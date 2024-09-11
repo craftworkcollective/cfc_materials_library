@@ -103,7 +103,7 @@ void FontManager::drawBody( string description, string composite, string uses, s
 
 
     if( uses.size() > 0 ) {
-        bold.draw( "Primary Uses", restOfInfo, usesPos.x, usesPos.y );
+        bold.draw( "Uses In Craft", restOfInfo, usesPos.x, usesPos.y );
         usesPos.y += titleSpacing;
 
         usesRec = reg.drawMultiLineColumn(

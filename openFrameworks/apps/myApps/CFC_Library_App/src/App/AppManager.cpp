@@ -113,7 +113,7 @@ void AppManager::setupObjects()
                         obj->drawerLabel = ofToUpper( material.value( "DrawerLabel", "" ) );
                         obj->color = material.value( "MaterialColor", "" );
                         obj->uses = material.value( "Uses", "" );
-                        obj->logoFilePath = material.value( "LogoFileName", "" );
+                        obj->logoFilePath = material.value( "Logo", "" );
 
                         obj->company = material.value( "CompanyName", "" );
                         obj->details = material.value( "AdditionalDetails", "" );
@@ -122,7 +122,12 @@ void AppManager::setupObjects()
                     }
                     else {
                         string title = material.value( "Title", "" );
-                        ofLogError() << topImgPath << " does not exists " << title;
+
+                        if( std::find( imgList.begin(), imgList.end(), topImgPath ) == imgList.end() )
+                            ofLogError() << topImgPath << " does not exists " << title;
+
+                        if( std::find( imgList.begin(), imgList.end(), imgPathGrid ) == imgList.end() )
+                            ofLogError() << imgPathGrid << " does not exists " << title;
                     }
                 }
             }

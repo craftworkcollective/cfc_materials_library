@@ -80,11 +80,15 @@ class MaterialWindow : public ofxInterface::Node {
 
 
     // texture
-    string                                textureFile;
     TextureAtlasDrawer::TexQuad           texQuad;
     TextureAtlasDrawer::TexQuad           targetTexQuad;
     TextureAtlasDrawer::TextureDimensions td;
     bool                                  drifting = false;
+
+    TextureAtlasDrawer::TexQuad           texQuadLogo;
+    TextureAtlasDrawer::TexQuad           targetTexQuadLogo;
+    TextureAtlasDrawer::TextureDimensions tdLogo;
+    ofVec2f                               logoSize{ ofVec2f( 300, 300 ) }; // image
 
     // animations
     ofxAnimatableFloat alpha;
